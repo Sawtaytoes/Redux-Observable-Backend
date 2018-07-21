@@ -4,15 +4,15 @@
   "description": "Utilities for creating Node.js applications.",
   "license": "MITNFA",
   "scripts": {
-    "lint": "node --experimental-modules . lint",
+    "lint": "node . lint",
     "lint:watch": "nodemon . lint",
-    "start": "yarn && yarn node --experimental-modules .",
+    "start": "yarn && nodemon app.js",
     "test": "yarn lint && ava",
     "test:watch": "yarn lint && ava --watch"
   },
   "engines": {
     "node": "^10.7.0",
-    "yarn": "^1.6.0"
+    "yarn": "^1.7.0"
   },
   "ava": {
     "babel": {
@@ -30,20 +30,25 @@
   },
   "dependencies": {
     "app-module-path": "^2.2.0",
-    "ava": "^1.0.0-beta.3",
+    "ava": "^1.0.0-beta.6",
     "body-parser": "^1.18.3",
-    "compression": "^1.7.2",
+    "chalk": "^2.4.1",
+    "compression": "^1.7.3",
     "cors": "^2.8.4",
-    "eslint": "^5.0.0",
-    "eslint-plugin-compat": "^2.4.0",
+    "eslint": "^5.2.0",
+    "eslint-plugin-compat": "^2.5.1",
     "express": "^4.16.3",
     "express-sslify": "^1.2.0",
-    "helmet": "^3.12.1",
+    "helmet": "^3.12.2",
     "is-equal": "^1.5.5",
-    "nodemon": "^1.17.5",
+    "nodemon": "^1.18.3",
+    "redux": "^4.0.0",
+    "redux-mock-store": "^1.5.3",
+    "redux-observable": "^1.0.0",
     "rxjs": "^6.2.2",
-    "uuid": "^3.2.1",
-    "ws": "^5.2.1"
+    "uuid": "^3.3.2",
+    "ws": "^5.2.2",
+    "yargs": "^12.0.1"
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.0",
