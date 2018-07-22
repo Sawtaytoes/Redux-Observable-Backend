@@ -1,5 +1,7 @@
 require('./')
-require('./config')
+
+const createConfigurationSet = require('scripts/redux/configurations/utils/createConfigurationSet')
+createConfigurationSet({})
 
 // const runTask = require('scripts/runTask')
 

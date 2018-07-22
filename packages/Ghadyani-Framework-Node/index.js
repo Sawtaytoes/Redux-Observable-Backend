@@ -7,7 +7,6 @@ const { fromEvent } = require('rxjs')
 const { pluck } = require('rxjs/operators')
 
 // Configure local directories
-require('./config')
 require('./scripts')
 
 fromEvent(
