@@ -1,3 +1,21 @@
+const uuidV4 = require('uuid/v4')
+const yargs = require('yargs')
+
+const getGitCommit = require('scripts/utils/getGitCommit')
+
+const buildVersion = (
+	yargs.argv.buildVersion
+	|| uuidV4()
+)
+
+const gitCommit = getGitCommit()
+
+const appVersion = (
+	buildVersion
+	.concat(' - ')
+	.concat(gitCommit)
+)
+
 const defaultConfigurationSet = {
 	// Use either 'development' or 'production' to mimic NODE_ENV changes.
 	nodeEnv: 'development',
@@ -12,6 +30,10 @@ const defaultConfigurationSet = {
 	// -----------------------------------------
 	// Application
 	// -----------------------------------------
+
+	appVersion,
+	buildVersion,
+	gitCommit,
 
 	// Feature Flag identifier defaults
 	applicationName: 'Unnamed Application',
