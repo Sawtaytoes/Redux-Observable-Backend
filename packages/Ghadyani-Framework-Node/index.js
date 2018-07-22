@@ -6,9 +6,6 @@ const simpleMap = require('scripts/utils/rxjs/simpleMap')
 const { fromEvent } = require('rxjs')
 const { pluck } = require('rxjs/operators')
 
-// Configure local directories
-require('./scripts')
-
 fromEvent(
 	process,
 	'uncaughtException',
@@ -19,3 +16,11 @@ fromEvent(
 	simpleMap(console.error),
 )
 .subscribe()
+
+const createConfigurationSet = require('scripts/redux/configurations/utils/createConfigurationSet')
+const createAndRunTasks = require('scripts/redux/tasks/utils/createAndRunTasks')
+
+module.exports = {
+	createConfigurationSet,
+	createAndRunTasks,
+}
