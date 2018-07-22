@@ -1,12 +1,10 @@
 const { CLIEngine } = require('eslint')
 
-const config = require('config')
-
-module.exports = () => {
+module.exports = config => {
 	const cli = (
 		new CLIEngine({
 			cache: true,
-			fix: config.isLocalDevelopment(),
+			fix: config.isLocalDevelopment,
 		})
 	)
 
