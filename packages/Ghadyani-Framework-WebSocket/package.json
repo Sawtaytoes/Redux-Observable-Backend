@@ -1,0 +1,40 @@
+{
+  "name": "ghadyani-framework-websockets",
+  "version": "0.0.0",
+  "description": "Utilities for creating applications using WebSockets.",
+  "license": "MITNFA",
+  "scripts": {
+    "debug": "nodemon --inspect .",
+    "lint": "node . lint",
+    "lint:watch": "nodemon . lint",
+    "start": "yarn && nodemon .",
+    "test": "yarn lint && ava",
+    "test:watch": "yarn lint && ava --watch"
+  },
+  "engines": {
+    "node": "^10.7.0",
+    "yarn": "^1.7.0"
+  },
+  "ava": {
+    "babel": {
+      "testOptions": {
+        "babelrc": false
+      }
+    },
+    "concurrency": 5,
+    "files": [
+      "scripts/**/*.test.js"
+    ],
+    "sources": [
+      "**/*.js"
+    ]
+  },
+  "dependencies": {
+    "ghadyani-framework-node": "^0.0.0",
+    "ws": "^5.2.2"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.0",
+    "utf-8-validate": "^5.0.1"
+  }
+}
