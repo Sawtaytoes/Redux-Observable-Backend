@@ -1,5 +1,5 @@
 const requireConfigFile = require('scripts/utils/requireConfigFile')
-const { createDynamicEnvironmentVariables } = require('scripts/redux/configurations/utils/dynamicEnvironmentVariables')
+const { createDynamicEnvironmentVariables } = require('./dynamicEnvironmentVariables')
 const { dispatch } = require('scripts/redux/store')
 
 const {
