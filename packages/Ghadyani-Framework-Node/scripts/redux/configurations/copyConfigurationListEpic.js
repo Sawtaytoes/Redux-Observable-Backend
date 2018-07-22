@@ -2,7 +2,7 @@ const { filter, map, reduce, switchMap } = require('rxjs/operators')
 const { of } = require('rxjs')
 const { ofType } = require('redux-observable')
 
-const mapToSelector = require('scripts/utils/rxjs/mapToSelector')
+const stateSelector = require('scripts/utils/rxjs/stateSelector')
 const { getConfigurationSet } = require('./selectors')
 
 const {
@@ -20,12 +20,12 @@ const copyConfigurationListEpic = (
 				configurationSetName,
 				namespace,
 			}) => (
-				of(state$.value)
+				stateSelector({
+					props: { namespace: configurationSetName },
+					selector: getConfigurationSet,
+					state$,
+				})
 				.pipe(
-					mapToSelector(
-						getConfigurationSet,
-						{ namespace: configurationSetName },
-					),
 					switchMap(configurationSet => (
 						of(configurationSet)
 						.pipe(
