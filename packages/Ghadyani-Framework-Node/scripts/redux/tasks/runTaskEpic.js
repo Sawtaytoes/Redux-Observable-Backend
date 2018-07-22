@@ -1,5 +1,5 @@
 const yargs = require('yargs')
-const { switchMap, tap } = require('rxjs/operators')
+const { ignoreElements, switchMap, tap } = require('rxjs/operators')
 const { combineLatest, of } = require('rxjs')
 const { ofType } = require('redux-observable')
 
@@ -42,10 +42,10 @@ const runTaskEpic = (
 					),
 				)
 				.pipe(
-					tap(console.log),
 					tap(([task, configurationSet]) => (
 						task(configurationSet)
 					)),
+					ignoreElements(),
 				)
 			)),
 		)
