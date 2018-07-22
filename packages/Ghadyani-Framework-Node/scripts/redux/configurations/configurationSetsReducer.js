@@ -1,8 +1,12 @@
 const createReducer = require('scripts/redux/utils/createReducer')
-const defaultConfigurationSet = require('config/defaultConfigurationSet')
-const { ADD_CONFIGURATION_SET } = require('./actions')
+const namespaceReducer = require('scripts/redux/utils/namespaceReducer')
 
-const initialState = defaultConfigurationSet
+const {
+	ADD_CONFIGURATION_SET,
+	REMOVE_CONFIGURATION_VALUE,
+} = require('./actions')
+
+const initialState = {}
 
 const reducerActions = {
 	[ADD_CONFIGURATION_SET]: (
@@ -11,12 +15,26 @@ const reducerActions = {
 			...configurationSet,
 		})
 	),
+
+	[REMOVE_CONFIGURATION_VALUE]: (
+		(prevState, { configurationName }) => {
+			const nextState = {
+				...prevState,
+			}
+
+			delete nextState[configurationName]
+
+			return nextState
+		}
+	),
 }
 
 const configurationSetsReducer = (
-	createReducer(
-		reducerActions,
-		initialState,
+	namespaceReducer(
+		createReducer(
+			reducerActions,
+			initialState,
+		)
 	)
 )
 

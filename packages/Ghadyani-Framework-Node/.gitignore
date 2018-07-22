@@ -1,6 +1,5 @@
 # Configs
-custom.js
-generatedGitCommit.js
+localConfig.js
 
 # Generated
 .eslintcache
@@ -22,4 +21,3 @@ node_modules
 
 # Visual Studio
 .vs
-

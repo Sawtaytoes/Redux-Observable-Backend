@@ -2,11 +2,15 @@ const { combineEpics } = require('redux-observable')
 const { combineReducers } = require('redux')
 
 const configurationSetsReducer = require('./configurationSetsReducer')
-const convertEnvironmentVariableToConfigSetEpic = require('./convertEnvironmentVariableToConfigSetEpic')
+const copyConfigurationListEpic = require('./copyConfigurationListEpic')
+const duplicateConfigurationSetEpic = require('./duplicateConfigurationSetEpic')
+const removeDuplicateConfigurationValuesEpic = require('./removeDuplicateConfigurationValuesEpic')
 
 const configurationsEpic = (
 	combineEpics(
-		convertEnvironmentVariableToConfigSetEpic,
+		copyConfigurationListEpic,
+		duplicateConfigurationSetEpic,
+		removeDuplicateConfigurationValuesEpic,
 	)
 )
 

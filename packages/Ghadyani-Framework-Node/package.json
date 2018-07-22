@@ -4,6 +4,7 @@
   "description": "Utilities for creating Node.js applications.",
   "license": "MITNFA",
   "scripts": {
+    "debug": "nodemon --inspect app.js",
     "lint": "node . lint",
     "lint:watch": "nodemon . lint",
     "start": "yarn && nodemon app.js",

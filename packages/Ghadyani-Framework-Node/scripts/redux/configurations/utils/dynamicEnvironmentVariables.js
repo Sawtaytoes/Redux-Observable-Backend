@@ -1,23 +1,25 @@
+const environmentVariables = require('./environmentVariables')
+
 const addToConfig = (
-	(dynamicEnvVars, dynamicEnvVar) => ({
-		...dynamicEnvVars,
-		...dynamicEnvVar,
+	(dynamicEnvironmentVariables, dynamicEnvironmentVariable) => ({
+		...dynamicEnvironmentVariables,
+		...dynamicEnvironmentVariable,
 	})
 )
 
 const hasPrefix = (
-	prefix => envVar => (
-		envVar
+	prefix => EnvironmentVariable => (
+		EnvironmentVariable
 		.startsWith(prefix)
 	)
 )
 
 const formatAsConfigName = (
-	dynamicEnvVarName => (
-		dynamicEnvVarName
+	dynamicEnvironmentVariableName => (
+		dynamicEnvironmentVariableName
 		.charAt(0)
 		.concat(
-			dynamicEnvVarName
+			dynamicEnvironmentVariableName
 			.slice(1)
 			.toLowerCase()
 		)
@@ -36,10 +38,10 @@ const lowercaseFirstLetter = (
 	)
 )
 
-const getConfigNameFromDynamicEnvVarName = (
-	(prefix, dynamicEnvVarName) => (
+const getConfigNameFromDynamicEnvironmentVariableName = (
+	(prefix, dynamicEnvironmentVariableName) => (
 		lowercaseFirstLetter(
-			dynamicEnvVarName
+			dynamicEnvironmentVariableName
 			.replace(prefix, '')
 			.split('_')
 			.map(formatAsConfigName)
@@ -62,59 +64,59 @@ const getBooleanValueFromString = (
 )
 
 const getValue = (
-	dynamicEnvVarName => (
-		process.env[dynamicEnvVarName]
+	dynamicEnvironmentVariableName => (
+		environmentVariables[dynamicEnvironmentVariableName]
 	)
 )
 
 const singlePrefixFormatter = (
-	prefix => dynamicEnvVarName => ({
+	prefix => dynamicEnvironmentVariableName => ({
 		[
-			getConfigNameFromDynamicEnvVarName(
+			getConfigNameFromDynamicEnvironmentVariableName(
 				prefix.concat('_'),
-				dynamicEnvVarName
+				dynamicEnvironmentVariableName
 			)
 		]: (
 			getBooleanValueFromString(
-				getValue(dynamicEnvVarName)
+				getValue(dynamicEnvironmentVariableName)
 			)
 		),
 	})
 )
 
 const doublePrefixFormatter = (
-	prefix => dynamicEnvVarName => ({
+	prefix => dynamicEnvironmentVariableName => ({
 		[
-			dynamicEnvVarName
+			dynamicEnvironmentVariableName
 			.replace(/^.+?_(.+?)_.*$/, '$1')
 			.toLowerCase()
 			.concat('_')
 			.concat(
-				getConfigNameFromDynamicEnvVarName(
+				getConfigNameFromDynamicEnvironmentVariableName(
 					new RegExp(`^(${prefix}_.+?_)`),
-					dynamicEnvVarName
+					dynamicEnvironmentVariableName
 				)
 			)
 		]: (
 			getBooleanValueFromString(
-				getValue(dynamicEnvVarName)
+				getValue(dynamicEnvironmentVariableName)
 			)
 		),
 	})
 )
 
-const createDynamicEnvVars = (
+const createDynamicEnvironmentVariables = (
 	prefix,
 	formatForAppConfig = singlePrefixFormatter
 ) => (
 	Object
-	.keys(process.env)
+	.keys(environmentVariables)
 	.filter(hasPrefix(prefix))
 	.map(formatForAppConfig(prefix))
 	.reduce(addToConfig, {})
 )
 
 module.exports = {
-	createDynamicEnvVars,
+	createDynamicEnvironmentVariables,
 	doublePrefixFormatter,
 }

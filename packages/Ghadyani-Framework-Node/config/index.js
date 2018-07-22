@@ -1,29 +1,5 @@
-const requireConfigFile = require('scripts/utils/requireConfigFile')
-const defaultEnvironmentVariablesConversions = require('config/defaultEnvironmentVariablesConversions')
-const projectConfiguration = require('projectConfiguration')
-const { dispatch } = require('scripts/redux/store')
+const uuidV4 = require('uuid/v4')
 
-const {
-	addConfigurationSet,
-	addEnvironmentVariableConversions,
-} = require('scripts/redux/configurations/actions')
+const createConfigurationSet = require('scripts/redux/configurations/utils/createConfigurationSet')
 
-const customConfig = requireConfigFile('custom', {})
-
-dispatch(
-	addConfigurationSet(
-		projectConfiguration
-	)
-)
-
-dispatch(
-	addEnvironmentVariableConversions(
-		defaultEnvironmentVariablesConversions
-	)
-)
-
-dispatch(
-	addConfigurationSet(
-		customConfig
-	)
-)
+createConfigurationSet({})
