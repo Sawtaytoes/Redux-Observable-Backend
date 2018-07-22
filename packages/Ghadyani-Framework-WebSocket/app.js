@@ -1,7 +1,9 @@
-require('./')
+const {
+	createConfigurationSet,
+	createAndRunTasks,
+} = require('ghadyani-framework-node')
 
-const createConfigurationSet = require('scripts/redux/configurations/utils/createConfigurationSet')
-const createAndRunTasks = require('scripts/redux/tasks/utils/createAndRunTasks')
+// CREATE STORE HERE
 
 createConfigurationSet({})
 createAndRunTasks()
