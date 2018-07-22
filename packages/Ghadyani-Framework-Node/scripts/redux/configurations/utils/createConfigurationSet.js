@@ -3,18 +3,22 @@ const createCustomConfigurationSet = require('./createCustomConfigurationSet')
 const defaultConfigurationSet = require('config/defaultConfigurationSet')
 const defaultEnvironmentVariablesConversions = require('config/defaultEnvironmentVariablesConversions')
 const requireConfigFile = require('scripts/utils/requireConfigFile')
+const sanitizeConfigurationSet = require('./sanitizeConfigurationSet')
 const { dispatch } = require('scripts/redux/store')
-const { doublePrefixFormatter } = require('scripts/redux/configurations/utils/dynamicEnvironmentVariables')
+const { doublePrefixFormatter } = require('./dynamicEnvironmentVariables')
 
 const {
 	addConfigurationSet,
 	copyFromConfigurationSet,
-} = require('scripts/redux/configurations/actions')
+} = require('../actions')
 
 const projectConfigurationSet = requireConfigFile('projectConfig', {})
 const localConfigurationSet = requireConfigFile('localConfig', {})
 
 const createConfigurationSet = ({
+	additionalConfigurationSetSanitization = (
+		configurationSet => configurationSet
+	),
 	additionalDefaultConfigurationSet,
 	configurationCopyList = [],
 	environmentVariableConversions,
@@ -26,15 +30,21 @@ const createConfigurationSet = ({
 		})
 	)
 
-	dispatch(
-		addConfigurationSet({
-			configurationSet: {
+	const configurationSet = (
+		additionalConfigurationSetSanitization(
+			sanitizeConfigurationSet({
 				...defaultConfigurationSet,
 				...additionalDefaultConfigurationSet,
 				...environmentVariables,
 				...projectConfigurationSet,
 				...localConfigurationSet,
-			},
+			})
+		)
+	)
+
+	dispatch(
+		addConfigurationSet({
+			configurationSet,
 		})
 	)
 
