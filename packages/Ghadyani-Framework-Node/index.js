@@ -1,24 +1,14 @@
 #!/usr/bin/env node
 require('app-module-path/register')
 
-const chalk = require('chalk')
-const simpleMap = require('scripts/utils/rxjs/simpleMap')
-const { fromEvent } = require('rxjs')
-const { pluck } = require('rxjs/operators')
+// Load before any other file
+const handleUncaughtExceptions = require('scripts/utils/handleUncaughtExceptions')
 
-fromEvent(
-	process,
-	'uncaughtException',
-)
-.pipe(
-	pluck('stack'),
-	simpleMap(chalk.red),
-	simpleMap(console.error),
-)
-.subscribe()
-
-const createConfigurationSet = require('scripts/redux/configurations/utils/createConfigurationSet')
 const createAndRunTasks = require('scripts/redux/tasks/utils/createAndRunTasks')
+const createConfigurationSet = require('scripts/redux/configurations/utils/createConfigurationSet')
+
+handleUncaughtExceptions
+.subscribe()
 
 module.exports = {
 	createConfigurationSet,
