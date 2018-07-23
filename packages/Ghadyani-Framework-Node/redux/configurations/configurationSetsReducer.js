@@ -1,5 +1,5 @@
-const createReducer = require('@redux/utils/createReducer')
-const namespaceReducer = require('@redux/utils/namespaceReducer')
+const createReducer = require('$redux/utils/createReducer')
+const namespaceReducer = require('$redux/utils/namespaceReducer')
 
 const {
 	ADD_CONFIGURATION_SET,

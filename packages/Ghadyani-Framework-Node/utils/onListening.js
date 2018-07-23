@@ -1,4 +1,4 @@
-const handleError = require('@utils/handleError')
+const handleError = require('$utils/handleError')
 
 const onListening = (
 	(taskName, serverUrl = '') => (

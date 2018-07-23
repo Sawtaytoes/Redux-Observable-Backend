@@ -3,12 +3,12 @@ const { combineEpics } = require('redux-observable')
 const { combineReducers } = require('redux')
 const { createEpicMiddleware } = require('redux-observable')
 
-const actionLoggerMiddleware = require('@redux/utils/actionLoggerMiddleware')
+const actionLoggerMiddleware = require('$redux/utils/actionLoggerMiddleware')
 
 const {
 	rootEpic,
 	rootReducers,
-} = require('@redux')
+} = require('$redux')
 
 const createReduxStore = ({
 	additionalEpics = combineEpics(),

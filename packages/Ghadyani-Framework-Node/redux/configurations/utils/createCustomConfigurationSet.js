@@ -1,10 +1,10 @@
-const requireConfigFile = require('@utils/requireConfigFile')
+const requireConfigFile = require('$utils/requireConfigFile')
 const { createDynamicEnvironmentVariables } = require('./dynamicEnvironmentVariables')
 
 const {
 	addConfigurationSet,
 	copyIntoConfigurationSet,
-} = require('@redux/configurations/actions')
+} = require('$redux/configurations/actions')
 
 const projectConfigurationSet = requireConfigFile('projectConfig', {})
 const localConfigurationSet = requireConfigFile('localConfig', {})

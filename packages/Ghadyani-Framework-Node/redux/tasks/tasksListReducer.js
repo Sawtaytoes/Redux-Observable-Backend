@@ -1,4 +1,4 @@
-const createReducer = require('@redux/utils/createReducer')
+const createReducer = require('$redux/utils/createReducer')
 
 const { ADD_TASKS } = require('./actions')
 

@@ -16,8 +16,8 @@
     "yarn": "^1.7.0"
   },
   "_moduleAliases": {
-    "@redux": "./redux",
-    "@utils": "./utils"
+    "$redux": "./redux",
+    "$utils": "./utils"
   },
   "ava": {
     "babel": {

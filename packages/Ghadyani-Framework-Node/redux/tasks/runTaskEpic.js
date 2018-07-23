@@ -3,9 +3,9 @@ const { combineLatest } = require('rxjs')
 const { ignoreElements, switchMap, tap } = require('rxjs/operators')
 const { ofType } = require('redux-observable')
 
-const stateSelector = require('@utils/rxjs/stateSelector')
-const { defaultConfigurationsNamespace } = require('@redux/configurations/actions')
-const { getConfigurationSet } = require('@redux/configurations/selectors')
+const stateSelector = require('$utils/rxjs/stateSelector')
+const { defaultConfigurationsNamespace } = require('$redux/configurations/actions')
+const { getConfigurationSet } = require('$redux/configurations/selectors')
 const { getTask } = require('./selectors')
 const { RUN_TASK } = require('./actions')
 
