@@ -1,15 +1,11 @@
-const createWebSocketServer = require('$$utils/webSocketServer/createWebSocketServer')
+const WebSocket = require('ws')
+
 const createWebSocketWatcherV1 = require('$$utils/webSocketServer/createWebSocketWatcherV1')
 
 const getWebSocketServerConfig = () => {
 	const server = (
-		createWebSocketServer({})
-	)
-
-	const authServer = (
-		createWebSocketServer({
-			hasAuth: true,
-		})
+		new WebSocket
+		.Server({ noServer: true })
 	)
 
 	createWebSocketWatcherV1({
@@ -17,15 +13,8 @@ const getWebSocketServerConfig = () => {
 		webSocketServer: server,
 	})
 
-	createWebSocketWatcherV1({
-		protocolVersion: 'v1',
-		requiresAuthentication: true,
-		webSocketServer: authServer,
-	})
-
 	const webSocketServerConfig = {
 		'/': server,
-		'/admin': authServer,
 	}
 
 	return webSocketServerConfig

@@ -1,13 +1,13 @@
 const { of } = require('rxjs')
 const { tap } = require('rxjs/operators')
 
-require('./')
-
 const {
-	createAndRunTasks,
 	createConfigurationSet,
 	createReduxStore,
+	runTasks,
 } = require('@ghadyani-framework/node')
+
+const { createWebSocketServers } = require('./')
 
 const {
 	rootEpic,
@@ -22,6 +22,7 @@ of(
 )
 .pipe(
 	tap(createConfigurationSet({})),
-	tap(createAndRunTasks()),
+	tap(createWebSocketServers()),
+	tap(runTasks('serve')),
 )
 .subscribe()

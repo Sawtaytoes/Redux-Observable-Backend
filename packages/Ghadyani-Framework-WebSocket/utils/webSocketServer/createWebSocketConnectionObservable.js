@@ -1,6 +1,6 @@
 const { Observable } = require('rxjs')
 
-const getQueryParamsFromRequest = require('$$utils/getQueryParamsFromRequest')
+const getQueryParamsFromRequest = require('@ghadyani-framework/node/utils/getQueryParamsFromRequest')
 
 const createWebSocketConnectionObserver = (
 	webSocketServer => (

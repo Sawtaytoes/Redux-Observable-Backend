@@ -1,11 +1,13 @@
 const http = require('http')
 const url = require('url')
 
-const config = require('config')
 const sendRequestToWebSocketServer = require('./sendRequestToWebSocketServer')
 const onListening = require('$$utils/onListening')
 
-const startWebSocketServers = webSocketServerConfig => {
+const startWebSocketServers = (
+	appConfig,
+	webSocketServerConfig,
+) => {
 	http
 	.createServer((req, res) => {
 		res.writeHead(200, { 'Content-Type': 'text/plain' })
@@ -34,12 +36,15 @@ const startWebSocketServers = webSocketServerConfig => {
 		}
 	)
 	.listen(
-		config.getPort(),
+		(
+			appConfig
+			.port()
+		),
 		(
 			onListening(
 				'WebSocket Server running as',
 				(
-					config
+					appConfig
 					.getServerUrl()
 					.replace('http', 'ws')
 				)

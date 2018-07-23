@@ -10,16 +10,18 @@ const emitConnectionEvent = (
 )
 
 const sendRequestToWebSocketServer = (
-	webSocketServer => (req, socket, head) => (
-		webSocketServer
-		.handleUpgrade(
-			req,
-			socket,
-			head,
-			(
-				emitConnectionEvent(
-					webSocketServer,
-					req
+	webSocketServer => (
+		(req, socket, head) => (
+			webSocketServer
+			.handleUpgrade(
+				req,
+				socket,
+				head,
+				(
+					emitConnectionEvent(
+						webSocketServer,
+						req
+					)
 				)
 			)
 		)

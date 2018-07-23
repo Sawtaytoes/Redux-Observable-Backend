@@ -2,7 +2,7 @@ const WebSocket = require('ws')
 const { ignoreElements, map, tap } = require('rxjs/operators')
 const { ofType } = require('redux-observable')
 
-const logMessage = require('@ghadyani-framework/node/utils/rxjs/logMessage')
+const logMessage = require('$$utils/rxjs/logMessage')
 const { SEND_MESSAGE } = require('./actions')
 
 const sendMessageEpic = action$ => (
