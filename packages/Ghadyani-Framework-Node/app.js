@@ -2,14 +2,14 @@ const { of } = require('rxjs')
 const { tap } = require('rxjs/operators')
 
 const {
-	createAndRunTasks,
 	createConfigurationSet,
 	createReduxStore,
+	runTasks,
 } = require('./')
 
 of(createReduxStore({}))
 .pipe(
 	tap(createConfigurationSet({})),
-	tap(createAndRunTasks()),
+	tap(runTasks('eslint')),
 )
 .subscribe()

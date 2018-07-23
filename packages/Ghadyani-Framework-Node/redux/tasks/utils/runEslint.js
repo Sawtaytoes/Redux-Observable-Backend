@@ -8,16 +8,19 @@ module.exports = config => {
 		})
 	)
 
-	const { errorCount, results } = (
+	const report = (
 		cli
-		.executeOnFiles(
-			[
-				'*.js',
-				'redux/**/*',
-				'utils/**/*',
-			]
-		)
+		.executeOnFiles([
+			'*.js',
+			'redux/**/*',
+			'utils/**/*',
+		])
 	)
+
+	CLIEngine
+	.outputFixes(report)
+
+	const { errorCount, results } = report
 
 	const formatter = cli.getFormatter()
 

@@ -1,12 +1,12 @@
 const { combineEpics } = require('redux-observable')
 const { combineReducers } = require('redux')
 
-const runTaskEpic = require('./runTaskEpic')
+const eslintEpic = require('./eslintEpic')
 const tasksListReducer = require('./tasksListReducer')
 
 const tasksEpic = (
 	combineEpics(
-		runTaskEpic,
+		eslintEpic,
 	)
 )
 

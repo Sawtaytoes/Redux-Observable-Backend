@@ -1,5 +1,5 @@
 const ADD_TASKS = 'TASKS::ADD_TASKS'
-const RUN_TASK = 'TASKS::RUN_TASK'
+const START_TASK = 'TASKS::START_TASK'
 
 const addTasks = (
 	tasks => ({
@@ -8,16 +8,16 @@ const addTasks = (
 	})
 )
 
-const runTask = (
+const startTask = (
 	taskName => ({
 		taskName,
-		type: RUN_TASK,
+		type: START_TASK,
 	})
 )
 
 module.exports = {
 	ADD_TASKS,
 	addTasks,
-	RUN_TASK,
-	runTask,
+	START_TASK,
+	startTask,
 }

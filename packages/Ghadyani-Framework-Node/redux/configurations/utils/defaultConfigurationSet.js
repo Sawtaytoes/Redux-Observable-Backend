@@ -4,7 +4,11 @@ const yargs = require('yargs')
 const getGitCommit = require('$redux/configurations/utils/getGitCommit')
 
 const buildVersion = (
-	yargs.argv.buildVersion
+	(
+		yargs
+		.argv
+		.buildVersion
+	)
 	|| uuidV4()
 )
 
