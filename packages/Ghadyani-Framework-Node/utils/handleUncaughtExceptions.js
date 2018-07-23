@@ -1,7 +1,7 @@
 const chalk = require('chalk')
 const simpleMap = require('$utils/rxjs/simpleMap')
 const { fromEvent, of } = require('rxjs')
-const { ignoreElments, mergeMap, pluck, tap } = require('rxjs/operators')
+const { ignoreElements, mergeMap, pluck, tap } = require('rxjs/operators')
 
 const handleUncaughtExceptions = (
 	fromEvent(
@@ -15,7 +15,7 @@ const handleUncaughtExceptions = (
 			.pipe(
 				simpleMap(chalk.red),
 				tap(console.error),
-				ignoreElments(),
+				ignoreElements(),
 			)
 		)),
 	)
