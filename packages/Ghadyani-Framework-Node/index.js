@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 require('module-alias/register')
 
-// Load before any other file
+// Load this before any other file
 const handleUncaughtExceptions = require('@utils/handleUncaughtExceptions')
 
 const createAndRunTasks = require('@redux/tasks/utils/createAndRunTasks')
