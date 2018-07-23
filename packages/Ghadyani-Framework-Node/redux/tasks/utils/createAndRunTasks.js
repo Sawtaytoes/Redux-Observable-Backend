@@ -13,7 +13,7 @@ const defaultTaskNames = {
 }
 
 const createAndRunTasks = (
-	(tasks = {}) => {
+	(tasks = {}) => (
 		({ dispatch }) => {
 			dispatch(
 				addTasks({
@@ -26,7 +26,7 @@ const createAndRunTasks = (
 				runTask()
 			)
 		}
-	}
+	)
 )
 
 module.exports = createAndRunTasks
