@@ -1,4 +1,4 @@
-const { filter, map, reduce, switchMap, tap } = require('rxjs/operators')
+const { filter, map, reduce, switchMap } = require('rxjs/operators')
 const { of } = require('rxjs')
 const { ofType } = require('redux-observable')
 
