@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
-// `fs.realpathSync` added for monorepos
+// Added `fs.realpathSync` for monorepos
 const basePath = (
 	fs
 	.realpathSync(
