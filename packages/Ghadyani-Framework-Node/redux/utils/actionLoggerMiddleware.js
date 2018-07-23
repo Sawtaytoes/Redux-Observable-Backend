@@ -1,6 +1,9 @@
 const actionLoggerMiddleware = (
 	() => next => action => {
-		console.info('Action:', action.type)
+		console.info(
+			'Action:',
+			action.type,
+		)
 
 		return next(action)
 	}
