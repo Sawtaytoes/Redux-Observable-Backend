@@ -5,8 +5,8 @@
   "license": "MITNFA",
   "scripts": {
     "debug": "nodemon --inspect app.js",
-    "lint": "node . lint",
-    "lint:watch": "nodemon . lint",
+    "lint": "node app.js lint",
+    "lint:watch": "nodemon app.js lint",
     "start": "yarn && nodemon app.js",
     "test": "ava",
     "test:watch": "ava --watch"
