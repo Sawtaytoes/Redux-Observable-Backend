@@ -1,9 +1,0 @@
-{
-  "colons": "never",
-  "depthLimit": 2,
-  "globalDupe": true,
-  "leadingZero": "always",
-  "prefixVarsWithDollar": false,
-  "quotePref": "single",
-  "universal": "never"
-}
