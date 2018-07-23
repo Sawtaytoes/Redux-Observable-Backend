@@ -2,7 +2,7 @@ const convertToConfigurationSet = require('./convertToConfigurationSet')
 const createCustomConfigurationSet = require('./createCustomConfigurationSet')
 const defaultConfigurationSet = require('@redux/configurations/utils/defaultConfigurationSet')
 const defaultEnvironmentVariablesConversions = require('@redux/configurations/utils/defaultEnvironmentVariablesConversions')
-const requireConfigFile = require('@scripts/utils/requireConfigFile')
+const requireConfigFile = require('@utils/requireConfigFile')
 const sanitizeConfigurationSet = require('./sanitizeConfigurationSet')
 const { doublePrefixFormatter } = require('./dynamicEnvironmentVariables')
 

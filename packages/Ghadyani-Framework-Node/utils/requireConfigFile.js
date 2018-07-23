@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-const addRootFilePath = require('@scripts/utils/addRootFilePath')
+const addRootFilePath = require('@utils/addRootFilePath')
 
 const requireConfigFile = (filename, defaultValue) => {
 	const filePath = addRootFilePath(filename)

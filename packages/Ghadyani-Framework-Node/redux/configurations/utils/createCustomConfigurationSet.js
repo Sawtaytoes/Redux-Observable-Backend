@@ -1,4 +1,4 @@
-const requireConfigFile = require('@scripts/utils/requireConfigFile')
+const requireConfigFile = require('@utils/requireConfigFile')
 const { createDynamicEnvironmentVariables } = require('./dynamicEnvironmentVariables')
 
 const {

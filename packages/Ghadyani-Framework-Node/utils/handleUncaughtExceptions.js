@@ -1,5 +1,5 @@
 const chalk = require('chalk')
-const simpleMap = require('@scripts/utils/rxjs/simpleMap')
+const simpleMap = require('@utils/rxjs/simpleMap')
 const { fromEvent } = require('rxjs')
 const { pluck } = require('rxjs/operators')
 

@@ -17,7 +17,7 @@
   },
   "_moduleAliases": {
     "@redux": "./redux",
-    "@scripts": "./scripts"
+    "@utils": "./utils"
   },
   "ava": {
     "babel": {
@@ -27,7 +27,7 @@
     },
     "concurrency": 5,
     "files": [
-      "scripts/**/*.test.js"
+      "utils/**/*.test.js"
     ],
     "sources": [
       "**/*.js"

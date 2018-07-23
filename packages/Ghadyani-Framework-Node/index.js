@@ -2,7 +2,7 @@
 require('module-alias/register')
 
 // Load before any other file
-const handleUncaughtExceptions = require('@scripts/utils/handleUncaughtExceptions')
+const handleUncaughtExceptions = require('@utils/handleUncaughtExceptions')
 
 const createAndRunTasks = require('@redux/tasks/utils/createAndRunTasks')
 const createConfigurationSet = require('@redux/configurations/utils/createConfigurationSet')

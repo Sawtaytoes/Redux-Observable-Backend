@@ -14,7 +14,7 @@ module.exports = config => {
 			[
 				'*.js',
 				'redux/**/*',
-				'scripts/**/*',
+				'utils/**/*',
 			]
 		)
 	)
