@@ -1,5 +1,5 @@
 const { fromEvent } = require('rxjs')
-const { mapTo, mergeMap } = require('rxjs/operators')
+const { map, mapTo, mergeMap } = require('rxjs/operators')
 const { ofType } = require('redux-observable')
 
 const {

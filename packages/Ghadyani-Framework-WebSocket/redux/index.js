@@ -1,25 +1,25 @@
 const { combineEpics } = require('redux-observable')
 
-const { authenticationsEpic, authenticationsReducer } = require('./authentications')
+// const { authenticationsEpic, authenticationsReducer } = require('./authentications')
 const { channelsEpic, channelsReducer } = require('./channels')
 const { clientsEpic } = require('./clients')
 const { messagesEpic } = require('./messages')
-const { permissionsEpic, permissionsReducer } = require('./permissions')
+// const { permissionsEpic, permissionsReducer } = require('./permissions')
 
 const rootEpic = (
 	combineEpics(
-		authenticationsEpic,
+		// authenticationsEpic,
 		channelsEpic,
 		clientsEpic,
 		messagesEpic,
-		permissionsEpic,
+		// permissionsEpic,
 	)
 )
 
 const rootReducers = {
-	authentications: authenticationsReducer,
+	// authentications: authenticationsReducer,
 	channels: channelsReducer,
-	permissions: permissionsReducer,
+	// permissions: permissionsReducer,
 }
 
 module.exports = {

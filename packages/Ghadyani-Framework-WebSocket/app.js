@@ -1,9 +1,27 @@
+const { of } = require('rxjs')
+const { tap } = require('rxjs/operators')
+
+require('./')
+
 const {
-	createConfigurationSet,
 	createAndRunTasks,
-} = require('ghadyani-framework-node')
+	createConfigurationSet,
+	createReduxStore,
+} = require('@ghadyani-framework/node')
 
-// CREATE STORE HERE
+const {
+	rootEpic,
+	rootReducers,
+} = require('$$redux')
 
-createConfigurationSet({})
-createAndRunTasks()
+of(
+	createReduxStore({
+		additionalEpics: rootEpic,
+		additionalReducers: rootReducers,
+	})
+)
+.pipe(
+	tap(createConfigurationSet({})),
+	tap(createAndRunTasks()),
+)
+.subscribe()

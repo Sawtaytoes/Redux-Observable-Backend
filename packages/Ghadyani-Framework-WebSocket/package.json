@@ -4,16 +4,20 @@
   "description": "Utilities for creating applications using WebSockets.",
   "license": "MITNFA",
   "scripts": {
-    "debug": "nodemon --inspect .",
-    "lint": "node . lint",
-    "lint:watch": "nodemon . lint",
-    "start": "yarn && nodemon .",
-    "test": "yarn lint && ava",
-    "test:watch": "yarn lint && ava --watch"
+    "debug": "nodemon --inspect app.js",
+    "lint": "node app.js lint",
+    "lint:watch": "nodemon app.js lint",
+    "start": "yarn && nodemon app.js",
+    "test": "ava",
+    "test:watch": "ava --watch"
   },
   "engines": {
     "node": "^10.7.0",
     "yarn": "^1.7.0"
+  },
+  "_moduleAliases": {
+    "$$redux": "./redux",
+    "$$utils": "./utils"
   },
   "ava": {
     "babel": {
@@ -23,14 +27,15 @@
     },
     "concurrency": 5,
     "files": [
-      "scripts/**/*.test.js"
+      "redux/**/*.test.js",
+      "utils/**/*.test.js"
     ],
     "sources": [
       "**/*.js"
     ]
   },
   "dependencies": {
-    "@ghadyani-framework/node": "^0.0.0",
+    "@ghadyani-framework/node": "^0.0.1",
     "ws": "^5.2.2"
   },
   "optionalDependencies": {

@@ -1,4 +1,4 @@
-const createReducer = require('scripts/redux/utils/createReducer')
+const createReducer = require('@ghadyani-framework/node/redux/utils/createReducer')
 
 const {
 	ADD_CLIENT,
@@ -29,9 +29,11 @@ const reducerActions = {
 	),
 }
 
-module.exports = (
+const clientsListReducer = (
 	createReducer(
 		reducerActions,
 		initialState,
 	)
 )
+
+module.exports = clientsListReducer

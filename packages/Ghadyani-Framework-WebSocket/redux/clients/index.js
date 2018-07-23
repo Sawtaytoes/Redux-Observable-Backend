@@ -1,7 +1,7 @@
 const { combineEpics } = require('redux-observable')
 const { combineReducers } = require('redux')
 
-const list = require('./list')
+const clientsListReducer = require('./clientsListReducer')
 const removeDisconnectedClientsEpic = require('./removeDisconnectedClientsEpic')
 
 const clientsEpic = (
@@ -12,7 +12,7 @@ const clientsEpic = (
 
 const clientsReducer = (
 	combineReducers({
-		list,
+		clientsList: clientsListReducer,
 	})
 )
 
