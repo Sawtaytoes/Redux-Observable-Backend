@@ -1,9 +1,9 @@
 const fs = require('fs')
 
-const getRootFilePath = require('scripts/utils/getRootFilePath')
+const addRootFilePath = require('@scripts/utils/addRootFilePath')
 
 const requireConfigFile = (filename, defaultValue) => {
-	const filePath = `${getRootFilePath(filename)}.js`
+	const filePath = addRootFilePath(filename)
 
 	return (
 		fs.existsSync(filePath)

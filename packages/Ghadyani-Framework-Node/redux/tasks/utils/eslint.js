@@ -13,8 +13,8 @@ module.exports = config => {
 		.executeOnFiles(
 			[
 				'*.js',
-				'config/**/*',
-				'scripts/**/*',
+				'@redux/configurations/utils/**/*',
+				'@scripts/**/*',
 			]
 		)
 	)

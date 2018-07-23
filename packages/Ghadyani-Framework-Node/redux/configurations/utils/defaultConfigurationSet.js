@@ -1,7 +1,7 @@
 const uuidV4 = require('uuid/v4')
 const yargs = require('yargs')
 
-const getGitCommit = require('scripts/utils/getGitCommit')
+const getGitCommit = require('@redux/configurations/utils/getGitCommit')
 
 const buildVersion = (
 	yargs.argv.buildVersion

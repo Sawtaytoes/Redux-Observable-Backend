@@ -1,6 +1,6 @@
 const config = require('config')
-const getSecureHttpServerConfig = require('scripts/utils/httpServer/getSecureHttpServerConfig')
-const onListening = require('scripts/utils/onListening')
+const getSecureHttpServerConfig = require('@scripts/utils/httpServer/getSecureHttpServerConfig')
+const onListening = require('@scripts/utils/onListening')
 
 const startHttpServer = httpServerConfig => (
 	(

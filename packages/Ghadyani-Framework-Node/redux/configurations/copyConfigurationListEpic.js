@@ -1,8 +1,8 @@
-const { filter, map, reduce, switchMap } = require('rxjs/operators')
+const { filter, map, reduce, switchMap, tap } = require('rxjs/operators')
 const { of } = require('rxjs')
 const { ofType } = require('redux-observable')
 
-const stateSelector = require('scripts/utils/rxjs/stateSelector')
+const stateSelector = require('@scripts/utils/rxjs/stateSelector')
 const { getConfigurationSet } = require('./selectors')
 
 const {

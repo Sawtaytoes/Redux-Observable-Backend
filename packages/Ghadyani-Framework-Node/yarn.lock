@@ -383,10 +383,6 @@ anymatch@^2.0.0:
     micromatch "^3.1.4"
     normalize-path "^2.1.1"
 
-app-module-path@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/app-module-path/-/app-module-path-2.2.0.tgz#641aa55dfb7d6a6f0a8141c4b9c0aa50b6c24dd5"
-
 aproba@^1.0.3:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/aproba/-/aproba-1.2.0.tgz#6802e6264efd18c790a1b0d517f0f2627bf2c94a"
@@ -2237,6 +2233,10 @@ mkdirp@^0.5.0, mkdirp@^0.5.1:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
     minimist "0.0.8"
+
+module-alias@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/module-alias/-/module-alias-2.1.0.tgz#c36d4fd15f7f9d7112f62fa015385e7b65a286c1"
 
 ms@2.0.0:
   version "2.0.0"
