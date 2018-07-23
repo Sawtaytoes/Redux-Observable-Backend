@@ -1,7 +1,15 @@
+const { of } = require('rxjs')
+const { tap } = require('rxjs/operators')
+
 const {
-	createConfigurationSet,
 	createAndRunTasks,
+	createConfigurationSet,
+	createReduxStore,
 } = require('./')
 
-createConfigurationSet({})
-createAndRunTasks()
+of(createReduxStore({}))
+.pipe(
+	tap(createConfigurationSet({})),
+	tap(createAndRunTasks()),
+)
+.subscribe()

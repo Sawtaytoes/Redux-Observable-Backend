@@ -1,6 +1,5 @@
 const requireConfigFile = require('scripts/utils/requireConfigFile')
 const { createDynamicEnvironmentVariables } = require('./dynamicEnvironmentVariables')
-const { dispatch } = require('scripts/redux/store')
 
 const {
 	addConfigurationSet,
@@ -16,50 +15,52 @@ const createCustomConfigurationSet = ({
 	environmentVariableFormatter,
 	environmentVariablePrefix,
 	isPartOfAppConfiguration,
-}) => {
-	const dynamicEnvironmentVariables = (
-		environmentVariablePrefix
-		&& (
-			createDynamicEnvironmentVariables(
-				environmentVariablePrefix,
-				environmentVariableFormatter,
+}) => (
+	({ dispatch }) => {
+		const dynamicEnvironmentVariables = (
+			environmentVariablePrefix
+			&& (
+				createDynamicEnvironmentVariables(
+					environmentVariablePrefix,
+					environmentVariableFormatter,
+				)
 			)
 		)
-	)
 
-	const projectCustomConfigurationSet = (
-		projectConfigurationSet[
-			configurationSetName
-		]
-	)
+		const projectCustomConfigurationSet = (
+			projectConfigurationSet[
+				configurationSetName
+			]
+		)
 
-	const localCustomConfigurationSet = (
-		localConfigurationSet[
-			configurationSetName
-		]
-	)
+		const localCustomConfigurationSet = (
+			localConfigurationSet[
+				configurationSetName
+			]
+		)
 
-	dispatch(
-		addConfigurationSet({
-			configurationSet: {
-				...additionalDefaultConfigurationSet,
-				...dynamicEnvironmentVariables,
-				...projectCustomConfigurationSet,
-				...localCustomConfigurationSet,
-			},
-			namespace: 'featureFlags',
-		})
-	)
-
-	isPartOfAppConfiguration
-	&& (
 		dispatch(
-			copyIntoConfigurationSet({
-				configurationSetName,
-				namespace: 'app',
+			addConfigurationSet({
+				configurationSet: {
+					...additionalDefaultConfigurationSet,
+					...dynamicEnvironmentVariables,
+					...projectCustomConfigurationSet,
+					...localCustomConfigurationSet,
+				},
+				namespace: 'featureFlags',
 			})
 		)
-	)
-}
+
+		isPartOfAppConfiguration
+		&& (
+			dispatch(
+				copyIntoConfigurationSet({
+					configurationSetName,
+					namespace: 'app',
+				})
+			)
+		)
+	}
+)
 
 module.exports = createCustomConfigurationSet

@@ -1,5 +1,3 @@
-const { dispatch } = require('scripts/redux/store')
-
 const {
 	addTasks,
 	runTask,
@@ -14,17 +12,21 @@ const defaultTaskNames = {
 	undefined: eslint,
 }
 
-const createAndRunTasks = (tasks = {}) => {
-	dispatch(
-		addTasks({
-			...defaultTaskNames,
-			...tasks,
-		})
-	)
+const createAndRunTasks = (
+	(tasks = {}) => {
+		({ dispatch }) => {
+			dispatch(
+				addTasks({
+					...defaultTaskNames,
+					...tasks,
+				})
+			)
 
-	dispatch(
-		runTask()
-	)
-}
+			dispatch(
+				runTask()
+			)
+		}
+	}
+)
 
 module.exports = createAndRunTasks

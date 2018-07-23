@@ -4,7 +4,6 @@ const defaultConfigurationSet = require('config/defaultConfigurationSet')
 const defaultEnvironmentVariablesConversions = require('config/defaultEnvironmentVariablesConversions')
 const requireConfigFile = require('scripts/utils/requireConfigFile')
 const sanitizeConfigurationSet = require('./sanitizeConfigurationSet')
-const { dispatch } = require('scripts/redux/store')
 const { doublePrefixFormatter } = require('./dynamicEnvironmentVariables')
 
 const {
@@ -22,58 +21,66 @@ const createConfigurationSet = ({
 	additionalDefaultConfigurationSet,
 	configurationCopyList = [],
 	environmentVariableConversions,
-}) => {
-	const environmentVariables = (
-		convertToConfigurationSet({
-			...defaultEnvironmentVariablesConversions,
-			...environmentVariableConversions,
-		})
-	)
-
-	const configurationSet = (
-		additionalConfigurationSetSanitization(
-			sanitizeConfigurationSet({
-				...defaultConfigurationSet,
-				...additionalDefaultConfigurationSet,
-				...environmentVariables,
-				...projectConfigurationSet,
-				...localConfigurationSet,
+}) => (
+	({ dispatch }) => {
+		const environmentVariables = (
+			convertToConfigurationSet({
+				...defaultEnvironmentVariablesConversions,
+				...environmentVariableConversions,
 			})
 		)
-	)
 
-	dispatch(
-		addConfigurationSet({
-			configurationSet,
-		})
-	)
+		const configurationSet = (
+			additionalConfigurationSetSanitization(
+				sanitizeConfigurationSet({
+					...defaultConfigurationSet,
+					...additionalDefaultConfigurationSet,
+					...environmentVariables,
+					...projectConfigurationSet,
+					...localConfigurationSet,
+				})
+			)
+		)
 
-	dispatch(
-		copyFromConfigurationSet({
-			configurationCopyList: (
-				configurationCopyList
-				.concat([
-					'applicationName',
-					'environmentName',
-					'hostedAddress',
-				])
+		dispatch(
+			addConfigurationSet({
+				configurationSet,
+			})
+		)
+
+		dispatch(
+			copyFromConfigurationSet({
+				configurationCopyList: (
+					configurationCopyList
+					.concat([
+						'applicationName',
+						'environmentName',
+						'hostedAddress',
+					])
+				),
+				namespace: 'app',
+			})
+		)
+
+		const featureFlagsConfigurationSetProps = {
+			configurationSetName: (
+				'featureFlags'
 			),
-			namespace: 'app',
-		})
-	)
+			environmentVariableFormatter: (
+				doublePrefixFormatter
+			),
+			environmentVariablePrefix: (
+				'FEATUREFLAG'
+			),
+			isPartOfAppConfig: true,
+		}
 
-	createCustomConfigurationSet({
-		configurationSetName: (
-			'featureFlags'
-		),
-		environmentVariableFormatter: (
-			doublePrefixFormatter
-		),
-		environmentVariablePrefix: (
-			'FEATUREFLAG'
-		),
-		isPartOfAppConfig: true,
-	})
-}
+		createCustomConfigurationSet(
+			featureFlagsConfigurationSetProps
+		)({
+			dispatch,
+		})
+	}
+)
 
 module.exports = createConfigurationSet

@@ -1,4 +1,5 @@
 const { applyMiddleware, createStore } = require('redux')
+const { combineEpics } = require('redux-observable')
 const { combineReducers } = require('redux')
 const { createEpicMiddleware } = require('redux-observable')
 
@@ -9,7 +10,10 @@ const {
 	rootReducers,
 } = require('scripts/redux')
 
-const createReduxStore = () => {
+const createReduxStore = ({
+	additionalEpics = combineEpics(),
+	additionalReducers,
+}) => {
 	const epicMiddleware = createEpicMiddleware()
 
 	const middleware = (
@@ -19,7 +23,12 @@ const createReduxStore = () => {
 		)
 	)
 
-	const rootReducer = combineReducers(rootReducers)
+	const rootReducer = (
+		combineReducers({
+			...rootReducers,
+			...additionalReducers,
+		})
+	)
 
 	const store = (
 		createStore(
@@ -29,7 +38,12 @@ const createReduxStore = () => {
 	)
 
 	epicMiddleware
-	.run(rootEpic)
+	.run(
+		combineEpics(
+			rootEpic,
+			additionalEpics,
+		)
+	)
 
 	const actionDispatch = (
 		action => () => (
