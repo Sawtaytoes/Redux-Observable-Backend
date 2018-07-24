@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-require('module-alias/register')
+require('@ghadyani-framework/setup-module-aliases')(__dirname)
 
 // Load this before any other file
 const handleUncaughtExceptions = require('$utils/handleUncaughtExceptions')

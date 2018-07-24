@@ -37,6 +37,7 @@
   "dependencies": {
     "@ghadyani-framework/eslint-config-base": "^0.0.3",
     "@ghadyani-framework/eslint-config-node": "^0.0.2",
+    "@ghadyani-framework/setup-module-aliases": "^0.0.0",
     "ava": "^1.0.0-beta.6",
     "chalk": "^2.4.1",
     "is-equal": "^1.5.5",
