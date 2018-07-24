@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-require('module-alias/register')
+require('@ghadyani-framework/setup-module-aliases')(__dirname)
 
-const createWebSocketServers = require('$$redux/webSocketServers/utils/createWebSocketServers')
+const createWebSocketServers = require('$redux/webSocketServers/utils/createWebSocketServers')
 
 module.exports = {
 	createWebSocketServers,

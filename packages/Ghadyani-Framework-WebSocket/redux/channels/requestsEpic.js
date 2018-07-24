@@ -1,7 +1,7 @@
 const { combineEpics } = require('redux-observable')
 const { map } = require('rxjs/operators')
 
-const { ofRequestType } = require('$$redux/utils/actionTypeCheckers')
+const { ofRequestType } = require('$redux/utils/actionTypeCheckers')
 
 const {
 	JOIN_CHANNEL,

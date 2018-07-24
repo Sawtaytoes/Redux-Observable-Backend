@@ -1,5 +1,5 @@
-const getWebSocketServerConfig = require('$$utils/webSocketServer/getWebSocketServerConfig')
-const startWebSocketServers = require('$$utils/webSocketServer/startWebSocketServers')
+const getWebSocketServerConfig = require('$utils/webSocketServer/getWebSocketServerConfig')
+const startWebSocketServers = require('$utils/webSocketServer/startWebSocketServers')
 
 module.exports = config => (
 	startWebSocketServers(

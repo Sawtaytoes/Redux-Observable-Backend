@@ -12,7 +12,7 @@ const { createWebSocketServers } = require('./')
 const {
 	rootEpic,
 	rootReducers,
-} = require('$$redux')
+} = require('$redux')
 
 of(
 	createReduxStore({

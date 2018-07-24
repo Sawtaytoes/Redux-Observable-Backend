@@ -2,7 +2,7 @@ const http = require('http')
 const url = require('url')
 
 const sendRequestToWebSocketServer = require('./sendRequestToWebSocketServer')
-const onListening = require('$$utils/onListening')
+const onListening = require('$utils/onListening')
 
 const startWebSocketServers = (
 	appConfig,

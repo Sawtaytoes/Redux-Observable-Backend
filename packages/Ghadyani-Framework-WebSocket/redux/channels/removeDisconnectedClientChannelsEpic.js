@@ -3,8 +3,8 @@ const { map, mergeMap, tap } = require('rxjs/operators')
 
 const stateSelector = require('@ghadyani-framework/node/utils/rxjs/stateSelector')
 const { getChannelsList } = require('./selectors')
-const { leaveChannel } = require('$$redux/channels/actions')
-const { REMOVE_CLIENT } = require('$$redux/clients/actions')
+const { leaveChannel } = require('$redux/channels/actions')
+const { REMOVE_CLIENT } = require('$redux/clients/actions')
 
 const removeDisconnectedClientChannelsEpic = (action$, state$) => (
 	action$

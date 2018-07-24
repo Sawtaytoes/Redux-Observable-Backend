@@ -323,12 +323,13 @@
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/@ghadyani-framework/eslint-config-node/-/eslint-config-node-0.0.2.tgz#b972530f9c620f8410335dc40adf9784f4326302"
 
-"@ghadyani-framework/node@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@ghadyani-framework/node/-/node-1.0.0.tgz#b58d71d72ccae943b27e8651c3644f88a65991f2"
+"@ghadyani-framework/node@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@ghadyani-framework/node/-/node-1.0.1.tgz#d68f6b0f626ec5f95ae0b0bb21cc758f1a382ccc"
   dependencies:
     "@ghadyani-framework/eslint-config-base" "^0.0.3"
     "@ghadyani-framework/eslint-config-node" "^0.0.2"
+    "@ghadyani-framework/setup-module-aliases" "^0.0.0"
     ava "^1.0.0-beta.6"
     chalk "^2.4.1"
     is-equal "^1.5.5"
@@ -340,6 +341,10 @@
     rxjs "^6.2.2"
     uuid "^3.3.2"
     yargs "^12.0.1"
+
+"@ghadyani-framework/setup-module-aliases@^0.0.0":
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/@ghadyani-framework/setup-module-aliases/-/setup-module-aliases-0.0.0.tgz#9f4a77824df2b07f0d369a23e927c7fbec291d44"
 
 abbrev@1:
   version "1.1.1"

@@ -1,6 +1,6 @@
 const WebSocket = require('ws')
 
-const createWebSocketWatcherV1 = require('$$utils/webSocketServer/createWebSocketWatcherV1')
+const createWebSocketWatcherV1 = require('$utils/webSocketServer/createWebSocketWatcherV1')
 
 const getWebSocketServerConfig = () => {
 	const server = (

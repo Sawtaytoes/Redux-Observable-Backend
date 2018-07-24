@@ -4,7 +4,7 @@ const { bindNodeCallback, NEVER, of } = require('rxjs')
 const { catchError, map, switchMap } = require('rxjs/operators')
 
 const config = require('config')
-const getQueryParamsFromRequest = require('$$utils/getQueryParamsFromRequest')
+const getQueryParamsFromRequest = require('$utils/getQueryParamsFromRequest')
 
 const serverConfig = config.getServerConfig()
 const { ops_singleSignOn } = config.getFeatureFlags()
