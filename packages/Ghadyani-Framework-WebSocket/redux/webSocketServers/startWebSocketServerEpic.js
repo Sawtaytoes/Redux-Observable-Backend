@@ -28,6 +28,7 @@ const startWebSocketServersEpic = (
 					state$,
 				})
 				.pipe(
+					map(getHttpServer),
 					tap(startWebSocketServers),
 				)
 			)),
