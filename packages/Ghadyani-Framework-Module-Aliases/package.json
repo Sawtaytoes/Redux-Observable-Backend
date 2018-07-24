@@ -1,0 +1,10 @@
+{
+  "name": "@ghadyani-framework/setup-module-aliases",
+  "version": "0.0.0",
+  "description": "A modified version of the fantastic module-alias package designed for the Ghadyani Framework to include support for `node_modules/`.",
+  "license": "MITNFA",
+  "devDependencies": {
+    "@ghadyani-framework/eslint-config-base": "^0.0.3",
+    "@ghadyani-framework/eslint-config-node": "^0.0.2",
+  }
+}
