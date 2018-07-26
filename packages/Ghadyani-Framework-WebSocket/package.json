@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@ghadyani-framework/node": "^1.0.1",
-    "ws": "^5.2.2"
+    "ws": "^6.0.0"
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.0",
