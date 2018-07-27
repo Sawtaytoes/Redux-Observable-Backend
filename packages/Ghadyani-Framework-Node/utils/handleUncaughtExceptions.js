@@ -1,5 +1,5 @@
 const chalk = require('chalk')
-const simpleMap = require('$utils/rxjs/simpleMap')
+const simpleMap = require('$redux/utils/rxjs/simpleMap')
 const { fromEvent, of } = require('rxjs')
 const { ignoreElements, mergeMap, pluck, tap } = require('rxjs/operators')
 

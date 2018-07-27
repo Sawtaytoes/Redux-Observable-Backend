@@ -3,7 +3,7 @@ const { ofType } = require('redux-observable')
 
 const ofTaskName = require('./utils/ofTaskName')
 const runEslint = require('./utils/runEslint')
-const stateSelector = require('$utils/rxjs/stateSelector')
+const stateSelector = require('$redux/utils/rxjs/stateSelector')
 const { defaultConfigurationsNamespace } = require('$redux/configurations/actions')
 const { getConfigurationSet } = require('$redux/configurations/selectors')
 const { START_TASK } = require('./actions')
