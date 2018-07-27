@@ -1,5 +1,6 @@
-const { ActionsObservable, ofType } = require('redux-observable')
 const { map, mergeMap, tap } = require('rxjs/operators')
+const { of } = require('rxjs')
+const { ofType } = require('redux-observable')
 
 const stateSelector = require('@ghadyani-framework/node/redux/utils/rxjs/stateSelector')
 const { getChannelsList } = require('./selectors')
@@ -22,14 +23,9 @@ const removeDisconnectedClientChannelsEpic = (action$, state$) => (
 						namespace: channelName,
 					})
 				)),
-				map(action => (
-					ActionsObservable
-					.of(action)
-				)),
+				map(of),
 			)
 		)),
-		tap(() => console.log('-----------------')),
-		tap(console.log),
 	)
 )
 

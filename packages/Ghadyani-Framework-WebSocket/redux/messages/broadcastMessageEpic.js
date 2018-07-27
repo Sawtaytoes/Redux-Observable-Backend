@@ -1,6 +1,6 @@
-const { ActionsObservable, ofType } = require('redux-observable')
 const { filter, mergeMap } = require('rxjs/operators')
-const { merge } = require('rxjs')
+const { merge, of } = require('rxjs')
+const { ofType } = require('redux-observable')
 
 const {
 	sendMessage,
@@ -21,10 +21,7 @@ const broadcastMessageEpic = action$ => (
 						message,
 					}))
 					.map(sendMessage)
-					.map(action => (
-						ActionsObservable
-						.of(action)
-					))
+					.map(of)
 				)
 			)
 		)),
