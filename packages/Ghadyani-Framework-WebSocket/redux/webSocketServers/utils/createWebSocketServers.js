@@ -1,12 +1,15 @@
 const { addWebSocketServer } = require('../actions')
 
-const defaultWebSocketServers = []
+const defaultWebSocketServers = [{
+	namespace: '/',
+	protocolVersion: 'v1',
+}]
 
 const createWebSocketServers = (
-	(...webSocketServers) => (
+	(...additionalWebSocketServerSettings) => (
 		({ dispatch }) => {
 			defaultWebSocketServers
-			.concat(webSocketServers)
+			.concat(additionalWebSocketServerSettings)
 			.map(addWebSocketServer)
 			.forEach(dispatch)
 		}

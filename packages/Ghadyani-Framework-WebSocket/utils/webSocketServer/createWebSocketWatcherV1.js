@@ -14,7 +14,6 @@ const { curriedDispatch } = require('$redux/store')
 
 const createWebSocketWatcherV1 = (
 	({
-		protocolVersion,
 		requiresAuthentication = false,
 		webSocketServer,
 	}) => {
@@ -22,7 +21,7 @@ const createWebSocketWatcherV1 = (
 			webSocketServer
 		)
 		.pipe(
-			ofProtocolVersion(protocolVersion),
+			ofProtocolVersion('v1'),
 			logConnection(),
 			tap(curriedDispatch(addClient)),
 			mergeMap(createWebSocketMessageObservable),

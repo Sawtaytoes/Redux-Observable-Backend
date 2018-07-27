@@ -13,10 +13,12 @@ const createWebSocketConnectionObserver = (
 						getQueryParamsFromRequest(req)
 					)
 
-					// Necessary mutation as `ws` doesn't give access to `request` in `connection`
-					connection.queryParams = queryParams
+					// Necessary mutation as `ws` doesn't give access to `req` in `connection`
+					connection
+					.queryParams = queryParams
 
-					observer.next({
+					observer
+					.next({
 						connection,
 						queryParams,
 						server: webSocketServer,

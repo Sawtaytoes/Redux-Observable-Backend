@@ -7,7 +7,10 @@ const {
 	runTasks,
 } = require('@ghadyani-framework/node')
 
-const { createWebSocketServers } = require('./')
+const {
+	createHttpServers,
+	createWebSocketServers,
+} = require('./')
 
 const {
 	rootEpic,
@@ -22,7 +25,13 @@ of(
 )
 .pipe(
 	tap(createConfigurationSet({})),
+	tap(createHttpServers()),
 	tap(createWebSocketServers()),
-	tap(runTasks('serve')),
+	tap(
+		runTasks(
+			'lint',
+			'serve',
+		)
+	),
 )
 .subscribe()
