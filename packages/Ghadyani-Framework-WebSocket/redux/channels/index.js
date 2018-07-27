@@ -14,7 +14,7 @@ const channelsEpic = (
 
 const channelsReducer = (
 	combineReducers({
-		connectionlist: connectionListReducer,
+		connectionList: connectionListReducer,
 	})
 )
 
