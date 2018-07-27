@@ -78,7 +78,6 @@ const startWebSocketServersEpic = (
 				socket,
 				webSocketServer,
 			}) => (
-				console.log('hi')||
 				webSocketServer
 				.handleUpgrade(
 					req,
