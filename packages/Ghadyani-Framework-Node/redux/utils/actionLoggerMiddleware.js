@@ -3,6 +3,7 @@ const chalk = require('chalk')
 const actionLoggerMiddleware = (
 	() => next => action => {
 		const { type } = action
+
 		const [
 			,
 			actionTypeGroup,
