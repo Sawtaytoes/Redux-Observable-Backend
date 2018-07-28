@@ -12,6 +12,7 @@ const actionLoggerMiddleware = (
 		] = (
 			type
 			.match(/^(.+)(::)(.+)$/)
+			|| []
 		)
 
 		const title = (
@@ -22,15 +23,22 @@ const actionLoggerMiddleware = (
 		)
 
 		const message = (
-			chalk
-			.grey(actionTypeGroup)
-			.concat(
+			actionTypeGroup
+			? (
 				chalk
-				.green(delimiter)
+				.grey(actionTypeGroup)
+				.concat(
+					chalk
+					.green(delimiter)
+				)
+				.concat(
+					chalk
+					.magentaBright(actionType)
+				)
 			)
-			.concat(
+			: (
 				chalk
-				.magentaBright(actionType)
+				.magentaBright(type)
 			)
 		)
 
