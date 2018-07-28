@@ -5,9 +5,9 @@ const { ofRequestType } = require('$redux/utils/actionTypeCheckers')
 
 const {
 	JOIN_CHANNEL,
-	joinNamespacedChannel,
+	joinChannel,
 	LEAVE_CHANNEL,
-	leaveNamespacedChannel,
+	leaveChannel,
 } = require('./actions')
 
 const joinChannelRequestEpic = action$ => (
@@ -15,7 +15,7 @@ const joinChannelRequestEpic = action$ => (
 	.pipe(
 		ofRequestType(JOIN_CHANNEL),
 		map(({ channelName, connection }) => (
-			joinNamespacedChannel(
+			joinChannel(
 				channelName,
 				connection
 			)
@@ -28,7 +28,7 @@ const leaveChannelRequestEpic = action$ => (
 	.pipe(
 		ofRequestType(LEAVE_CHANNEL),
 		map(({ channelName, connection }) => (
-			leaveNamespacedChannel(
+			leaveChannel(
 				channelName,
 				connection
 			)
