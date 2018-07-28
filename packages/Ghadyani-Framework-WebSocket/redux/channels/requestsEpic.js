@@ -1,5 +1,5 @@
 const { combineEpics } = require('redux-observable')
-const { map, tap } = require('rxjs/operators')
+const { map } = require('rxjs/operators')
 
 const { ofRequestType } = require('$redux/utils/actionTypeCheckers')
 
