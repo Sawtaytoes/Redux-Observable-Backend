@@ -35,7 +35,7 @@
     ]
   },
   "dependencies": {
-    "@ghadyani-framework/node": "^1.0.1",
+    "@ghadyani-framework/node": "^1.1.1",
     "ws": "^6.0.0"
   },
   "optionalDependencies": {
