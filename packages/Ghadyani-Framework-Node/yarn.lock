@@ -319,9 +319,9 @@
     eslint-import-resolver-alias "^1.1.0"
     eslint-plugin-import "^2.13.0"
 
-"@ghadyani-framework/eslint-config-node@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@ghadyani-framework/eslint-config-node/-/eslint-config-node-0.0.2.tgz#b972530f9c620f8410335dc40adf9784f4326302"
+"@ghadyani-framework/eslint-config-node@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@ghadyani-framework/eslint-config-node/-/eslint-config-node-0.0.3.tgz#b68c3e01a46816f14eb51f6c8dedd93bd99c3f67"
 
 "@ghadyani-framework/setup-module-aliases@^0.0.0":
   version "0.0.0"
