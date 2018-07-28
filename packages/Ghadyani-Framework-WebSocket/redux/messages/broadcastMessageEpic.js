@@ -7,24 +7,23 @@ const {
 	BROADCAST_MESSAGE,
 } = require('./actions')
 
-const broadcastMessageEpic = action$ => (
-	action$
-	.pipe(
-		ofType(BROADCAST_MESSAGE),
-		filter(({ connections }) => connections),
-		mergeMap(({ connections, message }) => (
-			merge(
-				...(
-					connections
-					.map(connection => ({
+const broadcastMessageEpic = (
+	action$ => (
+		action$
+		.pipe(
+			ofType(BROADCAST_MESSAGE),
+			filter(({ connections }) => connections),
+			mergeMap(({ connections, message }) => (
+				of(...connections)
+				.pipe(
+					map(connection => ({
 						connection,
 						message,
-					}))
-					.map(sendMessage)
-					.map(of)
+					})),
+					map(sendMessage),
 				)
-			)
-		)),
+			)),
+		)
 	)
 )
 
