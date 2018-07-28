@@ -17,7 +17,7 @@ const leaveChannel = ({
 }) => ({
 	connection,
 	namespace,
-	type: JOIN_CHANNEL,
+	type: LEAVE_CHANNEL,
 })
 
 module.exports = {
