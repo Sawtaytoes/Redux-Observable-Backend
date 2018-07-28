@@ -18,10 +18,10 @@ const removeDisconnectedClientsEpic = (
 					'close',
 				)
 				.pipe(
-					mapTo(connection)
+					mapTo(connection),
+					map(removeClient),
 				)
 			)),
-			map(removeClient),
 		)
 	)
 )
