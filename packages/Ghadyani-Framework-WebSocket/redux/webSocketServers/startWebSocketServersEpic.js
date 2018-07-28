@@ -1,6 +1,6 @@
 const url = require('url')
 const { fromEvent } = require('rxjs')
-const { filter, ignoreElements, map, switchMap, tap } = require('rxjs/operators')
+const { ignoreElements, map, mergeMap, switchMap } = require('rxjs/operators')
 const { ofType } = require('redux-observable')
 
 const emitWebSocketConnectionEvent = require('./utils/emitWebSocketConnectionEvent')
@@ -44,12 +44,17 @@ const startWebSocketServersEpic = (
 				req,
 				socket,
 			})),
-			switchMap(({
+			mergeMap(({
 				pathname: namespace,
 				req,
+				socket,
 				...props
 			}) => (
 				stateSelector({
+					errorCallback: () => {
+						socket
+						.destroy()
+					},
 					props: {
 						protocolVersion: (
 							req
@@ -63,11 +68,11 @@ const startWebSocketServersEpic = (
 					state$,
 				})
 				.pipe(
-					filter(Boolean),
 					map(webSocketServer => ({
 						...props,
 						namespace,
 						req,
+						socket,
 						webSocketServer,
 					})),
 				)
