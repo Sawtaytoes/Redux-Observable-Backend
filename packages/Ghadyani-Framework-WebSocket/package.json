@@ -35,8 +35,13 @@
     ]
   },
   "dependencies": {
-    "@ghadyani-framework/node": "^1.1.1",
     "ws": "^6.0.0"
+  },
+  "devDependencies": {
+    "@ghadyani-framework/node": "^1.1.2"
+  },
+  "peerDependencies": {
+    "@ghadyani-framework/node": "1.x.x"
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.0",

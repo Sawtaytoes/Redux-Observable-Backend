@@ -323,9 +323,9 @@
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/@ghadyani-framework/eslint-config-node/-/eslint-config-node-0.0.3.tgz#b68c3e01a46816f14eb51f6c8dedd93bd99c3f67"
 
-"@ghadyani-framework/node@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@ghadyani-framework/node/-/node-1.1.1.tgz#f476e3868d76e6417071ccc49898ea49cc561e3a"
+"@ghadyani-framework/node@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@ghadyani-framework/node/-/node-1.1.2.tgz#6afd2be46fc8c16d9e5cd1a0625cd34413a9d57d"
   dependencies:
     "@ghadyani-framework/eslint-config-base" "^0.0.3"
     "@ghadyani-framework/eslint-config-node" "^0.0.3"
@@ -2457,8 +2457,8 @@ npm-bundled@^1.0.1:
   resolved "https://registry.yarnpkg.com/npm-bundled/-/npm-bundled-1.0.3.tgz#7e71703d973af3370a9591bafe3a63aca0be2308"
 
 npm-packlist@^1.1.6:
-  version "1.1.10"
-  resolved "https://registry.yarnpkg.com/npm-packlist/-/npm-packlist-1.1.10.tgz#1039db9e985727e464df066f4cf0ab6ef85c398a"
+  version "1.1.11"
+  resolved "https://registry.yarnpkg.com/npm-packlist/-/npm-packlist-1.1.11.tgz#84e8c683cbe7867d34b1d357d893ce29e28a02de"
   dependencies:
     ignore-walk "^3.0.1"
     npm-bundled "^1.0.1"
