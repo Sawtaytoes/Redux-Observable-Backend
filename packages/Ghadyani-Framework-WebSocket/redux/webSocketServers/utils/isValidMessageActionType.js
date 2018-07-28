@@ -4,13 +4,13 @@ const isValidMessageActionType = (
 	({ requiresAuthentication }) => (
 		filter(({ message }) => (
 			(
-				/^.*_CHANNEL_REQUEST$/
+				/^REQUEST::.+$/
 				.test(message.type)
 			)
 			|| (
 				requiresAuthentication
 				&& (
-					/^.*_AUTH_REQUEST$/
+					/^RESPONSE::.+$/
 					.test(message.type)
 				)
 			)

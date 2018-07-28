@@ -1,5 +1,5 @@
 const { combineEpics } = require('redux-observable')
-const { map } = require('rxjs/operators')
+const { map, tap } = require('rxjs/operators')
 
 const { ofRequestType } = require('$redux/utils/actionTypeCheckers')
 
@@ -10,29 +10,33 @@ const {
 	leaveChannel,
 } = require('./actions')
 
-const joinChannelRequestEpic = action$ => (
-	action$
-	.pipe(
-		ofRequestType(JOIN_CHANNEL),
-		map(({ channelName, connection }) => (
-			joinChannel(
-				channelName,
-				connection
-			)
-		)),
+const joinChannelRequestEpic = (
+	action$ => (
+		action$
+		.pipe(
+			ofRequestType(JOIN_CHANNEL),
+			map(({ channelName, connection }) => (
+				joinChannel({
+					connection,
+					namespace: channelName,
+				})
+			)),
+		)
 	)
 )
 
-const leaveChannelRequestEpic = action$ => (
-	action$
-	.pipe(
-		ofRequestType(LEAVE_CHANNEL),
-		map(({ channelName, connection }) => (
-			leaveChannel(
-				channelName,
-				connection
-			)
-		)),
+const leaveChannelRequestEpic = (
+	action$ => (
+		action$
+		.pipe(
+			ofRequestType(LEAVE_CHANNEL),
+			map(({ channelName, connection }) => (
+				leaveChannel({
+					connection,
+					namespace: channelName,
+				})
+			)),
+		)
 	)
 )
 
