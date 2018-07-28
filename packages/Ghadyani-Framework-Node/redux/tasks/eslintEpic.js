@@ -18,7 +18,7 @@ const eslintEpic = (
 		.pipe(
 			ofType(START_TASK),
 			ofTaskName(
-				'eslint',
+				'lint',
 				'undefined',
 			),
 			switchMap(() => (
