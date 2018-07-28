@@ -1,5 +1,5 @@
-const { filter, mergeMap } = require('rxjs/operators')
-const { merge, of } = require('rxjs')
+const { filter, map, mergeMap } = require('rxjs/operators')
+const { of } = require('rxjs')
 const { ofType } = require('redux-observable')
 
 const {

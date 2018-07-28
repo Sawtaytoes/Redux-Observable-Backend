@@ -1,4 +1,4 @@
-const { map, mergeMap, tap } = require('rxjs/operators')
+const { map, mergeMap } = require('rxjs/operators')
 const { ofType } = require('redux-observable')
 
 const stateSelector = require('@ghadyani-framework/node/redux/utils/rxjs/stateSelector')
