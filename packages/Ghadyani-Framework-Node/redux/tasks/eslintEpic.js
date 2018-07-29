@@ -4,13 +4,8 @@ const { ofType } = require('redux-observable')
 const ofTaskName = require('./utils/ofTaskName')
 const runEslint = require('./utils/runEslint')
 const stateSelector = require('$redux/utils/rxjs/stateSelector')
-const { defaultConfigurationsNamespace } = require('$redux/configurations/actions')
 const { getConfigurationSet } = require('$redux/configurations/selectors')
 const { START_TASK } = require('./actions')
-
-const configurationSetProps = {
-	namespace: defaultConfigurationsNamespace,
-}
 
 const eslintEpic = (
 	(action$, state$) => (
@@ -23,7 +18,6 @@ const eslintEpic = (
 			),
 			switchMap(() => (
 				stateSelector({
-					props: configurationSetProps,
 					selector: getConfigurationSet,
 					state$,
 				})

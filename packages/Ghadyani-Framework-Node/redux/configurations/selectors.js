@@ -1,8 +1,14 @@
+const { defaultConfigurationsNamespace } = require('$redux/configurations/actions')
+
 const getConfigurationSet = (
-	({ configurations }, { namespace }) => (
+	({ configurations }, props) => (
 		configurations
 		.configurationSets
-		.get(namespace)
+		.get(
+			props
+			? props.namespace
+			: defaultConfigurationsNamespace
+		)
 	)
 )
 
