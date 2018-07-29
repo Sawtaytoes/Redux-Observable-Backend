@@ -1,9 +1,9 @@
 const chalk = require('chalk')
-const simpleMap = require('$redux/utils/rxjs/simpleMap')
+const simpleMap = require('$redux/utils/simpleMap')
 const { fromEvent, of } = require('rxjs')
 const { ignoreElements, mergeMap, pluck, tap } = require('rxjs/operators')
 
-const handleUncaughtExceptions = (
+const logUncaughtExceptions = (
 	fromEvent(
 		process,
 		'uncaughtException',
@@ -21,4 +21,4 @@ const handleUncaughtExceptions = (
 	)
 )
 
-module.exports = handleUncaughtExceptions
+module.exports = logUncaughtExceptions

@@ -2,17 +2,14 @@
 require('@ghadyani-framework/setup-module-aliases')(__dirname)
 
 // Load this before any other file
-const handleUncaughtExceptions = require('$utils/handleUncaughtExceptions')
+const logUncaughtExceptions = require('$utils/logUncaughtExceptions')
 
-const createConfigurationSet = require('$redux/configurations/utils/createConfigurationSet')
-const createReduxStore = require('$redux/utils/createReduxStore')
-const runTasks = require('$redux/tasks/utils/runTasks')
-
-handleUncaughtExceptions
+logUncaughtExceptions
 .subscribe()
 
 module.exports = {
-	createConfigurationSet,
-	createReduxStore,
-	runTasks,
+	createConfigurationSet: require('$redux/configurations/utils/createConfigurationSet'),
+	createReduxStore: require('$redux/utils/createReduxStore'),
+	runTasks: require('$redux/tasks/utils/runTasks'),
+	safeImport: require('$utils/safeImport'),
 }

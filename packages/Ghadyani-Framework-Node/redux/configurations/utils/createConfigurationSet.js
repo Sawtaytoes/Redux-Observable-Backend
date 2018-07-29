@@ -2,7 +2,7 @@ const convertToConfigurationSet = require('./convertToConfigurationSet')
 const createCustomConfigurationSet = require('./createCustomConfigurationSet')
 const defaultConfigurationSet = require('$redux/configurations/utils/defaultConfigurationSet')
 const defaultEnvironmentVariablesConversions = require('$redux/configurations/utils/defaultEnvironmentVariablesConversions')
-const requireConfigFile = require('$utils/requireConfigFile')
+const importConfigFile = require('./importConfigFile')
 const sanitizeConfigurationSet = require('./sanitizeConfigurationSet')
 const { doublePrefixFormatter } = require('./dynamicEnvironmentVariables')
 
@@ -11,8 +11,19 @@ const {
 	copyFromConfigurationSet,
 } = require('../actions')
 
-const projectConfigurationSet = requireConfigFile('projectConfig', {})
-const localConfigurationSet = requireConfigFile('localConfig', {})
+const projectConfigurationSet = (
+	importConfigFile(
+		'projectConfig',
+		{},
+	)
+)
+
+const localConfigurationSet = (
+	importConfigFile(
+		'localConfig',
+		{},
+	)
+)
 
 const createConfigurationSet = ({
 	additionalConfigurationSetSanitization = (
