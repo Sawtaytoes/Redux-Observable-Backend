@@ -25,7 +25,6 @@
         "babelrc": false
       }
     },
-    "concurrency": 5,
     "files": [
       "redux/**/*.test.js",
       "utils/**/*.test.js"
