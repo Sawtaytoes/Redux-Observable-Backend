@@ -41,7 +41,6 @@
     "ava": "^1.0.0-beta.6",
     "chalk": "^2.4.1",
     "is-equal": "^1.5.5",
-    "module-alias": "^2.1.0",
     "nodemon": "^1.18.3",
     "redux": "^4.0.0",
     "redux-mock-store": "^1.5.3",
