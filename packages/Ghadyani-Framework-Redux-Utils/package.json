@@ -1,0 +1,45 @@
+{
+  "name": "@ghadyani-framework/redux-utils",
+  "version": "0.0.0",
+  "description": "Redux helper functions and middleware.",
+  "license": "MITNFA",
+  "scripts": {
+    "debug": "nodemon --inspect .",
+    "lint": "eslint .",
+    "start": "yarn && eslint . && nodemon .",
+    "test": "ava",
+    "test:watch": "ava --watch"
+  },
+  "engines": {
+    "node": "^10.7.0",
+    "yarn": "^1.7.0"
+  },
+  "_moduleAliases": {
+    "$utils": "./utils"
+  },
+  "ava": {
+    "babel": {
+      "testOptions": {
+        "babelrc": false
+      }
+    },
+    "files": [
+      "utils/**/*.test.js"
+    ],
+    "sources": [
+      "**/*.js"
+    ]
+  },
+  "dependencies": {
+    "is-equal": "^1.5.5",
+    "rxjs": "^6.2.2",
+    "uuid": "^3.3.2",
+    "yargs": "^12.0.1"
+  },
+  "devDependencies": {
+    "@ghadyani-framework/base": "^0.0.3"
+  },
+  "peerDependencies": {
+    "@ghadyani-framework/base": "^0.x.x"
+  }
+}
