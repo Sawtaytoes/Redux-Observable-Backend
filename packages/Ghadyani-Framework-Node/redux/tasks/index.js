@@ -1,8 +1,6 @@
 const { combineEpics } = require('redux-observable')
-const { combineReducers } = require('redux')
 
 const eslintEpic = require('./eslintEpic')
-const tasksListReducer = require('./tasksListReducer')
 
 const tasksEpic = (
 	combineEpics(
@@ -10,13 +8,6 @@ const tasksEpic = (
 	)
 )
 
-const tasksReducer = (
-	combineReducers({
-		tasksList: tasksListReducer,
-	})
-)
-
 module.exports = {
 	tasksEpic,
-	tasksReducer,
 }
