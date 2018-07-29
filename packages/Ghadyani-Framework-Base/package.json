@@ -1,0 +1,42 @@
+{
+  "name": "@ghadyani-framework/base",
+  "version": "0.0.0",
+  "description": "Base packages Ghadyani Framework applications.",
+  "license": "MITNFA",
+  "scripts": {
+    "debug": "nodemon --inspect .",
+    "lint": "eslint .",
+    "start": "yarn && eslint . && nodemon .",
+    "test": "ava",
+    "test:watch": "ava --watch"
+  },
+  "engines": {
+    "node": "^10.7.0",
+    "yarn": "^1.7.0"
+  },
+  "_moduleAliases": {
+    "$utils": "./utils"
+  },
+  "ava": {
+    "babel": {
+      "testOptions": {
+        "babelrc": false
+      }
+    },
+    "files": [
+      "utils/**/*.test.js"
+    ],
+    "sources": [
+      "**/*.js"
+    ]
+  },
+  "dependencies": {
+    "@ghadyani-framework/eslint-config-base": "^0.0.3",
+    "@ghadyani-framework/eslint-config-node": "^0.0.3",
+    "@ghadyani-framework/setup-module-aliases": "^0.0.0",
+    "ava": "^1.0.0-beta.6",
+    "chalk": "^2.4.1",
+    "nodemon": "^1.18.3",
+    "rxjs": "^6.2.2"
+  }
+}
