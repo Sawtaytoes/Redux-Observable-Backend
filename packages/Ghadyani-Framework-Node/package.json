@@ -16,8 +16,7 @@
     "yarn": "^1.7.0"
   },
   "_moduleAliases": {
-    "$redux": "./redux",
-    "$utils": "./utils"
+    "$redux": "./redux"
   },
   "ava": {
     "babel": {
@@ -26,26 +25,25 @@
       }
     },
     "files": [
-      "redux/**/*.test.js",
-      "utils/**/*.test.js"
+      "redux/**/*.test.js"
     ],
     "sources": [
       "**/*.js"
     ]
   },
   "dependencies": {
-    "@ghadyani-framework/eslint-config-base": "^0.0.3",
-    "@ghadyani-framework/eslint-config-node": "^0.0.3",
-    "@ghadyani-framework/setup-module-aliases": "^0.0.0",
-    "ava": "^1.0.0-beta.6",
-    "chalk": "^2.4.1",
+    "@ghadyani-framework/base": "^0.0.0",
     "is-equal": "^1.5.5",
-    "nodemon": "^1.18.3",
     "redux": "^4.0.0",
     "redux-mock-store": "^1.5.3",
     "redux-observable": "^1.0.0",
-    "rxjs": "^6.2.2",
     "uuid": "^3.3.2",
     "yargs": "^12.0.1"
+  },
+  "devDependencies": {
+    "@ghadyani-framework/redux-utils": "^0.0.1"
+  },
+  "peerDependencies": {
+    "@ghadyani-framework/redux-utils": "^0.x.x"
   }
 }

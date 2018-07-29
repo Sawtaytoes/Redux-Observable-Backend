@@ -8,7 +8,6 @@ module.exports = {
 		'import/resolver': {
 			alias: [
 				['$redux', resolve(__dirname, 'redux')],
-				['$utils', resolve(__dirname, 'utils')],
 			],
 		}
 	},
