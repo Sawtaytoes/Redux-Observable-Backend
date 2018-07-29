@@ -1,7 +1,4 @@
-const {
-	createReducer,
-	namespaceReducer,
-} = require('@ghadyani-framework/redux-utils')
+const { createReducer, namespaceReducer } = require('@ghadyani-framework/redux-utils')
 
 const {
 	ADD_CONFIGURATION_SET,
