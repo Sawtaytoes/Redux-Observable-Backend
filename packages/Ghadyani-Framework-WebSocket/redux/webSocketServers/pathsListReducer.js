@@ -1,6 +1,6 @@
-const createReducer = require('@ghadyani-framework/node/redux/utils/createReducer')
-const namespaceReducer = require('@ghadyani-framework/node/redux/utils/namespaceReducer')
 const WebSocket = require('ws')
+const { createReducer, namespaceReducer } = require('@ghadyani-framework/redux-utils')
+
 const { ADD_WEBSOCKET_SERVER } = require('./actions')
 
 const initialState = []

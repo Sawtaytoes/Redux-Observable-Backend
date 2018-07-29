@@ -1,4 +1,6 @@
 const { combineEpics } = require('redux-observable')
+const { combineReducers } = require('redux')
+const { nodeEpic, nodeReducers } = require('@ghadyani-framework/node')
 
 // const { authenticationsEpic, authenticationsReducer } = require('./authentications')
 const { channelsEpic, channelsReducer } = require('./channels')
@@ -15,12 +17,14 @@ const rootEpic = (
 		clientsEpic,
 		httpServersEpic,
 		messagesEpic,
+		nodeEpic,
 		// permissionsEpic,
 		webSocketServersEpic,
 	)
 )
 
 const rootReducers = {
+	...nodeReducers,
 	// authentications: authenticationsReducer,
 	channels: channelsReducer,
 	httpServers: httpServersReducer,
@@ -28,7 +32,14 @@ const rootReducers = {
 	webSocketServers: webSocketServersReducer,
 }
 
+const rootReducer = (
+	combineReducers(
+		rootReducers,
+	)
+)
+
 module.exports = {
 	rootEpic,
 	rootReducers,
+	rootReducer,
 }

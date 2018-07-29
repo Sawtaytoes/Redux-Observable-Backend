@@ -1,10 +1,14 @@
-const handleError = require('@ghadyani-framework/node/utils/handleError')
+const throwError = (
+	(taskName, error) => {
+		throw new Error(`[${taskName}] ${error}`)
+	}
+)
 
 const onListening = (
 	(taskName, serverUrl = '') => (
 		error => (
 			error
-			? handleError(taskName, error)
+			? throwError(taskName, error)
 			: console.info(`[${taskName}]`, serverUrl)
 		)
 	)

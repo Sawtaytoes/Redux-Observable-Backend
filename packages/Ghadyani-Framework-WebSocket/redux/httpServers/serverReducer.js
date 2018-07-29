@@ -1,6 +1,6 @@
 const http = require('http')
 
-const createReducer = require('@ghadyani-framework/node/redux/utils/createReducer')
+const { createReducer } = require('@ghadyani-framework/redux-utils')
 const { ADD_HTTP_SERVER } = require('./actions')
 
 const initialState = []
