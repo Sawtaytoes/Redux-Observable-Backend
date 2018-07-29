@@ -10,6 +10,7 @@ logUncaughtExceptions
 module.exports = {
 	createConfigurationSet: require('$redux/configurations/utils/createConfigurationSet'),
 	createReduxStore: require('$redux/utils/createReduxStore'),
+	ofTaskName: require('$redux/tasks/utils/ofTaskName'),
 	runTasks: require('$redux/tasks/utils/runTasks'),
 	safeImport: require('$utils/safeImport'),
 }
