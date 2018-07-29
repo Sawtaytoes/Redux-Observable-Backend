@@ -38,7 +38,7 @@
     "ws": "^6.0.0"
   },
   "devDependencies": {
-    "@ghadyani-framework/node": "^1.1.2"
+    "@ghadyani-framework/node": "^1.1.3"
   },
   "peerDependencies": {
     "@ghadyani-framework/node": "1.x.x"
