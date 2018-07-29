@@ -1,7 +1,12 @@
 const { combineEpics } = require('redux-observable')
+const { combineReducers } = require('redux')
 
-const { configurationsEpic, configurationsReducer } = require('./configurations')
 const { tasksEpic } = require('./tasks')
+
+const {
+	configurationsEpic,
+	configurationsReducer,
+} = require('./configurations')
 
 const rootEpic = (
 	combineEpics(
@@ -14,7 +19,14 @@ const rootReducers = {
 	configurations: configurationsReducer,
 }
 
+const rootReducer = (
+	combineReducers(
+		rootReducers,
+	)
+)
+
 module.exports = {
 	rootEpic,
 	rootReducers,
+	rootReducer,
 }

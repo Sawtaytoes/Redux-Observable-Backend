@@ -7,9 +7,15 @@ const logUncaughtExceptions = require('$utils/logUncaughtExceptions')
 logUncaughtExceptions
 .subscribe()
 
+const {
+	rootEpic,
+	rootReducers,
+} = require('$redux')
+
 module.exports = {
 	createConfigurationSet: require('$redux/configurations/utils/createConfigurationSet'),
-	createReduxStore: require('$redux/utils/createReduxStore'),
+	nodeEpic: rootEpic,
+	nodeReducers: rootReducers,
 	ofTaskName: require('$redux/tasks/utils/ofTaskName'),
 	runTasks: require('$redux/tasks/utils/runTasks'),
 	safeImport: require('$utils/safeImport'),
