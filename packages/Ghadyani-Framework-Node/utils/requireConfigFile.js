@@ -1,9 +1,9 @@
 const fs = require('fs')
 
-const addRootFilePath = require('$utils/addRootFilePath')
+const addProjectRootPath = require('$utils/addProjectRootPath')
 
 const requireConfigFile = (filename, defaultValue) => {
-	const filePath = addRootFilePath(filename)
+	const filePath = addProjectRootPath(filename)
 
 	return (
 		fs.existsSync(filePath)

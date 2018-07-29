@@ -9,7 +9,7 @@ const basePath = (
 	)
 )
 
-const addRootFilePath = (
+const addProjectRootPath = (
 	(filename, extension = '.js') => (
 		path
 		.join(
@@ -22,4 +22,4 @@ const addRootFilePath = (
 	)
 )
 
-module.exports = addRootFilePath
+module.exports = addProjectRootPath
