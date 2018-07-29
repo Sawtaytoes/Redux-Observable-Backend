@@ -15,12 +15,11 @@ const joinChannelRequestEpic = (
 		action$
 		.pipe(
 			ofRequestType(JOIN_CHANNEL),
-			map(({ channelName, connection }) => (
-				joinChannel({
-					connection,
-					namespace: channelName,
-				})
-			)),
+			map(({ channelName, connection }) => ({
+				connection,
+				namespace: channelName,
+			})),
+			map(joinChannel),
 		)
 	)
 )
