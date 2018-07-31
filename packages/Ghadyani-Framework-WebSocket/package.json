@@ -1,6 +1,6 @@
 {
   "name": "@ghadyani-framework/websocket",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Utilities for creating applications using WebSockets.",
   "license": "MITNFA",
   "scripts": {
