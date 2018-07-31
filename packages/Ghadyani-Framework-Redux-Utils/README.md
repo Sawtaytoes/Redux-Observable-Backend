@@ -1,10 +1,24 @@
 # Redux Helpers for Ghadyani Framework Packages
 Redux helper functions and middleware.
 
-## Redux Middleware
+## Installation
+
+### `npm`
+```sh
+npm i @ghadyani-framework/redux-utils @ghadyani-framework/base
+```
+
+### `yarn`
+```sh
+yarn add @ghadyani-framework/redux-utils @ghadyani-framework/base
+```
+
+## API
+
+### Redux Middleware
 - `createActionLoggerMiddleware`
 
-## fp Reducer Patterns
+### fp Reducer Patterns
 - `createMergeById`
 - `createNamespaceReducer`
 - `createReducer`
@@ -12,7 +26,7 @@ Redux helper functions and middleware.
 - `namespaceReducer` **[deprecated]**
 - `reduceReducers` **[deprecated]**
 
-## RxJS Utilities
+### RxJS Utilities
 - `mapToState`
 - `simpleMap`
 - `stateSelector`
