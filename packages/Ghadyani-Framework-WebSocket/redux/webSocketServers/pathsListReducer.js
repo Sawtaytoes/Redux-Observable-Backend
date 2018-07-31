@@ -1,5 +1,5 @@
 const WebSocket = require('ws')
-const { createReducer, namespaceReducer } = require('@ghadyani-framework/redux-utils')
+const { createNamespaceReducer, createReducer } = require('@ghadyani-framework/redux-utils')
 
 const { ADD_WEBSOCKET_SERVER } = require('./actions')
 
@@ -25,7 +25,7 @@ const reducerActions = {
 }
 
 const pathsListReducer = (
-	namespaceReducer(
+	createNamespaceReducer(
 		createReducer(
 			reducerActions,
 			initialState,
