@@ -6,5 +6,6 @@ Redux helper functions and middleware.
 - `createReducer`
 - `mapToState`
 - `namespaceReducer`
+- `reduceReducers`
 - `simpleMap`
 - `stateSelector`

@@ -6,6 +6,7 @@ module.exports = {
 	createReducer: require('$utils/createReducer'),
 	mapToState: require('$utils/mapToState'),
 	namespaceReducer: require('$utils/namespaceReducer'),
+	reduceReducers: require('$utils/reduceReducers'),
 	simpleMap: require('$utils/simpleMap'),
 	stateSelector: require('$utils/stateSelector'),
 }
