@@ -40,6 +40,6 @@
     "@ghadyani-framework/base": "^0.1.0"
   },
   "peerDependencies": {
-    "@ghadyani-framework/base": "^0.x.x"
+    "@ghadyani-framework/base": ">=0.1.0 <1"
   }
 }
