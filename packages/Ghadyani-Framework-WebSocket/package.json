@@ -37,12 +37,12 @@
     "ws": "^6.0.0"
   },
   "devDependencies": {
-    "@ghadyani-framework/node": "^2.1.0",
-    "@ghadyani-framework/redux-utils": "^0.0.1"
+    "@ghadyani-framework/node": "^2.2.0",
+    "@ghadyani-framework/redux-utils": "^0.1.2"
   },
   "peerDependencies": {
-    "@ghadyani-framework/node": "2.x.x",
-    "@ghadyani-framework/redux-utils": "^0.x.x"
+    "@ghadyani-framework/node": ">=2.1.0 <3",
+    "@ghadyani-framework/redux-utils": ">=0.1.1 <1"
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.0",
