@@ -8,6 +8,7 @@ logUncaughtExceptions
 .subscribe()
 
 module.exports = {
+	createDeprecationMessage: require('$utils/createDeprecationMessage'),
 	removeFilePathFromRequireCache: require('$utils/removeFilePathFromRequireCache'),
 	safeImport: require('$utils/safeImport'),
 	simpleMap: require('$utils/simpleMap'),
