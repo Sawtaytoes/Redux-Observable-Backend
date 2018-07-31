@@ -1,12 +1,14 @@
 # Base Packages for Ghadyani Framework
 Base packages Ghadyani Framework applications.
 
-## Import Mechanisms
+## API
+
+### Import Mechanisms
 - `removeFilePathFromRequireCache`
 - `safeImport`
 
-## Node.js Framework Helpers
+### Node.js Framework Helpers
 - `createDeprecationMessage`
 
-## RxJS
+### RxJS
 - `simpleMap`
