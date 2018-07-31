@@ -1,6 +1,7 @@
 const { combineEpics } = require('redux-observable')
 const { combineReducers } = require('redux')
 
+const { cliEpic } = require('./cli')
 const { tasksEpic } = require('./tasks')
 
 const {
@@ -10,6 +11,7 @@ const {
 
 const rootEpic = (
 	combineEpics(
+		cliEpic,
 		configurationsEpic,
 		tasksEpic,
 	)
