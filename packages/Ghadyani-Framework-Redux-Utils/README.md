@@ -5,6 +5,7 @@ Redux helper functions and middleware.
 - `createActionLoggerMiddleware`
 
 ## fp Reducer Patterns
+- `createMergeById`
 - `createNamespaceReducer`
 - `createReducer`
 - `createReduceReducers`

@@ -4,6 +4,7 @@ require('@ghadyani-framework/setup-module-aliases')(__dirname)
 module.exports = {
 	...require('$utils/deprecated'),
 	createActionLoggerMiddleware: require('$utils/createActionLoggerMiddleware'),
+	createMergeById: require('$utils/createMergeById'),
 	createNamespaceReducer: require('$utils/createNamespaceReducer'),
 	createReducer: require('$utils/createReducer'),
 	createReduceReducers: require('$utils/createReduceReducers'),
