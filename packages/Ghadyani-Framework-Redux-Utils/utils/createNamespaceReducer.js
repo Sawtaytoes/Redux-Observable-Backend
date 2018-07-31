@@ -4,11 +4,18 @@ const hasNamespace = namespace => namespace !== undefined
 const hasState = state => state !== undefined
 const isSameStateReference = (newState, oldState) => newState === oldState
 
-const namespaceReducer = reducer => {
+const createNamespaceReducer = reducer => {
 	const initialState = reducer(undefined, {})
 
+	// In a browser, because of superior Redux dev tooling, it's easier to debug when using objects.
+	const initialPrevState = (
+		typeof window !== 'undefined'
+		? {}
+		: new Map()
+	)
+
 	return (
-		(prevState = new Map(), action) => {
+		(prevState = initialPrevState, action) => {
 			const { namespace } = action
 
 			// Added for early-fail performance improvments.
@@ -17,17 +24,36 @@ const namespaceReducer = reducer => {
 				return prevState
 			}
 
-			const prevNamespaceState = prevState.get(namespace)
-			const nextNamespaceState = reducer(prevNamespaceState, action)
+			const prevNamespaceState = (
+				prevState
+				.get(namespace)
+			)
+
+			const nextNamespaceState = (
+				reducer(
+					prevNamespaceState,
+					action,
+				)
+			)
 
 			// If `nextNamespaceState` changed after reducing, that means `action.type` was used in `reducer`.
-			if (isSameStateReference(nextNamespaceState, prevNamespaceState)) {
+			if (
+				isSameStateReference(
+					nextNamespaceState,
+					prevNamespaceState,
+				)
+			) {
 				return prevState
 			}
 
 			// If the namespace state is back to its initial values, it can be safely removed.
 			// Setting `nextNamespaceState` to `initialState` means "remove me".
-			const isNamespaceStateReset = isEqual(nextNamespaceState, initialState)
+			const isNamespaceStateReset = (
+				isEqual(
+					nextNamespaceState,
+					initialState,
+				)
+			)
 
 			// If there wasn't already a state for this namespace, then there are no changes.
 			if (
@@ -41,7 +67,8 @@ const namespaceReducer = reducer => {
 			if (isNamespaceStateReset) {
 				const nextState = new Map(prevState)
 
-				nextState.delete(namespace)
+				nextState
+				.delete(namespace)
 
 				return nextState
 			}
@@ -49,10 +76,13 @@ const namespaceReducer = reducer => {
 			// At this point, we've determined this namespace needs to be updated in our state
 			return (
 				new Map(prevState)
-				.set(namespace, nextNamespaceState)
+				.set(
+					namespace,
+					nextNamespaceState,
+				)
 			)
 		}
 	)
 }
 
-module.exports = namespaceReducer
+module.exports = createNamespaceReducer

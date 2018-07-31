@@ -2,11 +2,12 @@
 require('@ghadyani-framework/setup-module-aliases')(__dirname)
 
 module.exports = {
+	...require('$utils/deprecated'),
 	createActionLoggerMiddleware: require('$utils/createActionLoggerMiddleware'),
+	createNamespaceReducer: require('$utils/createNamespaceReducer'),
 	createReducer: require('$utils/createReducer'),
+	createReduceReducers: require('$utils/createReduceReducers'),
 	mapToState: require('$utils/mapToState'),
-	namespaceReducer: require('$utils/namespaceReducer'),
-	reduceReducers: require('$utils/reduceReducers'),
 	simpleMap: require('$utils/simpleMap'),
 	stateSelector: require('$utils/stateSelector'),
 }

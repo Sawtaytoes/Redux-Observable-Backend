@@ -16,9 +16,11 @@ const getInitialState = (
 	)
 )
 
-const reduceReducers = (
+const createReduceReducers = (
 	(...reducers) => {
-		const initialState = getInitialState(reducers)
+		const initialState = (
+			getInitialState(reducers)
+		)
 
 		return (
 			(prevState = initialState, action) => (
@@ -37,4 +39,4 @@ const reduceReducers = (
 	}
 )
 
-module.exports = reduceReducers
+module.exports = createReduceReducers

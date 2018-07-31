@@ -311,9 +311,9 @@
   dependencies:
     arrify "^1.0.1"
 
-"@ghadyani-framework/base@^0.0.3":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@ghadyani-framework/base/-/base-0.0.1.tgz#48dc8d3570013b5c61e3aff5527e10a2f7e812c9"
+"@ghadyani-framework/base@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@ghadyani-framework/base/-/base-0.1.0.tgz#3d321c6708484aab639ab145e68a2962ad58c3dd"
   dependencies:
     "@ghadyani-framework/eslint-config-base" "^0.0.3"
     "@ghadyani-framework/eslint-config-node" "^0.0.3"

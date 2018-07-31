@@ -1,11 +1,17 @@
 # Redux Helpers for Ghadyani Framework Packages
 Redux helper functions and middleware.
 
-## Helper Functions
+## Redux Middleware
 - `createActionLoggerMiddleware`
+
+## fp Reducer Patterns
+- `createNamespaceReducer`
 - `createReducer`
+- `createReduceReducers`
+- `namespaceReducer` **[deprecated]**
+- `reduceReducers` **[deprecated]**
+
+## RxJS Utilities
 - `mapToState`
-- `namespaceReducer`
-- `reduceReducers`
 - `simpleMap`
 - `stateSelector`
