@@ -1,7 +1,7 @@
 const { map, switchMap } = require('rxjs/operators')
 const { ofType } = require('redux-observable')
 
-const { getConfigurationSet } = require('./selectors')
+const { configurationSetSelector } = require('./selectors')
 const { stateSelector } = require('@ghadyani-framework/redux-utils')
 
 const {
@@ -20,7 +20,7 @@ const duplicateConfigurationSetEpic = (
 			}) => (
 				stateSelector({
 					props: { namespace: configurationSetName },
-					selector: getConfigurationSet,
+					selector: configurationSetSelector,
 					state$,
 				})
 				.pipe(

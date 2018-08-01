@@ -1,6 +1,7 @@
+const { createDeprecationMessage } = require('@ghadyani-framework/base')
 const { defaultConfigurationsNamespace } = require('$redux/configurations/actions')
 
-const getConfigurationSet = (
+const configurationSetSelector = (
 	({ configurations }, props) => (
 		configurations
 		.configurationSets
@@ -13,5 +14,12 @@ const getConfigurationSet = (
 )
 
 module.exports = {
-	getConfigurationSet,
+	configurationSetSelector,
+	getConfigurationSet: (
+		createDeprecationMessage({
+			deprecatedMethodName: 'getConfigurationSet',
+			func: configurationSetSelector,
+			replacementMethodName: 'configurationSetSelector',
+		})
+	),
 }
