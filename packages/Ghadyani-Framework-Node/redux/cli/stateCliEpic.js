@@ -1,7 +1,7 @@
 const chalk = require('chalk')
 const readline = require('readline')
 const { filter, ignoreElements, tap } = require('rxjs/operators')
-const { fromEvent, of } = require('rxjs')
+const { fromEvent } = require('rxjs')
 
 const readlineInterface = (
 	readline
