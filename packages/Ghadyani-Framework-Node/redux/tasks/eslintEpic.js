@@ -3,7 +3,7 @@ const { ofType } = require('redux-observable')
 
 const ofTaskName = require('./utils/ofTaskName')
 const runEslint = require('./utils/runEslint')
-const { getConfigurationSet } = require('$redux/configurations/selectors')
+const { configurationSetSelector } = require('$redux/configurations/selectors')
 const { START_TASK } = require('./actions')
 const { stateSelector } = require('@ghadyani-framework/redux-utils')
 
@@ -18,7 +18,7 @@ const eslintEpic = (
 			),
 			switchMap(() => (
 				stateSelector({
-					selector: getConfigurationSet,
+					selector: configurationSetSelector,
 					state$,
 				})
 				.pipe(

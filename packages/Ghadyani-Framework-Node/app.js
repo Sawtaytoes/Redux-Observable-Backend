@@ -43,6 +43,6 @@ epicMiddleware
 of(store)
 .pipe(
 	tap(createConfigurationSet({})),
-	tap(runTasks('eslint')),
+	tap(runTasks('lint')),
 )
 .subscribe()
