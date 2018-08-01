@@ -1,4 +1,6 @@
-const getWebSocketServer = (
+const { createDeprecationMessage } = require('@ghadyani-framework/base')
+
+const webSocketServerSelector = (
 	({
 		webSocketServers,
 	}, {
@@ -14,5 +16,12 @@ const getWebSocketServer = (
 )
 
 module.exports = {
-	getWebSocketServer,
+	getWebSocketServer: (
+		createDeprecationMessage({
+			deprecatedMethodName: 'getWebSocketServer',
+			func: webSocketServerSelector,
+			replacementMethodName: 'webSocketServerSelector',
+		})
+	),
+	webSocketServerSelector,
 }

@@ -9,7 +9,7 @@ const { stateSelector } = require('@ghadyani-framework/redux-utils')
 
 const getServerUrl = require('./utils/getServerUrl')
 const onListening = require('./utils/onListening')
-const { getHttpServer } = require('./selectors')
+const {httpServerSelector } = require('./selectors')
 
 const configurationSetProps = {
 	namespace: defaultConfigurationsNamespace,
@@ -32,7 +32,7 @@ const startHttpServersEpic = (
 						state$,
 					}),
 					stateSelector({
-						selector: getHttpServer,
+						selector: httpServerSelector,
 						state$,
 					}),
 				)

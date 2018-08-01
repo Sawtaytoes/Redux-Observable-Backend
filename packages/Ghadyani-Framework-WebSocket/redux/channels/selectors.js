@@ -1,12 +1,6 @@
-const getChannel = (
-	({ channels }, { namespace }) => (
-		channels
-		.connectionlist
-		.get(namespace)
-	)
-)
+const { createDeprecationMessage } = require('@ghadyani-framework/base')
 
-const getChannelsList = (
+const channelsListSelector = (
 	({ channels }) => (
 		Array
 		.from(
@@ -17,7 +11,29 @@ const getChannelsList = (
 	)
 )
 
+const channelSelector = (
+	({ channels }, { namespace }) => (
+		channels
+		.connectionlist
+		.get(namespace)
+	)
+)
+
 module.exports = {
-	getChannel,
-	getChannelsList,
+	channelsListSelector,
+	channelSelector,
+	getChannel: (
+		createDeprecationMessage({
+			deprecatedMethodName: 'getChannel',
+			func: channelSelector,
+			replacementMethodName: 'channelSelector',
+		})
+	),
+	getChannelsList: (
+		createDeprecationMessage({
+			deprecatedMethodName: 'getChannelsList',
+			func: channelsListSelector,
+			replacementMethodName: 'channelsListSelector',
+		})
+	),
 }

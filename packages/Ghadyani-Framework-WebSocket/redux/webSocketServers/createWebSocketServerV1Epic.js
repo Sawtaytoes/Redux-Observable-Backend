@@ -14,7 +14,7 @@ const logMessage = require('./utils/logMessage')
 const ofProtocolVersion = require('./utils/ofProtocolVersion')
 const { ADD_WEBSOCKET_SERVER } = require('./actions')
 const { addClient } = require('$redux/clients/actions')
-const { getWebSocketServer } = require('./selectors')
+const { webSocketServerSelector } = require('./selectors')
 
 const createWebSocketServerV1Epic = (
 	(action$, state$) => (
@@ -31,7 +31,7 @@ const createWebSocketServerV1Epic = (
 						namespace,
 						protocolVersion,
 					},
-					selector: getWebSocketServer,
+					selector: webSocketServerSelector,
 					state$,
 				})
 				.pipe(

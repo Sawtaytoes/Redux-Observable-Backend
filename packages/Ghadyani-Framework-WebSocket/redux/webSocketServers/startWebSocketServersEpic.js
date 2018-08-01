@@ -7,8 +7,8 @@ const { START_TASK } = require('@ghadyani-framework/node/redux/tasks/actions')
 const { stateSelector } = require('@ghadyani-framework/redux-utils')
 
 const emitWebSocketConnectionEvent = require('./utils/emitWebSocketConnectionEvent')
-const { getHttpServer } = require('$redux/httpServers/selectors')
-const { getWebSocketServer } = require('./selectors')
+const { httpServerSelector } = require('$redux/httpServers/selectors')
+const { webSocketServerSelector } = require('./selectors')
 
 const startWebSocketServersEpic = (
 	(action$, state$) => (
@@ -21,7 +21,7 @@ const startWebSocketServersEpic = (
 			),
 			switchMap(() => (
 				stateSelector({
-					selector: getHttpServer,
+					selector: httpServerSelector,
 					state$,
 				})
 			)),
@@ -64,7 +64,7 @@ const startWebSocketServersEpic = (
 						),
 						namespace,
 					},
-					selector: getWebSocketServer,
+					selector: webSocketServerSelector,
 					state$,
 				})
 				.pipe(
