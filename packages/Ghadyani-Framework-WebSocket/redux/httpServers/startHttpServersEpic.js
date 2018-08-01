@@ -1,6 +1,6 @@
 const { combineLatest } = require('rxjs')
+const { configurationSetSelector } = require('@ghadyani-framework/node/redux/configurations/selectors')
 const { defaultConfigurationsNamespace } = require('@ghadyani-framework/node/redux/configurations/actions')
-const { getConfigurationSet } = require('@ghadyani-framework/node/redux/configurations/selectors')
 const { ignoreElements, switchMap, tap } = require('rxjs/operators')
 const { ofTaskName } = require('@ghadyani-framework/node')
 const { ofType } = require('redux-observable')
@@ -28,7 +28,7 @@ const startHttpServersEpic = (
 				combineLatest(
 					stateSelector({
 						props: configurationSetProps,
-						selector: getConfigurationSet,
+						selector: configurationSetSelector,
 						state$,
 					}),
 					stateSelector({
