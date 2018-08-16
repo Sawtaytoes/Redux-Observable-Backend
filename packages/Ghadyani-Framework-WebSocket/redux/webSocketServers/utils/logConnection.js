@@ -4,7 +4,7 @@ const { tap } = require('rxjs/operators')
 const title = (
 	chalk
 	.greenBright
-	.bgWhite
+	.bgBlue
 	.bold('[Client Connected]')
 )
 
