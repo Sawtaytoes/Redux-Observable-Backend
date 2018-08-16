@@ -102,7 +102,7 @@ const verifyConnectionObservable = (connectionVerified, token) => (
 				switchMap(signingKey => (
 					verifyJwtObservable(
 						token,
-						signingKey
+						signingKey,
 					)
 					.pipe(
 						catchError(error => {
