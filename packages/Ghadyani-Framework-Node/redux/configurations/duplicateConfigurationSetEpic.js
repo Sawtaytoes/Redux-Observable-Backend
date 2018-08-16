@@ -1,8 +1,8 @@
 const { map, switchMap } = require('rxjs/operators')
 const { ofType } = require('redux-observable')
+const { stateSelector } = require('@ghadyani-framework/redux-utils')
 
 const { configurationSetSelector } = require('./selectors')
-const { stateSelector } = require('@ghadyani-framework/redux-utils')
 
 const {
 	addConfigurationSet,
