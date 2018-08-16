@@ -1,5 +1,5 @@
 const { filter, map, mergeMap } = require('rxjs/operators')
-const { of } = require('rxjs')
+const { from } = require('rxjs')
 const { ofType } = require('redux-observable')
 
 const {
@@ -14,7 +14,7 @@ const broadcastMessageEpic = (
 			ofType(BROADCAST_MESSAGE),
 			filter(({ connections }) => connections),
 			mergeMap(({ connections, message }) => (
-				of(...connections)
+				from(connections)
 				.pipe(
 					map(connection => ({
 						connection,
