@@ -1,6 +1,6 @@
 {
   "name": "@ghadyani-framework/base",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Base packages Ghadyani Framework applications.",
   "license": "MITNFA",
   "scripts": {
