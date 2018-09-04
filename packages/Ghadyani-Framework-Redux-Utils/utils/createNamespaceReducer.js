@@ -1,8 +1,22 @@
 const isEqual = require('is-equal')
 
-const hasNamespace = namespace => namespace !== undefined
-const hasState = state => state !== undefined
-const isSameStateReference = (newState, oldState) => newState === oldState
+const hasNamespace = (
+	namespace => (
+		namespace !== undefined
+	)
+)
+
+const hasState = (
+	state => (
+		state !== undefined
+	)
+)
+
+const isSameStateReference = (
+	(newState, oldState) => (
+		newState === oldState
+	)
+)
 
 const createNamespaceReducer = reducer => {
 	const initialState = reducer(undefined, {})
