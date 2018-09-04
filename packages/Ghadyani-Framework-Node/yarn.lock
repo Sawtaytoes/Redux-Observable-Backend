@@ -311,9 +311,9 @@
   dependencies:
     arrify "^1.0.1"
 
-"@ghadyani-framework/base@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@ghadyani-framework/base/-/base-0.1.0.tgz#3d321c6708484aab639ab145e68a2962ad58c3dd"
+"@ghadyani-framework/base@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@ghadyani-framework/base/-/base-0.2.0.tgz#f39e38ecb867387c4ca91eb7ba3e4f0772728f5e"
   dependencies:
     "@ghadyani-framework/eslint-config-base" "^0.0.3"
     "@ghadyani-framework/eslint-config-node" "^0.0.3"
@@ -335,9 +335,9 @@
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/@ghadyani-framework/eslint-config-node/-/eslint-config-node-0.0.3.tgz#b68c3e01a46816f14eb51f6c8dedd93bd99c3f67"
 
-"@ghadyani-framework/redux-utils@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@ghadyani-framework/redux-utils/-/redux-utils-0.1.2.tgz#effcc0a18d97d9f477588c1e1de7842df1338d4a"
+"@ghadyani-framework/redux-utils@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@ghadyani-framework/redux-utils/-/redux-utils-0.2.0.tgz#ab416ed7b8b8faeccff695c54e5c2ff3510a229e"
   dependencies:
     is-equal "^1.5.5"
 
