@@ -37,8 +37,8 @@
     "ws": "^6.0.0"
   },
   "devDependencies": {
-    "@ghadyani-framework/node": "^2.3.1",
-    "@ghadyani-framework/redux-utils": "^0.1.2"
+    "@ghadyani-framework/node": "^2.4.0",
+    "@ghadyani-framework/redux-utils": "^0.2.0"
   },
   "peerDependencies": {
     "@ghadyani-framework/node": ">=2.1.0 <3",
