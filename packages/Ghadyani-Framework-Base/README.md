@@ -8,7 +8,7 @@ Base packages Ghadyani Framework applications.
 - `safeImport`
 
 ### Node.js Framework Helpers
-- `createDeprecationMessage`
+- `createDeprecatedFunction`
 
 ### RxJS
 - `simpleMap`
