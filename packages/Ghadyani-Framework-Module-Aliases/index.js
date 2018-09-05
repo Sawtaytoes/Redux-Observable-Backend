@@ -29,17 +29,38 @@ const getModifiedRequest = ({
 	parentModule,
 	requestedFilePath,
 }) => {
+	const parentFilePath = (
+		parentModule
+		.paths
+		.find(filePath => (
+			moduleAliases[
+				getBasePathFromFilePath(
+					filePath
+				)
+			]
+		))
+	)
+
+	if (!parentFilePath) {
+		throw new Error(
+			`The file at '${requestedFilePath}' does not exist for alias '${alias}'.`
+			.concat('\n\n')
+			.concat('Verify these paths:')
+			.concat('\n')
+			.concat(
+				JSON
+				.stringify(
+					moduleAliases,
+					null,
+					2,
+				)
+			)
+		)
+	}
+
 	const basePath = (
 		getBasePathFromFilePath(
-			parentModule
-			.paths
-			.find(filePath => (
-				moduleAliases[
-					getBasePathFromFilePath(
-						filePath
-					)
-				]
-			))
+			parentFilePath
 		)
 	)
 
