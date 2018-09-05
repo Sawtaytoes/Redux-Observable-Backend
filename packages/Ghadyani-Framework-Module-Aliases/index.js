@@ -43,7 +43,7 @@ const getModifiedRequest = ({
 
 	if (!parentFilePath) {
 		throw new Error(
-			`The file at '${requestedFilePath}' does not exist for alias '${alias}'.`
+			`The file at '${requestedFilePath}' does not exist.`
 			.concat('\n\n')
 			.concat('Verify these paths:')
 			.concat('\n')
