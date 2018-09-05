@@ -19,6 +19,7 @@ module.exports = {
 	),
 
 	createDeprecatedFunction,
+	deprecateArgument: require('$utils/deprecateArgument'),
 	removeFilePathFromRequireCache: require('$utils/removeFilePathFromRequireCache'),
 	safeImport: require('$utils/safeImport'),
 	simpleMap: require('$utils/simpleMap'),

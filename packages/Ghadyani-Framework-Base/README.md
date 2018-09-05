@@ -9,6 +9,7 @@ Base packages Ghadyani Framework applications.
 
 ### Node.js Framework Helpers
 - `createDeprecatedFunction`
+- `deprecateArgument`
 
 ### RxJS
 - `simpleMap`
