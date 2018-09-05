@@ -1,6 +1,6 @@
 {
   "name": "@ghadyani-framework/setup-module-aliases",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A modified version of the fantastic module-alias package designed for the Ghadyani Framework to include support for `node_modules/`.",
   "license": "MITNFA",
   "devDependencies": {
