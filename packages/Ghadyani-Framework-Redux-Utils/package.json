@@ -34,11 +34,11 @@
     "is-equal": "^1.5.5"
   },
   "devDependencies": {
-    "@ghadyani-framework/base": "^0.1.0",
+    "@ghadyani-framework/base": "^0.3.0",
     "rxjs": "^6.2.2"
   },
   "peerDependencies": {
-    "@ghadyani-framework/base": ">=0.1.0 <1",
+    "@ghadyani-framework/base": ">=0.2.0 <1",
     "rxjs": ">=6.2.2 <7"
   }
 }
