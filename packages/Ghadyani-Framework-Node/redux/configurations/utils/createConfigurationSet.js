@@ -4,6 +4,7 @@ const defaultConfigurationSet = require('$redux/configurations/utils/defaultConf
 const defaultEnvironmentVariablesConversions = require('$redux/configurations/utils/defaultEnvironmentVariablesConversions')
 const importConfigFile = require('./importConfigFile')
 const sanitizeConfigurationSet = require('./sanitizeConfigurationSet')
+const { deprecateArgument } = require('@ghadyani-framework/base')
 const { doublePrefixFormatter } = require('./dynamicEnvironmentVariables')
 
 const {
@@ -26,14 +27,24 @@ const localConfigurationSet = (
 )
 
 const createConfigurationSet = ({
+	additionalConfigurationSetDefaults,
 	additionalConfigurationSetSanitization = (
 		configurationSet => configurationSet
 	),
-	additionalDefaultConfigurationSet,
+	additionalDefaultConfigurationSet, // DEPRECATED
 	configurationCopyList = [],
 	environmentVariableConversions,
 }) => (
 	({ dispatch }) => {
+		additionalDefaultConfigurationSet
+		&& (
+			deprecateArgument({
+				deprecatedArgumentName: 'additionalDefaultConfigurationSet',
+				functionName: 'createConfigurationSet',
+				replacementArgumentName: 'additionalConfigurationSetDefaults',
+			})
+		)
+
 		const environmentVariables = (
 			convertToConfigurationSet({
 				...defaultEnvironmentVariablesConversions,
@@ -45,6 +56,7 @@ const createConfigurationSet = ({
 			additionalConfigurationSetSanitization(
 				sanitizeConfigurationSet({
 					...defaultConfigurationSet,
+					...additionalConfigurationSetDefaults,
 					...additionalDefaultConfigurationSet,
 					...environmentVariables,
 					...projectConfigurationSet,
