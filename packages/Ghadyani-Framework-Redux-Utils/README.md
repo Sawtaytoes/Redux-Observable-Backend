@@ -25,6 +25,7 @@ yarn add @ghadyani-framework/redux-utils @ghadyani-framework/base
 - `createMergeById`
 - [`createNamespaceReducer`](https://medium.com/@Sawtaytoes/the-secret-to-using-redux-createnamespacereducer-d3fed2ccca4a)
 - `createNamespaceReducerCreator` // Extensible function to create namespaceReducer creator functions.
+- `createNamespaceSelector`
 - `createReducer`
 - `createReduceReducers`
 

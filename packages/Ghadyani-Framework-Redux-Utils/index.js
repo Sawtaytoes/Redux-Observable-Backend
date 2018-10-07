@@ -10,6 +10,7 @@ module.exports = {
 	createActionLoggerMiddleware: require('$utils/createActionLoggerMiddleware'),
 	createMappedNamespaceReducer: require('$utils/createMappedNamespaceReducer'),
 	createMergeById: require('$utils/createMergeById'),
+	createNamespaceSelector: require('$utils/createNamespaceSelector'),
 	createNamespaceReducer: require('$utils/createNamespaceReducer'),
 	createNamespaceReducerBase: require('$utils/createNamespaceReducerBase'),
 	createReducer: require('$utils/createReducer'),
