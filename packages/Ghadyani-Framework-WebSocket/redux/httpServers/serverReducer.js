@@ -3,7 +3,7 @@ const http = require('http')
 const { createReducer } = require('@ghadyani-framework/redux-utils')
 const { ADD_HTTP_SERVER } = require('./actions')
 
-const initialState = []
+const initialState = null
 
 const reducerActions = {
 	[ADD_HTTP_SERVER]: (
