@@ -16,16 +16,18 @@ const getPreviousState = ({
 	namespace,
 	prevNamespaceState,
 }) => (
-	prevNamespaceState[namespace]
+	prevNamespaceState
+	.get(namespace)
 )
 
 const removeNamespaceFromState = ({
 	namespace,
 	prevNamespaceState,
 }) => {
-	const nextNamespaceState = { ...prevNamespaceState }
+	const nextNamespaceState = new Map(prevNamespaceState)
 
-	delete nextNamespaceState[namespace]
+	nextNamespaceState
+	.delete(namespace)
 
 	return nextNamespaceState
 }
@@ -34,18 +36,21 @@ const updateNamespaceState = ({
 	namespace,
 	nextState,
 	prevNamespaceState,
-}) => ({
-	...prevNamespaceState,
-	[namespace]: nextState,
-})
+}) => (
+	new Map(prevNamespaceState)
+	.set(
+		namespace,
+		nextState,
+	)
+)
 
-const createNamespaceReducer = (
+const createMappedNamespaceReducer = (
 	reducer,
-	initialNamespaceState = {},
+	initialNamespaceState = new Map(),
 ) => {
-	if (typeof initialNamespaceState !== 'object') {
+	if (!(initialNamespaceState instanceof Map)) {
 		throw new Error(
-			"`initialNamespaceState` not set to type `object` in `createNamespaceReducer`."
+			"`initialNamespaceState` not set to type `Map` in `createMappedNamespaceReducer`."
 		)
 	}
 
@@ -63,4 +68,4 @@ const createNamespaceReducer = (
 	)
 }
 
-module.exports = createNamespaceReducer
+module.exports = createMappedNamespaceReducer
