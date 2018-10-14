@@ -1,22 +1,23 @@
 const { createDeprecatedFunction } = require('@ghadyani-framework/base')
 
-const channelsListSelector = (
-	({ channels }) => (
-		Array
-		.from(
-			channels
-			.connectionList
-			.keys()
-		)
+const channelsListSelector = ({
+	channels,
+}) => (
+	Array
+	.from(
+		channels
+		.connectionList
+		.keys()
 	)
 )
 
 const channelSelector = (
-	({ channels }, { namespace }) => (
-		channels
-		.connectionlist
-		.get(namespace)
-	)
+	{ channels },
+	{ namespace },
+) => (
+	channels
+	.connectionlist
+	.get(namespace)
 )
 
 module.exports = {
