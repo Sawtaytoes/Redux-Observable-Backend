@@ -5,7 +5,7 @@ const webSocketServerSelector = (
 	{
 		namespace,
 		protocolVersion,
-	}
+	},
 ) => (
 	webSocketServers
 	.pathsList
