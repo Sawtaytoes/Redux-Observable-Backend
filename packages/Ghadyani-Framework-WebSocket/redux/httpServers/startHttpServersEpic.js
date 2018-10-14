@@ -16,55 +16,56 @@ const configurationSetProps = {
 }
 
 const startHttpServersEpic = (
-	(action$, state$) => (
-		action$
-		.pipe(
-			ofType(START_TASK),
-			ofTaskName(
-				'serve',
-				'undefined',
-			),
-			switchMap(() => (
-				combineLatest(
-					stateSelector({
-						props: configurationSetProps,
-						selector: configurationSetSelector,
-						state$,
-					}),
-					stateSelector({
-						selector: httpServerSelector,
-						state$,
-					}),
-				)
-			)),
-			tap(([
-				{
-					hostname,
-					port,
-					protocol,
-				},
-				httpServer,
-			]) => (
-				httpServer
-				.listen(
-					port,
-					(
-						onListening(
-							'WebSocket Server running as',
-							(
-								getServerUrl({
-									hostname,
-									port,
-									protocol,
-								})
-								.replace('http', 'ws')
-							)
+	action$,
+	state$,
+) => (
+	action$
+	.pipe(
+		ofType(START_TASK),
+		ofTaskName(
+			'serve',
+			'undefined',
+		),
+		switchMap(() => (
+			combineLatest(
+				stateSelector({
+					props: configurationSetProps,
+					selector: configurationSetSelector,
+					state$,
+				}),
+				stateSelector({
+					selector: httpServerSelector,
+					state$,
+				}),
+			)
+		)),
+		tap(([
+			{
+				hostname,
+				port,
+				protocol,
+			},
+			httpServer,
+		]) => (
+			httpServer
+			.listen(
+				port,
+				(
+					onListening(
+						'WebSocket Server running as',
+						(
+							getServerUrl({
+								hostname,
+								port,
+								protocol,
+							})
+							.replace('http', 'ws')
 						)
 					)
 				)
-			)),
-			ignoreElements(),
-		)
+			)
+		)),
+		ignoreElements(),
 	)
 )
 

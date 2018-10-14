@@ -11,93 +11,94 @@ const { httpServerSelector } = require('$redux/httpServers/selectors')
 const { webSocketServerSelector } = require('./selectors')
 
 const startWebSocketServersEpic = (
-	(action$, state$) => (
-		action$
-		.pipe(
-			ofType(START_TASK),
-			ofTaskName(
-				'serve',
-				'undefined',
+	action$,
+	state$,
+) => (
+	action$
+	.pipe(
+		ofType(START_TASK),
+		ofTaskName(
+			'serve',
+			'undefined',
+		),
+		switchMap(() => (
+			stateSelector({
+				selector: httpServerSelector,
+				state$,
+			})
+		)),
+		switchMap(httpServer => (
+			fromEvent(
+				httpServer,
+				'upgrade',
+			)
+		)),
+		map(([req, socket, head]) => ({
+			head,
+			pathname: (
+				url
+				.parse(
+					req
+					.url
+				)
+				.pathname
 			),
-			switchMap(() => (
-				stateSelector({
-					selector: httpServerSelector,
-					state$,
-				})
-			)),
-			switchMap(httpServer => (
-				fromEvent(
-					httpServer,
-					'upgrade',
-				)
-			)),
-			map(([req, socket, head]) => ({
-				head,
-				pathname: (
-					url
-					.parse(
+			req,
+			socket,
+		})),
+		mergeMap(({
+			pathname: namespace,
+			req,
+			socket,
+			...props
+		}) => (
+			stateSelector({
+				errorCallback: () => {
+					socket
+					.destroy()
+				},
+				props: {
+					protocolVersion: (
 						req
-						.url
-					)
-					.pathname
-				),
-				req,
-				socket,
-			})),
-			mergeMap(({
-				pathname: namespace,
-				req,
-				socket,
-				...props
-			}) => (
-				stateSelector({
-					errorCallback: () => {
-						socket
-						.destroy()
-					},
-					props: {
-						protocolVersion: (
-							req
-							.headers[
-								'sec-websocket-protocol'
-							]
-						),
-						namespace,
-					},
-					selector: webSocketServerSelector,
-					state$,
-				})
-				.pipe(
-					map(webSocketServer => ({
-						...props,
-						namespace,
-						req,
-						socket,
-						webSocketServer,
-					})),
-				)
-			)),
-			map(({
-				head,
-				req,
-				socket,
-				webSocketServer,
-			}) => (
-				webSocketServer
-				.handleUpgrade(
+						.headers[
+							'sec-websocket-protocol'
+						]
+					),
+					namespace,
+				},
+				selector: webSocketServerSelector,
+				state$,
+			})
+			.pipe(
+				map(webSocketServer => ({
+					...props,
+					namespace,
 					req,
 					socket,
-					head,
-					(
-						emitWebSocketConnectionEvent(
-							webSocketServer,
-							req,
-						)
-					),
-				)
-			)),
-			ignoreElements(),
-		)
+					webSocketServer,
+				})),
+			)
+		)),
+		map(({
+			head,
+			req,
+			socket,
+			webSocketServer,
+		}) => (
+			webSocketServer
+			.handleUpgrade(
+				req,
+				socket,
+				head,
+				(
+					emitWebSocketConnectionEvent(
+						webSocketServer,
+						req,
+					)
+				),
+			)
+		)),
+		ignoreElements(),
 	)
 )
 
