@@ -1,4 +1,4 @@
-const { createDeprecationMessage } = require('@ghadyani-framework/base')
+const { createDeprecatedFunction } = require('@ghadyani-framework/base')
 
 const channelsListSelector = (
 	({ channels }) => (
@@ -23,14 +23,14 @@ module.exports = {
 	channelsListSelector,
 	channelSelector,
 	getChannel: (
-		createDeprecationMessage({
+		createDeprecatedFunction({
 			deprecatedMethodName: 'getChannel',
 			func: channelSelector,
 			replacementMethodName: 'channelSelector',
 		})
 	),
 	getChannelsList: (
-		createDeprecationMessage({
+		createDeprecatedFunction({
 			deprecatedMethodName: 'getChannelsList',
 			func: channelsListSelector,
 			replacementMethodName: 'channelsListSelector',

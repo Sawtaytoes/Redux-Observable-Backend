@@ -1,4 +1,4 @@
-const { createDeprecationMessage } = require('@ghadyani-framework/base')
+const { createDeprecatedFunction } = require('@ghadyani-framework/base')
 
 const httpServerSelector = (
 	({ httpServers }) => (
@@ -9,7 +9,7 @@ const httpServerSelector = (
 
 module.exports = {
 	getHttpServer: (
-		createDeprecationMessage({
+		createDeprecatedFunction({
 			deprecatedMethodName: 'getHttpServer',
 			func: httpServerSelector,
 			replacementMethodName: 'httpServerSelector',
