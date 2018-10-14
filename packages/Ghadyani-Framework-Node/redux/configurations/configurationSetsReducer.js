@@ -1,4 +1,4 @@
-const { createNamespaceReducer, createReducer } = require('@ghadyani-framework/redux-utils')
+const { createMappedNamespaceReducer, createReducer } = require('@ghadyani-framework/redux-utils')
 
 const {
 	ADD_CONFIGURATION_SET,
@@ -29,7 +29,7 @@ const reducerActions = {
 }
 
 const configurationSetsReducer = (
-	createNamespaceReducer(
+	createMappedNamespaceReducer(
 		createReducer(
 			reducerActions,
 			initialState,
