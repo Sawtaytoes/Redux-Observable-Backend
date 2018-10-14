@@ -1,3 +1,4 @@
+const chalk = require('chalk')
 const { Observable } = require('rxjs')
 
 const createWebSocketMessageObserver = ({
@@ -20,8 +21,14 @@ const createWebSocketMessageObserver = ({
 				catch (error) {
 					console
 					.info(
-						'Received non-JSON message:',
+						'Possibly received non-JSON message:',
 						message,
+					)
+
+					console
+					.error(
+						chalk
+						.red(error)
 					)
 
 					connection
