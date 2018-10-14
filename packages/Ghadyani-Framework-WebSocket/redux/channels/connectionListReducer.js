@@ -1,4 +1,4 @@
-const { createNamespaceReducer, createReducer } = require('@ghadyani-framework/redux-utils')
+const { createMappedNamespaceReducer, createReducer } = require('@ghadyani-framework/redux-utils')
 
 const {
 	JOIN_CHANNEL,
@@ -33,7 +33,7 @@ const reducerActions = {
 }
 
 const connectionListReducer = (
-	createNamespaceReducer(
+	createMappedNamespaceReducer(
 		createReducer(
 			reducerActions,
 			initialState,
