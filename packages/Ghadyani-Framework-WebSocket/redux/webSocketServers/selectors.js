@@ -1,18 +1,17 @@
 const { createDeprecatedFunction } = require('@ghadyani-framework/base')
 
 const webSocketServerSelector = (
-	({
-		webSocketServers,
-	}, {
+	{ webSocketServers },
+	{
 		namespace,
 		protocolVersion,
-	}) => (
-		webSocketServers
-		.pathsList
-		.get(namespace)[
-			protocolVersion
-		]
-	)
+	}
+) => (
+	webSocketServers
+	.pathsList
+	.get(namespace)[
+		protocolVersion
+	]
 )
 
 module.exports = {
