@@ -18,9 +18,13 @@ const sendMessageEpic = action$ => (
 			),
 		})),
 		tap(({ connection, message }) => (
-			connection.readyState === WebSocket.OPEN
-			? connection.send(message)
-			: connection.close()
+			connection
+			&& (
+				connection.readyState
+				=== WebSocket.OPEN
+				? connection.send(message)
+				: connection.close()
+			)
 		)),
 		ignoreElements(),
 	)
