@@ -43,9 +43,6 @@ const defaultConfigurationSet = {
 	applicationName: 'Unnamed Application',
 	environmentName: 'lol',
 
-	// Denotes usage in an iframe
-	isUsedAsIFrame: false,
-
 	// Domains used when setting up CORS and Content Security Policies
 	validDomains: '',
 
