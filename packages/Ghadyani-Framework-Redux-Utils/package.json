@@ -32,9 +32,6 @@
       "**/*.js"
     ]
   },
-  "dependencies": {
-    "is-equal": "^1.5.5"
-  },
   "devDependencies": {
     "@ghadyani-framework/base": "^0.3.0",
     "rxjs": "^6.2.2"

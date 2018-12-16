@@ -101,6 +101,70 @@ test('Random Namespaced Action', t => {
 	)
 })
 
+test('Two Random Namespaced Actions', t => {
+	const action = {
+		namespace: 'DoNotExecute',
+		type: DO_NOT_EXECUTE,
+	}
+
+	const state = (
+		[
+			action,
+			action,
+		]
+		.reduce(
+			namespacedPayloadReducer,
+			initialNamespaceState,
+		)
+	)
+
+	const expectedState = initialNamespaceState
+
+	t.is(
+		state,
+		expectedState,
+		"State did not change"
+	)
+})
+
+test('Add Payload and Random Namespaced Actions', t => {
+	const namespace = 'TextField'
+	const payload = 'hi'
+
+	const addPayloadAction = (
+		addPayload(
+			namespace,
+			payload,
+		)
+	)
+
+	const randomAction = {
+		namespace,
+		type: DO_NOT_EXECUTE,
+	}
+
+	const state = (
+		[
+			addPayloadAction,
+			randomAction,
+		]
+		.reduce(
+			namespacedPayloadReducer,
+			initialNamespaceState,
+		)
+	)
+
+	const expectedState = ({
+		[namespace]: payload,
+	})
+
+	t.deepEqual(
+		state,
+		expectedState,
+		"State did not change"
+	)
+})
+
 test('Add Payload', t => {
 	const namespace = 'TextField'
 	const payload = 'hi'

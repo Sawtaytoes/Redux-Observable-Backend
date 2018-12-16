@@ -1,16 +1,4 @@
-const isEqual = require('is-equal')
-
 const createNamespaceReducerCreator = require('./createNamespaceReducerCreator')
-
-const compareStates = ({
-	initialState,
-	nextState,
-}) => (
-	isEqual(
-		nextState,
-		initialState,
-	)
-)
 
 const getPreviousState = ({
 	namespace,
@@ -59,7 +47,6 @@ const createMappedNamespaceReducer = (
 			reducer,
 			initialNamespaceState,
 			{
-				compareStates,
 				getPreviousState,
 				removeNamespaceFromState,
 				updateNamespaceState,

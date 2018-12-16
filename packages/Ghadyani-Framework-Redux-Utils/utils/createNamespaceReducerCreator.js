@@ -10,17 +10,10 @@ const hasState = (
 	state !== undefined
 )
 
-const isSameStateReference = (
-	(newState, oldState) => (
-		newState === oldState
-	)
-)
-
 const createNamespaceReducerCreator = (
 	reducer,
 	initialNamespaceState,
 	{
-		compareStates,
 		getPreviousState,
 		removeNamespaceFromState,
 		updateNamespaceState,
@@ -78,10 +71,7 @@ const createNamespaceReducerCreator = (
 		// Setting `nextState` to `initialState` means "remove me".
 		// If the namespace state is back to its initial values, it can be safely removed.
 		const isStateReset = (
-			compareStates({
-				initialState,
-				nextState,
-			})
+			nextState === initialState
 		)
 
 		// If there wasn't already a state for this namespace, there are no changes.
