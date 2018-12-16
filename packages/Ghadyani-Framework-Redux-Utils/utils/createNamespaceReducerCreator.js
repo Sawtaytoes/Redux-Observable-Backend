@@ -1,13 +1,13 @@
 const hasNamespace = (
-	namespace => (
-		namespace !== undefined
-	)
+	namespace,
+) => (
+	namespace !== undefined
 )
 
 const hasState = (
-	state => (
-		state !== undefined
-	)
+	state,
+) => (
+	state !== undefined
 )
 
 const isSameStateReference = (
