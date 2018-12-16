@@ -28,13 +28,13 @@ const createNamespaceReducerCreator = (
 ) => {
 	if (!reducer) {
 		throw new Error(
-			"Missing `reducer` prop in `createNamespaceReducerCreator`."
+			"Missing `reducer` argument in `createNamespaceReducerCreator`."
 		)
 	}
 
 	if (!initialNamespaceState) {
 		throw new Error(
-			"Missing `initialNamespaceState` prop in `createNamespaceReducerCreator`."
+			"Missing `initialNamespaceState` argument in `createNamespaceReducerCreator`."
 		)
 	}
 
