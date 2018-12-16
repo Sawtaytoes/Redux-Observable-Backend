@@ -67,13 +67,12 @@ const createNamespaceReducerCreator = (
 		)
 
 		// If `nextState` didn't change after reducing, that means `action.type` wasn't used in `reducer` and we don't need to do any further complex calculations.
-		if (
-			isSameStateReference(
-				nextState,
-				prevState,
-			)
-		) {
-			return prevState
+		const isStateUnchanged = (
+			nextState === prevState
+		)
+
+		if (isStateUnchanged) {
+			return prevNamespaceState
 		}
 
 		// Setting `nextState` to `initialState` means "remove me".
