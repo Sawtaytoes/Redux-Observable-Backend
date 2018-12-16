@@ -66,7 +66,7 @@ const createNamespaceReducerCreator = (
 			)
 		)
 
-		// If `nextState` changed after reducing, that means `action.type` was captured in `reducer`.
+		// If `nextState` didn't change after reducing, that means `action.type` wasn't used in `reducer` and we don't need to do any further complex calculations.
 		if (
 			isSameStateReference(
 				nextState,
