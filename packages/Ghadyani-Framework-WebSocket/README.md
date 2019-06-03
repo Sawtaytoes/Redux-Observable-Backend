@@ -24,7 +24,19 @@ yarn add @ghadyani-framework/websocket @ghadyani-framework/node @ghadyani-framew
 - `webSocketsEpic`
 - `webSocketsReducers`
 
-## Sample
+## Custom Configuration
+
+### WebSocket Server
+To configure the Webpack listener, you have 3 options available to modify in your `./localConfig.js`:
+
+module.exports = {
+	// ... other config options ...
+	hostname,
+	port,
+	protocol,
+}
+
+## Testing
 
 ### Join a Channel
 To test joining a channel, load up a browser, and go to `about:blank`.
