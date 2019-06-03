@@ -1,3 +1,5 @@
+const chalk = require('chalk')
+
 const tryCatchFinally = ({
 	defaultValue,
 	finallyCallback = Function.prototype,
@@ -16,7 +18,7 @@ const tryCatchFinally = ({
 		return defaultValue
 	}
 	finally {
-		return finallyCallback()
+		finallyCallback()
 	}
 }
 
