@@ -23,4 +23,5 @@ module.exports = {
 	removeFilePathFromRequireCache: require('$utils/removeFilePathFromRequireCache'),
 	safeImport: require('$utils/safeImport'),
 	simpleMap: require('$utils/simpleMap'),
+	tryCatchFinally: require('$utils/tryCatchFinally'),
 }
