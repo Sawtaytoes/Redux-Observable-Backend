@@ -1,13 +1,13 @@
 const chalk = require('chalk')
 
 const logDeprecation = (
-	deprecationMessage => (
-		console
-		.error(
-			chalk
-			.redBright(
-				deprecationMessage
-			)
+	deprecationMessage,
+) => (
+	console
+	.error(
+		chalk
+		.redBright(
+			deprecationMessage
 		)
 	)
 )
