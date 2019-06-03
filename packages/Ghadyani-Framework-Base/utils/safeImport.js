@@ -8,10 +8,10 @@ const safeImport = ({
 }) => (
 	fs.existsSync(filePath)
 	? (
-		tryCatchFinally(
+		tryCatchFinally({
 			defaultValue,
 			tryCallback: () => require(filePath),
-		)
+		})
 	)
 	: defaultValue
 )
