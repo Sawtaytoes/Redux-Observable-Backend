@@ -1,6 +1,6 @@
 {
   "name": "@ghadyani-framework/node",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Utilities for creating Node.js applications.",
   "license": "MITNFA",
   "scripts": {
