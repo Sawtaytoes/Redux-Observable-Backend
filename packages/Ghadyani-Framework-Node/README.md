@@ -20,3 +20,12 @@ yarn add @ghadyani-framework/node @ghadyani-framework/redux-utils
 - `nodeReducers`
 - `ofTaskName`
 - `runTasks`
+
+## Custom Configuration
+
+### NODE_ENV
+To configure your Node environment, you don't have to specify NODE_ENV at the command line or scripting layer. You could instead add a `./localConfig.js` file:
+
+module.exports = {
+	nodeEnv: 'development',
+}

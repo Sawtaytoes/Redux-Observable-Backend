@@ -65,6 +65,13 @@ const createConfigurationSet = ({
 			)
 		)
 
+		process
+		.env
+		.NODE_ENV = (
+			configurationSet
+			.nodeEnv
+		)
+
 		dispatch(
 			addConfigurationSet({
 				configurationSet,
