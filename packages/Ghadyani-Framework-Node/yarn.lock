@@ -272,10 +272,10 @@
   dependencies:
     arrify "^1.0.1"
 
-"@ghadyani-framework/base@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@ghadyani-framework/base/-/base-0.4.0.tgz#51acb2b85320afe914c2bcd3e1e5790b59591c2d"
-  integrity sha512-W4SXg6dC3XUgqS/EVNLBVKkSLpMhjQAlR8i9HC+oqFxenK5lNHNcIoRBjkv3mjlLik5h5sKIInMkyLpujUoPZA==
+"@ghadyani-framework/base@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@ghadyani-framework/base/-/base-0.4.1.tgz#b64787d6752cd9001bd341c99ac558c2bfbd0ce2"
+  integrity sha512-dKglwQ9avsPKgNq+VJrf7ludvGmNeBJsQHGjUFuEuCW1vvR2P7bxqyCOhB2fvjy5oQYATf7uwAx0tMs078Hb+g==
   dependencies:
     "@ghadyani-framework/eslint-config-base" "^0.0.3"
     "@ghadyani-framework/eslint-config-node" "^0.0.3"
