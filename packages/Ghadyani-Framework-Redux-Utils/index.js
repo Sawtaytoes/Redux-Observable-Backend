@@ -7,6 +7,7 @@ require('@ghadyani-framework/base')
 require('@ghadyani-framework/setup-module-aliases')(__dirname)
 
 module.exports = {
+	catchEpicError: require('$utils/catchEpicError'),
 	createActionLoggerMiddleware: require('$utils/createActionLoggerMiddleware'),
 	createMappedNamespaceReducer: require('$utils/createMappedNamespaceReducer'),
 	createMergeById: require('$utils/createMergeById'),
