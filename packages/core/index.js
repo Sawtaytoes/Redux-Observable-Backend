@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 require('better-module-alias')(__dirname)
 
-// Load this before any other file
+// Load this before any other file to ensure uncaught errors are logged
 const logUncaughtExceptions = require('$utils/logUncaughtExceptions')
 
 logUncaughtExceptions
