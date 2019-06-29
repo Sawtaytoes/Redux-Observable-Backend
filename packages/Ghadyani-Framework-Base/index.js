@@ -7,18 +7,8 @@ const logUncaughtExceptions = require('$utils/logUncaughtExceptions')
 logUncaughtExceptions
 .subscribe()
 
-const createDeprecatedFunction = require('$utils/createDeprecatedFunction')
-
 module.exports = {
-	createDeprecationMessage: (
-		createDeprecatedFunction({
-			deprecatedMethodName: 'createDeprecationMessage',
-			func: createDeprecatedFunction,
-			replacementMethodName: 'createDeprecatedFunction',
-		})
-	),
-
-	createDeprecatedFunction,
+	createDeprecatedFunction: require('$utils/createDeprecatedFunction'),
 	deprecateArgument: require('$utils/deprecateArgument'),
 	removeFilePathFromRequireCache: require('$utils/removeFilePathFromRequireCache'),
 	safeImport: require('$utils/safeImport'),
