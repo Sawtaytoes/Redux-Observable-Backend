@@ -28,6 +28,3 @@ yarn add @redux-observable-backend/redux-utils @redux-observable-backend/core
 - `createNamespaceSelector`
 - `createReducer`
 - `createReduceReducers`
-
-### RxJS Utilities
-- `mapToState`
