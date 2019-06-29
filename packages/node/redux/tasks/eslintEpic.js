@@ -8,23 +8,24 @@ const { selectConfigurationSet } = require('$redux/configurations/selectors')
 const { START_TASK } = require('./actions')
 
 const eslintEpic = (
-	(action$, state$) => (
-		action$
-		.pipe(
-			ofType(START_TASK),
-			ofTaskName(
-				'lint',
-				'undefined',
-			),
-			switchMap(() => (
-				of(state$.value)
-				.pipe(
-					map(selectConfigurationSet),
-					tap(runEslint),
-					ignoreElements(),
-				)
-			)),
-		)
+	action$,
+	state$,
+) => (
+	action$
+	.pipe(
+		ofType(START_TASK),
+		ofTaskName(
+			'lint',
+			'undefined',
+		),
+		switchMap(() => (
+			of(state$.value)
+			.pipe(
+				map(selectConfigurationSet),
+				tap(runEslint),
+				ignoreElements(),
+			)
+		)),
 	)
 )
 
