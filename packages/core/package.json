@@ -1,7 +1,7 @@
 {
-  "name": "@redux-observable-backend/base",
+  "name": "@redux-observable-backend/core",
   "version": "0.4.1",
-  "description": "Base packages Ghadyani Framework applications.",
+  "description": "Core packages Redux-Observable Backend.",
   "license": "MITNFA",
   "scripts": {
     "debug": "nodemon --inspect .",
