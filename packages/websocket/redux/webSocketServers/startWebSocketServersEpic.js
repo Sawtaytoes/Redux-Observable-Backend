@@ -1,9 +1,9 @@
 const url = require('url')
 const { catchEpicError } = require('@redux-observable-backend/redux-utils')
+const { catchError, ignoreElements, map, mergeMap, switchMap, tap } = require('rxjs/operators')
 const { fromEvent, of, throwError } = require('rxjs')
-const { catchError, ignoreElements, map, mergeMap, switchMap } = require('rxjs/operators')
-const { ofType } = require('redux-observable')
 const { ofTaskName, tasks } = require('@redux-observable-backend/node')
+const { ofType } = require('redux-observable')
 
 const emitWebSocketConnectionEvent = require('./utils/emitWebSocketConnectionEvent')
 const { selectHttpServer } = require('$redux/httpServers/selectors')
@@ -78,25 +78,33 @@ const startWebSocketServersEpic = (
 				catchEpicError(),
 			)
 		)),
-		map(({
+		tap(({
 			head,
 			req,
 			socket,
 			webSocketServer,
 		}) => (
 			webSocketServer
-			.handleUpgrade(
-				req,
-				socket,
-				head,
-				(
-					emitWebSocketConnectionEvent(
-						webSocketServer,
-						req,
-					)
-				),
+			? (
+				webSocketServer
+				.handleUpgrade(
+					req,
+					socket,
+					head,
+					(
+						emitWebSocketConnectionEvent(
+							webSocketServer,
+							req,
+						)
+					),
+				)
+			)
+			: (
+				socket
+				.destroy()
 			)
 		)),
+		catchEpicError(),
 		ignoreElements(),
 	)
 )

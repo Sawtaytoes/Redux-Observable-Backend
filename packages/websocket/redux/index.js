@@ -20,6 +20,11 @@ const {
 } = require('./clients')
 
 const {
+	externalConnectionsEpic,
+	externalConnectionsReducer,
+} = require('./externalConnections')
+
+const {
 	httpServersEpic,
 	httpServersReducer,
 } = require('./httpServers')
@@ -39,6 +44,7 @@ const rootEpic = (
 		// authenticationsEpic,
 		channelsEpic,
 		clientsEpic,
+		externalConnectionsEpic,
 		httpServersEpic,
 		messagesEpic,
 		nodeEpic,
@@ -52,6 +58,7 @@ const rootReducers = {
 	// authentications: authenticationsReducer,
 	channels: channelsReducer,
 	clients: clientsReducer,
+	externalConnections: externalConnectionsReducer,
 	httpServers: httpServersReducer,
 	// permissions: permissionsReducer,
 	webSocketServers: webSocketServersReducer,
