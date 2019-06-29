@@ -6,16 +6,14 @@ const createDeprecatedFunction = ({
 	replacementMethodName,
 }) => (
 	(...args) => {
-		replacementMethodName
-		? (
-			logDeprecation(
+		logDeprecation(
+			replacementMethodName
+			? (
 				`\`${deprecatedMethodName}\` is deprecated.`
 				.concat(' ')
 				.concat(`Use \`${replacementMethodName}\` instead.`)
 			)
-		)
-		: (
-			logDeprecation(
+			: (
 				`\`${deprecatedMethodName}\` is deprecated.`
 				.concat(' ')
 				.concat(`This function will be entirely removed in a future update.`)
