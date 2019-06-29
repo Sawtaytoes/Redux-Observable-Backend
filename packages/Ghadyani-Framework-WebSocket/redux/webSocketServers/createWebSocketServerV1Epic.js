@@ -1,7 +1,7 @@
 const { map, mergeMap } = require('rxjs/operators')
 const { merge, of } = require('rxjs')
 const { ofType } = require('redux-observable')
-const { stateSelector } = require('@ghadyani-framework/redux-utils')
+const { stateSelector } = require('@redux-observable-backend/redux-utils')
 
 const createWebSocketConnectionObservable = require('./utils/createWebSocketConnectionObservable')
 const createWebSocketMessageObservable = require('./utils/createWebSocketMessageObservable')

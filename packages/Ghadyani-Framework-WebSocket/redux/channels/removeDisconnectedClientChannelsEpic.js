@@ -1,6 +1,6 @@
 const { map, mergeMap, switchMap } = require('rxjs/operators')
 const { ofType } = require('redux-observable')
-const { stateSelector } = require('@ghadyani-framework/redux-utils')
+const { stateSelector } = require('@redux-observable-backend/redux-utils')
 
 const { channelsListSelector } = require('./selectors')
 const { leaveChannel } = require('$redux/channels/actions')

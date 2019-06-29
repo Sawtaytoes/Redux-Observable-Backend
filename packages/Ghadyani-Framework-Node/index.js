@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-require('@ghadyani-framework/setup-module-aliases')(__dirname)
-require('@ghadyani-framework/base')
+require('@redux-observable-backend/setup-module-aliases')(__dirname)
+require('@redux-observable-backend/base')
 
 const {
 	rootEpic,

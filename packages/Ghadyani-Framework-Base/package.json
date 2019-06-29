@@ -1,5 +1,5 @@
 {
-  "name": "@ghadyani-framework/base",
+  "name": "@redux-observable-backend/base",
   "version": "0.4.1",
   "description": "Base packages Ghadyani Framework applications.",
   "license": "MITNFA",
@@ -31,9 +31,9 @@
     ]
   },
   "dependencies": {
-    "@ghadyani-framework/eslint-config-base": "^0.0.3",
-    "@ghadyani-framework/eslint-config-node": "^0.0.3",
-    "@ghadyani-framework/setup-module-aliases": "^0.0.2",
+    "@redux-observable-backend/eslint-config-base": "^0.0.3",
+    "@redux-observable-backend/eslint-config-node": "^0.0.3",
+    "@redux-observable-backend/setup-module-aliases": "^0.0.2",
     "ava": "^2.0.0",
     "chalk": "^2.4.2",
     "nodemon": "^1.19.1",

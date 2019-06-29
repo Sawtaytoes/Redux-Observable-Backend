@@ -1,4 +1,4 @@
-const { createDeprecatedFunction } = require('@ghadyani-framework/base')
+const { createDeprecatedFunction } = require('@redux-observable-backend/base')
 
 const channelsListSelector = ({
 	channels,

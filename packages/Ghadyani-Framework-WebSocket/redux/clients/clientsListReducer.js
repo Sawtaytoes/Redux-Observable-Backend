@@ -1,4 +1,4 @@
-const { createReducer } = require('@ghadyani-framework/redux-utils')
+const { createReducer } = require('@redux-observable-backend/redux-utils')
 
 const {
 	ADD_CLIENT,

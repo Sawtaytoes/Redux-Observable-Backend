@@ -1,10 +1,10 @@
 const url = require('url')
 const { fromEvent } = require('rxjs')
 const { ignoreElements, map, mergeMap, switchMap } = require('rxjs/operators')
-const { ofTaskName } = require('@ghadyani-framework/node')
+const { ofTaskName } = require('@redux-observable-backend/node')
 const { ofType } = require('redux-observable')
-const { START_TASK } = require('@ghadyani-framework/node/redux/tasks/actions')
-const { stateSelector } = require('@ghadyani-framework/redux-utils')
+const { START_TASK } = require('@redux-observable-backend/node/redux/tasks/actions')
+const { stateSelector } = require('@redux-observable-backend/redux-utils')
 
 const emitWebSocketConnectionEvent = require('./utils/emitWebSocketConnectionEvent')
 const { httpServerSelector } = require('$redux/httpServers/selectors')

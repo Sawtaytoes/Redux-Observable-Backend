@@ -4,7 +4,7 @@ const defaultConfigurationSet = require('$redux/configurations/utils/defaultConf
 const defaultEnvironmentVariablesConversions = require('$redux/configurations/utils/defaultEnvironmentVariablesConversions')
 const importConfigFile = require('./importConfigFile')
 const sanitizeConfigurationSet = require('./sanitizeConfigurationSet')
-const { deprecateArgument } = require('@ghadyani-framework/base')
+const { deprecateArgument } = require('@redux-observable-backend/base')
 const { doublePrefixFormatter } = require('./dynamicEnvironmentVariables')
 
 const {

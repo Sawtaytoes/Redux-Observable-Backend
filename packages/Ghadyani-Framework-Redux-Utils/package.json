@@ -1,5 +1,5 @@
 {
-  "name": "@ghadyani-framework/redux-utils",
+  "name": "@redux-observable-backend/redux-utils",
   "version": "1.2.0",
   "description": "Redux helper functions and middleware.",
   "license": "MITNFA",
@@ -33,11 +33,11 @@
     ]
   },
   "devDependencies": {
-    "@ghadyani-framework/base": "^0.3.0",
+    "@redux-observable-backend/base": "^0.3.0",
     "rxjs": "^6.2.2"
   },
   "peerDependencies": {
-    "@ghadyani-framework/base": ">=0.2.0 <1",
+    "@redux-observable-backend/base": ">=0.2.0 <1",
     "rxjs": ">=6.2.2 <7"
   }
 }

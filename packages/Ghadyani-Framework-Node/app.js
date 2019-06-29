@@ -1,8 +1,8 @@
 // Include this import before local imports.
-require('@ghadyani-framework/setup-module-aliases')(__dirname)
+require('@redux-observable-backend/setup-module-aliases')(__dirname)
 
 const { applyMiddleware, createStore } = require('redux')
-const { createActionLoggerMiddleware } = require('@ghadyani-framework/redux-utils')
+const { createActionLoggerMiddleware } = require('@redux-observable-backend/redux-utils')
 const { createEpicMiddleware } = require('redux-observable')
 const { of } = require('rxjs')
 const { tap } = require('rxjs/operators')

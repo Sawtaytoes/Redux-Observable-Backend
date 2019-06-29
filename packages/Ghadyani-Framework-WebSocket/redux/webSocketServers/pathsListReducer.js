@@ -1,5 +1,5 @@
 const WebSocket = require('ws')
-const { createMappedNamespaceReducer, createReducer } = require('@ghadyani-framework/redux-utils')
+const { createMappedNamespaceReducer, createReducer } = require('@redux-observable-backend/redux-utils')
 
 const { ADD_WEBSOCKET_SERVER } = require('./actions')
 

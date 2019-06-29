@@ -6,12 +6,12 @@ For an example use case, look at [`./app.js`](app.js).
 
 ### `npm`
 ```sh
-npm i @ghadyani-framework/node @ghadyani-framework/redux-utils
+npm i @redux-observable-backend/node @redux-observable-backend/redux-utils
 ```
 
 ### `yarn`
 ```sh
-yarn add @ghadyani-framework/node @ghadyani-framework/redux-utils
+yarn add @redux-observable-backend/node @redux-observable-backend/redux-utils
 ```
 
 ## API
