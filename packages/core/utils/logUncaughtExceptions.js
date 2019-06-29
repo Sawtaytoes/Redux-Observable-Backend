@@ -12,15 +12,22 @@ const logUncaughtExceptions = (
 			of(
 				error
 				.stack
-				|| error
+				|| (
+					error[0]
+					.stack
+				)
 			)
 			.pipe(
 				map(error => (
-					// `map` has multiple args so we need to be specific about passing in `error`.
+					// `map` has multiple args so we need to be specific about passing in `error` to `chalk`.
 					chalk
 					.redBright(error)
 				)),
 				tap(console.error),
+				tap(() => {
+					process
+					.exit(1)
+				}),
 				ignoreElements(),
 			)
 		)),
