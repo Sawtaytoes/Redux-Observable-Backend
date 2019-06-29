@@ -1,7 +1,8 @@
 const chalk = require('chalk')
-const { catchEpicError } = require('@redux-observable-backend/redux-utils')
 const { filter, map, pluck } = require('rxjs/operators')
 const { Subject } = require('rxjs')
+
+const catchEpicError = require('./catchEpicError')
 
 const title = (
 	chalk
