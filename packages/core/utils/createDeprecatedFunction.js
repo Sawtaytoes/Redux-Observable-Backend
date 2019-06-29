@@ -14,9 +14,7 @@ const createDeprecatedFunction = ({
 				.concat(`Use \`${replacementMethodName}\` instead.`)
 			)
 			: (
-				`\`${deprecatedMethodName}\` is deprecated.`
-				.concat(' ')
-				.concat(`This function will be entirely removed in a future update.`)
+				`\`${deprecatedMethodName}\` is deprecated and will be removed in a future update.`
 			)
 		)
 

@@ -6,11 +6,9 @@ const logDeprecation = (
 	const errorStackTrace = (
 		new Error()
 		.stack
-		.split('\n')[3]
-		.replace(
-			/(\s*at) (.*) \(/,
-			'$1 (',
-		)
+		.split('\n')
+		.slice(1)
+		.join('\n')
 	)
 
 	console
