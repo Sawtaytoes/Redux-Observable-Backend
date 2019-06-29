@@ -1,6 +1,6 @@
 {
   "name": "@redux-observable-backend/node",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "Utilities for creating Node.js applications.",
   "license": "MITNFA",
   "scripts": {
@@ -43,8 +43,8 @@
     "yargs": "^13.2.4"
   },
   "devDependencies": {
-    "@redux-observable-backend/core": "^4.1.0",
-    "@redux-observable-backend/redux-utils": "^4.1.0"
+    "@redux-observable-backend/core": "^4.1.1",
+    "@redux-observable-backend/redux-utils": "^4.1.1"
   },
   "peerDependencies": {
     "@redux-observable-backend/core": ">4 <5",

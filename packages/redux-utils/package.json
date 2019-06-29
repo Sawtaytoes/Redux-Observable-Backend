@@ -1,6 +1,6 @@
 {
   "name": "@redux-observable-backend/redux-utils",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "Redux helper functions and middleware.",
   "license": "MITNFA",
   "scripts": {
@@ -39,7 +39,7 @@
     "better-module-alias": "^1.0.0"
   },
   "devDependencies": {
-    "@redux-observable-backend/core": "^4.1.0",
+    "@redux-observable-backend/core": "^4.1.1",
     "rxjs": "^6.5.2"
   },
   "peerDependencies": {
