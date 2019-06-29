@@ -27,6 +27,7 @@ module.exports = {
 			func: mapToState,
 		})
 	),
+	ofNamespace: require('$utils/ofNamespace'),
 	simpleMap: (
 		createDeprecatedFunction({
 			deprecatedMethodName: 'simpleMap',
