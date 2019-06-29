@@ -1,12 +1,14 @@
-const { ADD_SERVER } = require('./actions')
 const { catchEpicError, ofNamespace } = require('@redux-observable-backend/redux-utils')
-const { filter, ignoreElements, mergeMap, pluck, startWith, takeUntil, tap } = require('rxjs/operators')
+const { catchError, ignoreElements, mapTo, mergeMap, startWith, takeUntil } = require('rxjs/operators')
+const { timer } = require('rxjs')
 const { ofType } = require('redux-observable')
-const { throwError } = require('rxjs')
 
 const {
+	ADD_SERVER,
 	connectionReady,
-	ERROR_MESSAGE,
+	DISCONNECT_FROM_SERVER,
+	reconnectToServer,
+	REMOVE_SERVER,
 } = require('./actions')
 
 const listenToServerEpic = (
@@ -24,24 +26,31 @@ const listenToServerEpic = (
 				takeUntil(
 					action$
 					.pipe(
-						ofType(ADD_SERVER),
+						ofType(
+							ADD_SERVER,
+							REMOVE_SERVER,
+						),
 						ofNamespace(namespace),
 					)
 				),
-				filter(response => (
-					typeof response === 'object'
-					&& (
-						response
-						.type
-					)
-					&& (
-						response
-						.type === ERROR_MESSAGE
+				ignoreElements(),
+				catchError(() => (
+					timer(5000)
+					.pipe(
+						takeUntil(
+							action$
+							.pipe(
+								ofType(DISCONNECT_FROM_SERVER),
+								ofNamespace(namespace),
+							)
+						),
+						mapTo(
+							reconnectToServer(
+								namespace
+							)
+						),
 					)
 				)),
-				pluck('errorMessage'),
-				mergeMap(throwError),
-				ignoreElements(),
 				startWith(
 					connectionReady({
 						connection,

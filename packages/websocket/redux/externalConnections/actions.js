@@ -1,7 +1,9 @@
 const ADD_SERVER = 'EXTERNAL_CONNECTIONS::ADD_SERVER'
-const CONNECT_TO_WEBSOCKET_SERVER = 'EXTERNAL_CONNECTIONS::CONNECT_TO_WEBSOCKET_SERVER'
+const CONNECT_TO_SERVER = 'EXTERNAL_CONNECTIONS::CONNECT_TO_SERVER'
 const CONNECTION_READY = 'EXTERNAL_CONNECTIONS::CONNECTION_READY'
+const DISCONNECT_FROM_SERVER = 'EXTERNAL_CONNECTIONS::DISCONNECT_FROM_SERVER'
 const ERROR_MESSAGE = 'RESPONSE::ERROR_MESSAGE'
+const RECONNECT_TO_SERVER = 'EXTERNAL_CONNECTIONS::RECONNECT_TO_SERVER'
 const REMOVE_SERVER = 'EXTERNAL_CONNECTIONS::REMOVE_SERVER'
 
 const addServer = ({
@@ -22,21 +24,37 @@ const connectionReady = ({
 	type: CONNECTION_READY,
 })
 
-const connectToWebSocketServer = ({
+const connectToServer = ({
 	protocolVersion = '',
 	url,
 }) => ({
-	namespace: `${url},${protocolVersion}`,
+	namespace: (
+		protocolVersion
+		? url
+		: `${url}@${protocolVersion}`
+	),
 	protocolVersion,
 	url,
-	type: CONNECT_TO_WEBSOCKET_SERVER,
+	type: CONNECT_TO_SERVER,
 })
 
-const removeServer = ({
-	connection,
+const disconnectFromServer = (
 	namespace,
-}) => ({
-	connection,
+) => ({
+	namespace,
+	type: DISCONNECT_FROM_SERVER,
+})
+
+const reconnectToServer = (
+	namespace,
+) => ({
+	namespace,
+	type: RECONNECT_TO_SERVER,
+})
+
+const removeServer = (
+	namespace,
+) => ({
 	namespace,
 	type: REMOVE_SERVER,
 })
@@ -44,11 +62,15 @@ const removeServer = ({
 module.exports = {
 	ADD_SERVER,
 	addServer,
-	CONNECT_TO_WEBSOCKET_SERVER,
+	CONNECT_TO_SERVER,
 	CONNECTION_READY,
 	connectionReady,
-	connectToWebSocketServer,
+	connectToServer,
+	DISCONNECT_FROM_SERVER,
+	disconnectFromServer,
 	ERROR_MESSAGE,
+	RECONNECT_TO_SERVER,
+	reconnectToServer,
 	REMOVE_SERVER,
 	removeServer,
 }

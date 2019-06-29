@@ -16,8 +16,16 @@ const reducerActions = {
 	),
 
 	[REMOVE_SERVER]: (
-		() => null
-	),
+		connection,
+	) => {
+		connection
+		&& (
+			connection
+			.close()
+		)
+
+		return initialState
+	},
 }
 
 const clientsListReducer = (

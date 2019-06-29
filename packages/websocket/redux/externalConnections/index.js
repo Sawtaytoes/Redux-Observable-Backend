@@ -2,12 +2,14 @@ const { combineEpics } = require('redux-observable')
 const { combineReducers } = require('redux')
 
 const connectToServerEpic = require('./connectToServerEpic')
-const listenToServerEpic = require('./listenToServerEpic')
 const externalConnectionsListReducer = require('./externalConnectionsListReducer')
+const listenForErrorsEpic = require('./listenForErrorsEpic')
+const listenToServerEpic = require('./listenToServerEpic')
 
 const externalConnectionsEpic = (
 	combineEpics(
 		connectToServerEpic,
+		listenForErrorsEpic,
 		listenToServerEpic,
 	)
 )
