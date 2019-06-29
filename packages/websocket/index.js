@@ -19,6 +19,7 @@ module.exports = {
 	clients: require('$redux/clients').clients,
 	createHttpServers,
 	createWebSocketServers,
+	externalConnections: require('$redux/externalConnections').externalConnections,
 	httpServers: require('$redux/httpServers').httpServers,
 	messages: require('$redux/messages').messages,
 	ofReponseType,
