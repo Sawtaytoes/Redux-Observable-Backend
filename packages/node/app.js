@@ -1,5 +1,5 @@
 // Include this import before local imports.
-require('@redux-observable-backend/setup-module-aliases')(__dirname)
+require('better-module-alias')(__dirname)
 
 const { applyMiddleware, createStore } = require('redux')
 const { createActionLoggerMiddleware } = require('@redux-observable-backend/redux-utils')

@@ -1,15 +1,5 @@
 const createNamespaceReducerCreator = require('./createNamespaceReducerCreator')
 
-const compareStates = ({
-	initialState,
-	nextState,
-}) => (
-	isEqual(
-		nextState,
-		initialState,
-	)
-)
-
 const getPreviousState = ({
 	namespace,
 	prevNamespaceState,

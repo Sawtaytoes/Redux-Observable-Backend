@@ -7,12 +7,12 @@ Redux helper functions and middleware.
 
 ### `npm`
 ```sh
-npm i @redux-observable-backend/redux-utils @redux-observable-backend/base
+npm i @redux-observable-backend/redux-utils @redux-observable-backend/core
 ```
 
 ### `yarn`
 ```sh
-yarn add @redux-observable-backend/redux-utils @redux-observable-backend/base
+yarn add @redux-observable-backend/redux-utils @redux-observable-backend/core
 ```
 
 ## API

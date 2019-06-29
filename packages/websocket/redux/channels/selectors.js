@@ -1,4 +1,4 @@
-const { createDeprecatedFunction } = require('@redux-observable-backend/base')
+const { createDeprecatedFunction } = require('@redux-observable-backend/core')
 
 const channelsListSelector = ({
 	channels,

@@ -1,10 +1,13 @@
 #!/usr/bin/env node
 
 // This import must come before setting up module aliases.
-// Because `base` brings in `setup-module-aliases`, it needs to run before setting the alias when linking packages.
-require('@redux-observable-backend/base')
+// Because `core` brings in `better-module-aliases`, it needs to run before setting the alias when linking packages.
+require('@redux-observable-backend/core')
+require('better-module-alias')(__dirname)
 
-require('@redux-observable-backend/setup-module-aliases')(__dirname)
+const { createDeprecatedFunction } = require('@redux-observable-backend/core')
+
+const stateSelector = require('$utils/stateSelector')
 
 module.exports = {
 	catchEpicError: require('$utils/catchEpicError'),
@@ -18,5 +21,10 @@ module.exports = {
 	createReduceReducers: require('$utils/createReduceReducers'),
 	mapToState: require('$utils/mapToState'),
 	simpleMap: require('$utils/simpleMap'),
-	stateSelector: require('$utils/stateSelector'),
+	stateSelector: (
+		createDeprecatedFunction({
+			deprecatedMethodName: 'stateSelector',
+			func: stateSelector,
+		})
+	),
 }

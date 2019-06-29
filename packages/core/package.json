@@ -1,6 +1,6 @@
 {
   "name": "@redux-observable-backend/core",
-  "version": "0.4.1",
+  "version": "4.0.0",
   "description": "Core packages Redux-Observable Backend.",
   "license": "MITNFA",
   "scripts": {
@@ -30,13 +30,12 @@
       "**/*.js"
     ]
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
-    "@ghadyani-framework/eslint-config-base": "^0.0.3",
-    "@ghadyani-framework/eslint-config-node": "^0.0.3",
-    "@ghadyani-framework/setup-module-aliases": "^0.0.2",
-    "ava": "^2.0.0",
+    "better-module-alias": "^1.0.0",
     "chalk": "^2.4.2",
-    "nodemon": "^1.19.1",
     "rxjs": "^6.5.2"
   }
 }

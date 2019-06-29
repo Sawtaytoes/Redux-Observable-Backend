@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-require('@redux-observable-backend/setup-module-aliases')(__dirname)
-require('@redux-observable-backend/base')
+require('better-module-alias')(__dirname)
+require('@redux-observable-backend/core')
 
 const {
 	rootEpic,

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-require('@redux-observable-backend/setup-module-aliases')(__dirname)
+require('better-module-alias')(__dirname)
 
 const createHttpServers = require('$redux/httpServers/utils/createHttpServers')
 const createWebSocketServers = require('$redux/webSocketServers/utils/createWebSocketServers')

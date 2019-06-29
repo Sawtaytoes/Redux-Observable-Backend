@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-require('@redux-observable-backend/setup-module-aliases')(__dirname)
+require('better-module-alias')(__dirname)
 
 // Load this before any other file
 const logUncaughtExceptions = require('$utils/logUncaughtExceptions')
