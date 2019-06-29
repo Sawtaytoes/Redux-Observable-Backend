@@ -9,73 +9,73 @@ const title = (
 	.bold('[Action]')
 )
 
-const createActionTypeLogger = (
-	({ actionsBlacklist = [] }) => (
-		new Subject()
-		.pipe(
-			pluck('type'),
-			filter(type => (
-				!(
-					actionsBlacklist
-					.includes(type)
-				)
-			)),
-			map(type => (
-				type
-				.match(/^(.+)(::)(.+)$/)
-				|| [type]
-			)),
-			map(([
-				type,
-				actionTypeGroup,
-				delimiter,
-				actionType,
-			]) => (
-				actionTypeGroup
-				? (
+const createActionTypeLogger = ({
+	actionsBlacklist = [],
+}) => (
+	new Subject()
+	.pipe(
+		pluck('type'),
+		filter(type => (
+			!(
+				actionsBlacklist
+				.includes(type)
+			)
+		)),
+		map(type => (
+			type
+			.match(/^(.+)(::)(.+)$/)
+			|| [type]
+		)),
+		map(([
+			type,
+			actionTypeGroup,
+			delimiter,
+			actionType,
+		]) => (
+			actionTypeGroup
+			? (
+				chalk
+				.grey(actionTypeGroup)
+				.concat(
 					chalk
-					.grey(actionTypeGroup)
-					.concat(
-						chalk
-						.green(delimiter)
-					)
-					.concat(
-						chalk
-						.magentaBright(actionType)
-					)
+					.green(delimiter)
 				)
-				: (
+				.concat(
 					chalk
-					.magentaBright(type)
+					.magentaBright(actionType)
 				)
-			)),
-		)
+			)
+			: (
+				chalk
+				.magentaBright(type)
+			)
+		)),
 	)
 )
 
 const createActionLoggerMiddleware = (
-	(middlewareOptions = {}) => {
-		const actionTypeLogger$ = (
-			createActionTypeLogger(middlewareOptions)
+	middlewareOptions = {},
+) => {
+	const actionTypeLogger$ = (
+		createActionTypeLogger(middlewareOptions)
+	)
+
+	actionTypeLogger$
+	.subscribe(message => (
+		console.info(
+			title,
+			message,
 		)
+	))
 
-		actionTypeLogger$
-		.subscribe(message => (
-			console.info(
-				title,
-				message,
-			)
-		))
+	return (
+		() => next => action => {
+			actionTypeLogger$
+			.next(action)
 
-		return (
-			() => next => action => {
-				actionTypeLogger$
-				.next(action)
-
-				next(action)
-			}
-		)
-	}
-)
+			next(action)
+		}
+	)
+}
 
 module.exports = createActionLoggerMiddleware
