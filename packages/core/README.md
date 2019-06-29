@@ -14,9 +14,6 @@ Base packages Ghadyani Framework applications.
 - `createDeprecatedFunction`
 - `deprecateArgument`
 
-### RxJS
-- `simpleMap`
-
 ## API Docs
 
 ### `safeImport`

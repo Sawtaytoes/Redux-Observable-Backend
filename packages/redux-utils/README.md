@@ -31,5 +31,3 @@ yarn add @redux-observable-backend/redux-utils @redux-observable-backend/core
 
 ### RxJS Utilities
 - `mapToState`
-- `simpleMap`
-- `stateSelector`
