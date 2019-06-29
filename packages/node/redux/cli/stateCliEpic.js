@@ -16,7 +16,10 @@ const stateRegExp = /^state(\..*)?$/
 
 // Debugging epic.
 // Reads console for `state.???` and outputs the current value of state.
-const stateCliEpic = () => (
+const stateCliEpic = (
+	action$,
+	state$,
+) => (
 	fromEvent(
 		readlineInterface,
 		'line',
@@ -34,10 +37,14 @@ const stateCliEpic = () => (
 				'state$.value$1',
 			)
 		)),
-		map(evalCode => (
+		map(evalCode => {
+			// If I don't define `state$` here, ESLint will complain it's not being used.
+			// Need `state$` for `eval` to work with the provided string.
+			state$
+
 			// Because of how `eval` works with closures, it cannot be passed directly to `map`.
-			eval(evalCode)
-		)),
+			return eval(evalCode)
+		}),
 		tap(console.info),
 		catchEpicError(),
 		ignoreElements(),
