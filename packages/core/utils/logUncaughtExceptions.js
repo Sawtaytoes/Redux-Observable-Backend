@@ -19,9 +19,24 @@ const logUncaughtExceptions = (
 			)
 			.pipe(
 				map(error => (
-					// `map` has multiple args so we need to be specific about passing in `error` to `chalk`.
+					error
+					.split('\n')
+				)),
+				map(errorLines => (
 					chalk
-					.redBright(error)
+					.redBright(
+						errorLines
+						.slice(0, 1)
+					)
+					.concat('\n')
+					.concat(
+						chalk
+						.red(
+							errorLines
+							.slice(1)
+							.join('\n')
+						)
+					)
 				)),
 				tap(console.error),
 				tap(() => {
