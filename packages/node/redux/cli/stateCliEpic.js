@@ -1,6 +1,6 @@
-const chalk = require('chalk')
 const readline = require('readline')
-const { filter, ignoreElements, tap } = require('rxjs/operators')
+const { catchEpicError } = require('@redux-observable-backend/redux-utils')
+const { filter, ignoreElements, map, tap } = require('rxjs/operators')
 const { fromEvent } = require('rxjs')
 
 const readlineInterface = (
@@ -12,10 +12,11 @@ const readlineInterface = (
 	})
 )
 
-const stateCliEpic = (
-	action$,
-	state$,
-) => (
+const stateRegExp = /^state(\..*)?$/
+
+// Debugging epic.
+// Reads console for `state.???` and outputs the current value of state.
+const stateCliEpic = () => (
 	fromEvent(
 		readlineInterface,
 		'line',
@@ -23,39 +24,22 @@ const stateCliEpic = (
 	.pipe(
 		filter(Boolean),
 		filter(line => (
-			/^state.*$/
+			stateRegExp
 			.test(line)
 		)),
-		tap(line => {
-			// Set this up for use in `eval`.
-			state$
-
-			try {
-				return (
-					console
-					.info(
-						eval(
-							line
-							.replace(
-								/^(state)(.*)$/,
-								'state$.value$2',
-							)
-						)
-					)
-				)
-			}
-			catch(exception) {
-				return (
-					console
-					.error(
-						chalk
-						.redBright(
-							exception
-						)
-					)
-				)
-			}
-		}),
+		map(line => (
+			line
+			.replace(
+				stateRegExp,
+				'state$.value$1',
+			)
+		)),
+		map(evalCode => (
+			// Because of how `eval` works with closures, it cannot be passed directly to `map`.
+			eval(evalCode)
+		)),
+		tap(console.info),
+		catchEpicError(),
 		ignoreElements(),
 	)
 )
