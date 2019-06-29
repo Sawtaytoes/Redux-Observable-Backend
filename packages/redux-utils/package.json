@@ -35,6 +35,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "dependencies": {
+    "better-module-alias": "^1.0.0"
+  },
   "devDependencies": {
     "@redux-observable-backend/core": "^4.1.0",
     "rxjs": "^6.5.2"

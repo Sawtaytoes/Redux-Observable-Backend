@@ -37,6 +37,7 @@
     "access": "public"
   },
   "dependencies": {
+    "better-module-alias": "^1.0.0",
     "ws": "^7.0.1"
   },
   "devDependencies": {
