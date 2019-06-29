@@ -13,49 +13,50 @@ const readlineInterface = (
 )
 
 const stateCliEpic = (
-	(action$, state$) => (
-		fromEvent(
-			readlineInterface,
-			'line',
-		)
-		.pipe(
-			filter(Boolean),
-			filter(line => (
-				/^state.*$/
-				.test(line)
-			)),
-			tap(line => {
-				// Set this up for use in `eval`.
-				state$
+	action$,
+	state$,
+) => (
+	fromEvent(
+		readlineInterface,
+		'line',
+	)
+	.pipe(
+		filter(Boolean),
+		filter(line => (
+			/^state.*$/
+			.test(line)
+		)),
+		tap(line => {
+			// Set this up for use in `eval`.
+			state$
 
-				try {
-					return (
-						console
-						.info(
-							eval(
-								line
-								.replace(
-									/^(state)(.*)$/,
-									'state$.value$2',
-								)
+			try {
+				return (
+					console
+					.info(
+						eval(
+							line
+							.replace(
+								/^(state)(.*)$/,
+								'state$.value$2',
 							)
 						)
 					)
-				}
-				catch(exception) {
-					return (
-						console
-						.error(
-							chalk
-							.redBright(
-								exception
-							)
+				)
+			}
+			catch(exception) {
+				return (
+					console
+					.error(
+						chalk
+						.redBright(
+							exception
 						)
 					)
-				}
-			}),
-			ignoreElements(),
-		)
+				)
+			}
+		}),
+		ignoreElements(),
 	)
 )
 
