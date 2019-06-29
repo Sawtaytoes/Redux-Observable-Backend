@@ -18,7 +18,8 @@ const createActionTypeLogger = ({
 	.pipe(
 		pluck('type'),
 		filter(type => (
-			!(
+			type
+			&& !(
 				actionsBlacklist
 				.includes(type)
 			)
