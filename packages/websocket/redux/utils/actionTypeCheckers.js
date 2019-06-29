@@ -1,33 +1,34 @@
 const { ofType } = require('redux-observable')
 
 const replaceActionTypeGroup = (
-	(actionType, actionTypeGroup) => (
-		actionType
-		.replace(
-			/^.+(::.+)/,
-			`${actionTypeGroup}$1`,
-		)
+	actionType,
+	actionTypeGroup,
+) => (
+	actionType
+	.replace(
+		/^.+(::.+)/,
+		`${actionTypeGroup}$1`,
 	)
 )
 
 const ofReponseType = (
-	actionType => (
-		ofType(
-			replaceActionTypeGroup(
-				actionType,
-				'RESPONSE',
-			)
+	actionType,
+) => (
+	ofType(
+		replaceActionTypeGroup(
+			actionType,
+			'RESPONSE',
 		)
 	)
 )
 
 const ofRequestType = (
-	actionType => (
-		ofType(
-			replaceActionTypeGroup(
-				actionType,
-				'REQUEST',
-			)
+	actionType,
+) => (
+	ofType(
+		replaceActionTypeGroup(
+			actionType,
+			'REQUEST',
 		)
 	)
 )
