@@ -9,5 +9,8 @@ const tasksEpic = (
 )
 
 module.exports = {
+	tasks: {
+		actions: require('./actions'),
+	},
 	tasksEpic,
 }

@@ -21,6 +21,10 @@ const configurationsReducer = (
 )
 
 module.exports = {
+	configurations: {
+		actions: require('./actions'),
+		selectors: require('./selectors'),
+	},
 	configurationsEpic,
 	configurationsReducer,
 }

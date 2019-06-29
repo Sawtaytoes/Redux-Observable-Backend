@@ -8,9 +8,11 @@ const {
 } = require('$redux')
 
 module.exports = {
+	configurations: require('$redux/configurations').configurations,
 	createConfigurationSet: require('$redux/configurations/utils/createConfigurationSet'),
 	nodeEpic: rootEpic,
 	nodeReducers: rootReducers,
 	ofTaskName: require('$redux/tasks/utils/ofTaskName'),
 	runTasks: require('$redux/tasks/utils/runTasks'),
+	tasks: require('$redux/tasks').tasks,
 }
