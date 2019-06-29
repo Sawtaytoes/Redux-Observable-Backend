@@ -7,8 +7,8 @@ const addWebSocketServer = ({
 }) => ({
 	namespace,
 	protocolVersion,
-	webSocketServerSettings,
 	type: ADD_WEBSOCKET_SERVER,
+	webSocketServerSettings,
 })
 
 module.exports = {

@@ -16,57 +16,58 @@ const { addClient } = require('$redux/clients/actions')
 const { selectWebSocketServer } = require('./selectors')
 
 const createWebSocketServerV1Epic = (
-	(action$, state$) => (
-		action$
-		.pipe(
-			ofType(ADD_WEBSOCKET_SERVER),
-			mergeMap(({
-				namespace,
-				protocolVersion,
-				webSocketServerSettings,
-			}) => (
-				of(state$.value)
-				.pipe(
-					map(
-						selectWebSocketServer({
-							namespace,
-							protocolVersion,
-						})
-					),
-					mergeMap(webSocketServer => (
-						createWebSocketConnectionObservable(
-							webSocketServer
-						)
-					)),
-					ofProtocolVersion('v1'),
-					logConnection(),
-					mergeMap(props => (
-						merge(
-							of(
-								addClient(props)
-							),
-							(
-								createWebSocketMessageObservable(
-									props
-								)
-								.pipe(
-									hasMessage(),
-									logMessage('Incoming'),
-									hasActionObject(),
-									isValidMessageActionType({
-										requiresAuthentication: (
-											webSocketServerSettings
-											.hasAuth
-										),
-									}),
-									map(formatDispatchableMessage),
-								)
-							),
-						)
-					)),
-				)
-			)),
-		)
+	action$,
+	state$,
+) => (
+	action$
+	.pipe(
+		ofType(ADD_WEBSOCKET_SERVER),
+		mergeMap(({
+			namespace,
+			protocolVersion,
+			webSocketServerSettings,
+		}) => (
+			of(state$.value)
+			.pipe(
+				map(
+					selectWebSocketServer({
+						namespace,
+						protocolVersion,
+					})
+				),
+				mergeMap(webSocketServer => (
+					createWebSocketConnectionObservable(
+						webSocketServer
+					)
+				)),
+				ofProtocolVersion('v1'),
+				logConnection(),
+				mergeMap(props => (
+					merge(
+						of(
+							addClient(props)
+						),
+						(
+							createWebSocketMessageObservable(
+								props
+							)
+							.pipe(
+								hasMessage(),
+								logMessage('Incoming'),
+								hasActionObject(),
+								isValidMessageActionType({
+									requiresAuthentication: (
+										webSocketServerSettings
+										.hasAuth
+									),
+								}),
+								map(formatDispatchableMessage),
+							)
+						),
+					)
+				)),
+			)
+		)),
 	)
 )
 

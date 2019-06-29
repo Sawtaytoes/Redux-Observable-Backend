@@ -9,24 +9,26 @@ const initialState = new Set()
 
 const reducerActions = {
 	[ADD_CLIENT]: (
-		(prevState, { connection }) => (
-			new Set(prevState)
-			.add(connection)
-		)
+		prevState,
+		{ connection },
+	) => (
+		new Set(prevState)
+		.add(connection)
 	),
 
 	[REMOVE_CLIENT]: (
-		(prevState, { connection }) => {
-			const nextState = (
-				new Set(prevState)
-			)
+		prevState,
+		{ connection },
+	) => {
+		const nextState = (
+			new Set(prevState)
+		)
 
-			nextState
-			.delete(connection)
+		nextState
+		.delete(connection)
 
-			return nextState
-		}
-	),
+		return nextState
+	},
 }
 
 const clientsListReducer = (
