@@ -10,18 +10,26 @@ const sendMessageEpic = action$ => (
 	.pipe(
 		ofType(SEND_MESSAGE),
 		logMessage('Outgoing'),
-		map(({ connection, message }) => ({
+		map(({
+			connection,
+			message,
+		}) => ({
 			connection,
 			message: (
 				JSON
 				.stringify(message)
 			),
 		})),
-		tap(({ connection, message }) => (
+		tap(({
+			connection,
+			message,
+		}) => (
 			connection
 			&& (
-				connection.readyState
-				=== WebSocket.OPEN
+				(
+					connection.readyState
+					=== WebSocket.OPEN
+				)
 				? connection.send(message)
 				: connection.close()
 			)
