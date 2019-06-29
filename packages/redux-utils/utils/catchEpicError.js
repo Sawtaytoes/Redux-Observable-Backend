@@ -10,7 +10,9 @@ const catchEpicError = (
 		.error(
 			chalk
 			.redBright(
-				error
+				error.constructor.name === 'ErrorEvent'
+				? error.error.stack
+				: error
 			)
 		)
 
