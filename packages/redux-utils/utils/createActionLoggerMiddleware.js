@@ -1,4 +1,5 @@
 const chalk = require('chalk')
+const { catchEpicError } = require('@redux-observable-backend/redux-utils')
 const { filter, map, pluck } = require('rxjs/operators')
 const { Subject } = require('rxjs')
 
@@ -50,6 +51,7 @@ const createActionTypeLogger = ({
 				.magentaBright(type)
 			)
 		)),
+		catchEpicError(),
 	)
 )
 
@@ -62,7 +64,8 @@ const createActionLoggerMiddleware = (
 
 	actionTypeLogger$
 	.subscribe(message => (
-		console.info(
+		console
+		.info(
 			title,
 			message,
 		)
