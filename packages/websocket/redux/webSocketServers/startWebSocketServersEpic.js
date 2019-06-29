@@ -1,14 +1,13 @@
 const url = require('url')
-const { fromEvent } = require('rxjs')
-const { ignoreElements, map, mergeMap, switchMap } = require('rxjs/operators')
-const { ofTaskName } = require('@redux-observable-backend/node')
+const { catchEpicError } = require('@redux-observable-backend/redux-utils')
+const { fromEvent, of, throwError } = require('rxjs')
+const { catchError, ignoreElements, map, mergeMap, switchMap } = require('rxjs/operators')
 const { ofType } = require('redux-observable')
-const { START_TASK } = require('@redux-observable-backend/node/redux/tasks/actions')
-const { stateSelector } = require('@redux-observable-backend/redux-utils')
+const { ofTaskName, tasks } = require('@redux-observable-backend/node')
 
 const emitWebSocketConnectionEvent = require('./utils/emitWebSocketConnectionEvent')
-const { httpServerSelector } = require('$redux/httpServers/selectors')
-const { webSocketServerSelector } = require('./selectors')
+const { selectHttpServer } = require('$redux/httpServers/selectors')
+const { selectWebSocketServer } = require('./selectors')
 
 const startWebSocketServersEpic = (
 	action$,
@@ -16,17 +15,17 @@ const startWebSocketServersEpic = (
 ) => (
 	action$
 	.pipe(
-		ofType(START_TASK),
+		ofType(
+			tasks
+			.actions
+			.START_TASK
+		),
 		ofTaskName(
 			'serve',
 			'undefined',
 		),
-		switchMap(() => (
-			stateSelector({
-				selector: httpServerSelector,
-				state$,
-			})
-		)),
+		map(() => state$.value),
+		map(selectHttpServer()),
 		switchMap(httpServer => (
 			fromEvent(
 				httpServer,
@@ -52,24 +51,17 @@ const startWebSocketServersEpic = (
 			socket,
 			...props
 		}) => (
-			stateSelector({
-				errorCallback: () => {
-					socket
-					.destroy()
-				},
-				props: {
-					protocolVersion: (
-						req
-						.headers[
-							'sec-websocket-protocol'
-						]
-					),
-					namespace,
-				},
-				selector: webSocketServerSelector,
-				state$,
-			})
+			of(state$.value)
 			.pipe(
+				map(
+					selectWebSocketServer({
+						protocolVersion: (
+							req
+							.headers['sec-websocket-protocol']
+						),
+						namespace,
+					})
+				),
 				map(webSocketServer => ({
 					...props,
 					namespace,
@@ -77,6 +69,13 @@ const startWebSocketServersEpic = (
 					socket,
 					webSocketServer,
 				})),
+				catchError(error => {
+					socket
+					.destroy()
+
+					return throwError(error)
+				}),
+				catchEpicError(),
 			)
 		)),
 		map(({

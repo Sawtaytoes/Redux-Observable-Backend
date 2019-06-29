@@ -11,5 +11,8 @@ const messagesEpic = (
 )
 
 module.exports = {
+	messages: {
+		actions: require('./actions'),
+	},
 	messagesEpic,
 }

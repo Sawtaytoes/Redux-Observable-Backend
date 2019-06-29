@@ -6,23 +6,21 @@ const { ADD_HTTP_SERVER } = require('./actions')
 const initialState = null
 
 const reducerActions = {
-	[ADD_HTTP_SERVER]: (
-		() => (
-			http
-			.createServer((req, res) => {
-				res
-				.writeHead(
-					200,
-					{ 'Content-Type': 'text/plain' }
-				)
+	[ADD_HTTP_SERVER]: () => (
+		http
+		.createServer((req, res) => {
+			res
+			.writeHead(
+				200,
+				{ 'Content-Type': 'text/plain' }
+			)
 
-				res
-				.write('')
+			res
+			.write('')
 
-				res
-				.end()
-			})
-		)
+			res
+			.end()
+		})
 	),
 }
 

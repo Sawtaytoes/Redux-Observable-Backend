@@ -17,6 +17,10 @@ const httpServersReducer = (
 )
 
 module.exports = {
+	httpServers: {
+		actions: require('./actions'),
+		selectors: require('./selectors'),
+	},
 	httpServersEpic,
 	httpServersReducer,
 }

@@ -1,19 +1,19 @@
 const { createDeprecatedFunction } = require('@redux-observable-backend/core')
 
-const httpServerSelector = (
-	({ httpServers }) => (
-		httpServers
-		.server
-	)
+const selectHttpServer = () => ({
+	httpServers,
+}) => (
+	httpServers
+	.server
 )
 
 module.exports = {
-	getHttpServer: (
+	httpServerSelector: (
 		createDeprecatedFunction({
-			deprecatedMethodName: 'getHttpServer',
-			func: httpServerSelector,
-			replacementMethodName: 'httpServerSelector',
+			deprecatedMethodName: 'httpServerSelector',
+			func: (state, props) => selectHttpServer(props)(state),
+			replacementMethodName: 'selectHttpServer',
 		})
 	),
-	httpServerSelector,
+	selectHttpServer,
 }

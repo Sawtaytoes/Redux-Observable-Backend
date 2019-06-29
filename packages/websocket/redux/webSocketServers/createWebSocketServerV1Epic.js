@@ -1,7 +1,6 @@
 const { map, mergeMap } = require('rxjs/operators')
 const { merge, of } = require('rxjs')
 const { ofType } = require('redux-observable')
-const { stateSelector } = require('@redux-observable-backend/redux-utils')
 
 const createWebSocketConnectionObservable = require('./utils/createWebSocketConnectionObservable')
 const createWebSocketMessageObservable = require('./utils/createWebSocketMessageObservable')
@@ -14,7 +13,7 @@ const logMessage = require('./utils/logMessage')
 const ofProtocolVersion = require('./utils/ofProtocolVersion')
 const { ADD_WEBSOCKET_SERVER } = require('./actions')
 const { addClient } = require('$redux/clients/actions')
-const { webSocketServerSelector } = require('./selectors')
+const { selectWebSocketServer } = require('./selectors')
 
 const createWebSocketServerV1Epic = (
 	(action$, state$) => (
@@ -26,15 +25,14 @@ const createWebSocketServerV1Epic = (
 				protocolVersion,
 				webSocketServerSettings,
 			}) => (
-				stateSelector({
-					props: {
-						namespace,
-						protocolVersion,
-					},
-					selector: webSocketServerSelector,
-					state$,
-				})
+				of(state$.value)
 				.pipe(
+					map(
+						selectWebSocketServer({
+							namespace,
+							protocolVersion,
+						})
+					),
 					mergeMap(webSocketServer => (
 						createWebSocketConnectionObservable(
 							webSocketServer

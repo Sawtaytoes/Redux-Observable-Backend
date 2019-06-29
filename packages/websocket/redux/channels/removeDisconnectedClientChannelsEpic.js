@@ -1,8 +1,8 @@
 const { map, mergeMap, switchMap } = require('rxjs/operators')
+const { of } = require('rxjs')
 const { ofType } = require('redux-observable')
-const { stateSelector } = require('@redux-observable-backend/redux-utils')
 
-const { channelsListSelector } = require('./selectors')
+const { selectChannelList } = require('./selectors')
 const { leaveChannel } = require('$redux/channels/actions')
 const { REMOVE_CLIENT } = require('$redux/clients/actions')
 
@@ -12,11 +12,9 @@ const removeDisconnectedClientChannelsEpic = (
 		.pipe(
 			ofType(REMOVE_CLIENT),
 			mergeMap(({ connection }) => (
-				stateSelector({
-					selector: channelsListSelector,
-					state$,
-				})
+				of(state$.value)
 				.pipe(
+					map(selectChannelList()),
 					switchMap(channelsList => (
 						channelsList
 					)),

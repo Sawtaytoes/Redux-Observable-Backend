@@ -19,6 +19,10 @@ const webSocketServersReducer = (
 )
 
 module.exports = {
+	webSocketServers: {
+		actions: require('./actions'),
+		selectors: require('./selectors'),
+	},
 	webSocketServersEpic,
 	webSocketServersReducer,
 }

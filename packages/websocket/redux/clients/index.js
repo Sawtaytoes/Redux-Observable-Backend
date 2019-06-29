@@ -17,6 +17,9 @@ const clientsReducer = (
 )
 
 module.exports = {
+	clients: {
+		actions: require('./actions'),
+	},
 	clientsEpic,
 	clientsReducer,
 }

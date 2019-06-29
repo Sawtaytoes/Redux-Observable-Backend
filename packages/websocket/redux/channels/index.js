@@ -19,6 +19,10 @@ const channelsReducer = (
 )
 
 module.exports = {
+	channels: {
+		actions: require('./actions'),
+		selectors: require('./selectors'),
+	},
 	channelsEpic,
 	channelsReducer,
 }
