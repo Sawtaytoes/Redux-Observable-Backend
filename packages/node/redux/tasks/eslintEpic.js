@@ -1,11 +1,11 @@
-const { ignoreElements, switchMap, tap } = require('rxjs/operators')
+const { ignoreElements, switchMap, map, tap } = require('rxjs/operators')
+const { of } = require('rxjs')
 const { ofType } = require('redux-observable')
 
 const ofTaskName = require('./utils/ofTaskName')
 const runEslint = require('./utils/runEslint')
-const { configurationSetSelector } = require('$redux/configurations/selectors')
+const { selectConfigurationSet } = require('$redux/configurations/selectors')
 const { START_TASK } = require('./actions')
-const { stateSelector } = require('@redux-observable-backend/redux-utils')
 
 const eslintEpic = (
 	(action$, state$) => (
@@ -17,11 +17,9 @@ const eslintEpic = (
 				'undefined',
 			),
 			switchMap(() => (
-				stateSelector({
-					selector: configurationSetSelector,
-					state$,
-				})
+				of(state$.value)
 				.pipe(
+					map(selectConfigurationSet),
 					tap(runEslint),
 					ignoreElements(),
 				)

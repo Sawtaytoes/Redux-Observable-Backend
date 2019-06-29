@@ -1,8 +1,8 @@
 const { map, switchMap } = require('rxjs/operators')
+const { of } = require('rxjs')
 const { ofType } = require('redux-observable')
-const { stateSelector } = require('@redux-observable-backend/redux-utils')
 
-const { configurationSetSelector } = require('./selectors')
+const { selectConfigurationSet } = require('./selectors')
 
 const {
 	addConfigurationSet,
@@ -18,12 +18,13 @@ const duplicateConfigurationSetEpic = (
 				configurationSetName,
 				namespace,
 			}) => (
-				stateSelector({
-					props: { namespace: configurationSetName },
-					selector: configurationSetSelector,
-					state$,
-				})
+				of(state$.value)
 				.pipe(
+					map(
+						selectConfigurationSet({
+							namespace: configurationSetName,
+						})
+					),
 					map(configurationSet => ({
 						configurationSet: {
 							[configurationSetName]: (
