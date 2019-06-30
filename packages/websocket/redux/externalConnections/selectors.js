@@ -4,7 +4,7 @@ const selectExternalConnection = ({
 	externalConnections,
 }) => (
 	externalConnections
-	.connection
+	.externalConnectionsList
 	.get(namespace)
 )
 
