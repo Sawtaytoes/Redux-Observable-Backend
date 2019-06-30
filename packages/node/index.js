@@ -10,6 +10,7 @@ const {
 module.exports = {
 	configurations: require('$redux/configurations').configurations,
 	createConfigurationSet: require('$redux/configurations/utils/createConfigurationSet'),
+	createCustomConfigurationSet: require('$redux/configurations/utils/createCustomConfigurationSet'),
 	nodeEpic: rootEpic,
 	nodeReducers: rootReducers,
 	ofTaskName: require('$redux/tasks/utils/ofTaskName'),

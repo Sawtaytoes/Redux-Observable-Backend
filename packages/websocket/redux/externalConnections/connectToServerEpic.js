@@ -5,6 +5,8 @@ const { of } = require('rxjs')
 const { ofType } = require('redux-observable')
 const { webSocket } = require('rxjs/webSocket')
 
+const { configurations } = require('@redux-observable-backend/node')
+
 const {
 	addServer,
 	CONNECT_TO_SERVER,
@@ -14,41 +16,62 @@ const {
 
 const connectToServerEpic = (
 	action$,
+	state$,
 ) => (
 	action$
 	.pipe(
 		ofType(CONNECT_TO_SERVER),
-		mergeMap(({
-			namespace,
-			protocolVersion,
-			url,
-		}) => (
-			action$
+		mergeMap(({ namespace }) => (
+			of(state$.value)
 			.pipe(
-				takeUntil(
+				map(
+					configurations
+					.selectors
+					.selectConfigurationSet({
+						namespace: 'externalConnections',
+					})
+				),
+				map(externalConnections => (
+					externalConnections[namespace]
+				)),
+				switchMap(({
+					hostname,
+					port,
+					protocol,
+					protocolVersion,
+				}) => (
 					action$
 					.pipe(
-						ofType(DISCONNECT_FROM_SERVER),
+						ofType(RECONNECT_TO_SERVER),
 						ofNamespace(namespace),
+						takeUntil(
+							action$
+							.pipe(
+								ofType(DISCONNECT_FROM_SERVER),
+								ofNamespace(namespace),
+							)
+						),
+						startWith(null),
+						map(() => (
+							webSocket({
+								protocol: protocolVersion,
+								url: (
+									protocol
+									.concat('://')
+									.concat(hostname)
+									.concat(':')
+									.concat(port)
+								),
+								WebSocketCtor: WebSocket,
+							})
+						)),
+						map(webSocketServer => (
+							addServer({
+								connection: webSocketServer,
+								namespace,
+							})
+						)),
 					)
-				),
-				ofType(RECONNECT_TO_SERVER),
-				ofNamespace(namespace),
-				startWith(null),
-				switchMap(() => (
-					of(
-						webSocket({
-							protocol: protocolVersion,
-							url,
-							WebSocketCtor: WebSocket,
-						})
-					)
-				)),
-				map(webSocketServer => (
-					addServer({
-						connection: webSocketServer,
-						namespace,
-					})
 				)),
 			)
 		)),

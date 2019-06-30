@@ -34,83 +34,102 @@ const createConfigurationSet = ({
 	additionalDefaultConfigurationSet, // DEPRECATED
 	configurationCopyList = [],
 	environmentVariableConversions,
-}) => (
-	({ dispatch }) => {
-		additionalDefaultConfigurationSet
-		&& (
-			deprecateArgument({
-				deprecatedArgumentName: 'additionalDefaultConfigurationSet',
-				functionName: 'createConfigurationSet',
-				replacementArgumentName: 'additionalConfigurationSetDefaults',
-			})
-		)
-
-		const environmentVariables = (
-			convertToConfigurationSet({
-				...defaultEnvironmentVariablesConversions,
-				...environmentVariableConversions,
-			})
-		)
-
-		const configurationSet = (
-			additionalConfigurationSetSanitization(
-				sanitizeConfigurationSet({
-					...defaultConfigurationSet,
-					...additionalConfigurationSetDefaults,
-					...additionalDefaultConfigurationSet,
-					...environmentVariables,
-					...projectConfigurationSet,
-					...localConfigurationSet,
-				})
-			)
-		)
-
-		process
-		.env
-		.NODE_ENV = (
-			configurationSet
-			.nodeEnv
-		)
-
-		dispatch(
-			addConfigurationSet({
-				configurationSet,
-			})
-		)
-
-		dispatch(
-			copyFromConfigurationSet({
-				configurationCopyList: (
-					configurationCopyList
-					.concat([
-						'applicationName',
-						'environmentName',
-						'hostedAddress',
-					])
-				),
-				namespace: 'app',
-			})
-		)
-
-		const featureFlagsConfigurationSetProps = {
-			configurationSetName: (
-				'featureFlags'
-			),
-			environmentVariableFormatter: (
-				doublePrefixFormatter
-			),
-			environmentVariablePrefix: (
-				'FEATUREFLAG'
-			),
-			isPartOfAppConfig: true,
-		}
-
-		createCustomConfigurationSet(
-			featureFlagsConfigurationSetProps
-		)({
-			dispatch,
+}) => ({
+	dispatch,
+}) => {
+	additionalDefaultConfigurationSet
+	&& (
+		deprecateArgument({
+			deprecatedArgumentName: 'additionalDefaultConfigurationSet',
+			functionName: 'createConfigurationSet',
+			replacementArgumentName: 'additionalConfigurationSetDefaults',
 		})
+	)
+
+	const environmentVariables = (
+		convertToConfigurationSet({
+			...defaultEnvironmentVariablesConversions,
+			...environmentVariableConversions,
+		})
+	)
+
+	const configurationSet = (
+		additionalConfigurationSetSanitization(
+			sanitizeConfigurationSet({
+				...defaultConfigurationSet,
+				...additionalConfigurationSetDefaults,
+				...additionalDefaultConfigurationSet,
+				...environmentVariables,
+				...projectConfigurationSet,
+				...localConfigurationSet,
+			})
+		)
+	)
+
+	process
+	.env
+	.NODE_ENV = (
+		configurationSet
+		.nodeEnv
+	)
+
+	dispatch(
+		addConfigurationSet({
+			configurationSet,
+		})
+	)
+
+	dispatch(
+		copyFromConfigurationSet({
+			configurationCopyList: (
+				configurationCopyList
+				.concat([
+					'applicationName',
+					'environmentName',
+					'hostedAddress',
+				])
+			),
+			namespace: 'app',
+		})
+	)
+
+	const featureFlagsConfigurationSetProps = {
+		configurationSetName: (
+			'featureFlags'
+		),
+		environmentVariableFormatter: (
+			doublePrefixFormatter
+		),
+		environmentVariablePrefix: (
+			'FEATUREFLAG'
+		),
+		isPartOfAppConfig: false,
 	}
-)
+
+	createCustomConfigurationSet(
+		featureFlagsConfigurationSetProps
+	)({
+		dispatch,
+	})
+
+	const externalConnectionsConfigurationSetProps = {
+		configurationSetName: (
+			'externalConnections'
+		),
+		environmentVariableFormatter: (
+			doublePrefixFormatter
+		),
+		environmentVariablePrefix: (
+			'EXTERNALCONNECTION'
+		),
+		isPartOfAppConfig: false,
+	}
+
+	createCustomConfigurationSet(
+		externalConnectionsConfigurationSetProps,
+	)({
+		dispatch,
+	})
+}
 
 module.exports = createConfigurationSet

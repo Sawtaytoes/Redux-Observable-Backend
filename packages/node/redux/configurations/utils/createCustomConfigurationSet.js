@@ -26,52 +26,52 @@ const createCustomConfigurationSet = ({
 	environmentVariableFormatter,
 	environmentVariablePrefix,
 	isPartOfAppConfiguration,
-}) => (
-	({ dispatch }) => {
-		const dynamicEnvironmentVariables = (
-			environmentVariablePrefix
-			&& (
-				createDynamicEnvironmentVariables(
-					environmentVariablePrefix,
-					environmentVariableFormatter,
-				)
+}) => ({
+	dispatch,
+}) => {
+	const dynamicEnvironmentVariables = (
+		environmentVariablePrefix
+		&& (
+			createDynamicEnvironmentVariables(
+				environmentVariablePrefix,
+				environmentVariableFormatter,
 			)
 		)
+	)
 
-		const projectCustomConfigurationSet = (
-			projectConfigurationSet[
-				configurationSetName
-			]
-		)
+	const projectCustomConfigurationSet = (
+		projectConfigurationSet[
+			configurationSetName
+		]
+	)
 
-		const localCustomConfigurationSet = (
-			localConfigurationSet[
-				configurationSetName
-			]
-		)
+	const localCustomConfigurationSet = (
+		localConfigurationSet[
+			configurationSetName
+		]
+	)
 
+	dispatch(
+		addConfigurationSet({
+			configurationSet: {
+				...additionalDefaultConfigurationSet,
+				...dynamicEnvironmentVariables,
+				...projectCustomConfigurationSet,
+				...localCustomConfigurationSet,
+			},
+			namespace: configurationSetName,
+		})
+	)
+
+	isPartOfAppConfiguration
+	&& (
 		dispatch(
-			addConfigurationSet({
-				configurationSet: {
-					...additionalDefaultConfigurationSet,
-					...dynamicEnvironmentVariables,
-					...projectCustomConfigurationSet,
-					...localCustomConfigurationSet,
-				},
-				namespace: 'featureFlags',
+			copyIntoConfigurationSet({
+				configurationSetName,
+				namespace: 'app',
 			})
 		)
-
-		isPartOfAppConfiguration
-		&& (
-			dispatch(
-				copyIntoConfigurationSet({
-					configurationSetName,
-					namespace: 'app',
-				})
-			)
-		)
-	}
-)
+	)
+}
 
 module.exports = createCustomConfigurationSet

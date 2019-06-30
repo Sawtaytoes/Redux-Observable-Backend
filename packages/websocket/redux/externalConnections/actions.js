@@ -25,16 +25,9 @@ const connectionReady = ({
 })
 
 const connectToServer = ({
-	protocolVersion = '',
-	url,
+	namespace,
 }) => ({
-	namespace: (
-		protocolVersion
-		? `${url}@${protocolVersion}`
-		: url
-	),
-	protocolVersion,
-	url,
+	namespace,
 	type: CONNECT_TO_SERVER,
 })
 
