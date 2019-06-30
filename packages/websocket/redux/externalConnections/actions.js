@@ -30,8 +30,8 @@ const connectToServer = ({
 }) => ({
 	namespace: (
 		protocolVersion
-		? url
-		: `${url}@${protocolVersion}`
+		? `${url}@${protocolVersion}`
+		: url
 	),
 	protocolVersion,
 	url,
