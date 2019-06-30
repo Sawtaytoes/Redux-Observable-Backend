@@ -33,7 +33,7 @@ const listenForErrorsEpic = (
 				),
 				catchError(error => (
 					error.constructor.name === 'CloseEvent'
-					? throwError(`WebSocket connection closed for ${namespace}.`)
+					? throwError(`WebSocket connection closed for '${namespace}'.`)
 					: throwError(error)
 				)),
 				filter(response => (
