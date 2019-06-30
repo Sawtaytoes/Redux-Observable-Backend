@@ -24,9 +24,9 @@ const connectionReady = ({
 	type: CONNECTION_READY,
 })
 
-const connectToServer = ({
+const connectToServer = (
 	namespace,
-}) => ({
+) => ({
 	namespace,
 	type: CONNECT_TO_SERVER,
 })
