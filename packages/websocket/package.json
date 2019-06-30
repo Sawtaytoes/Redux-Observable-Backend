@@ -1,6 +1,6 @@
 {
   "name": "@redux-observable-backend/websocket",
-  "version": "4.2.4",
+  "version": "4.2.5",
   "description": "Utilities for creating applications using WebSockets.",
   "license": "MITNFA",
   "scripts": {
