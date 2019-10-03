@@ -34,8 +34,8 @@
     "access": "public"
   },
   "dependencies": {
-    "better-module-alias": "^1.0.0",
+    "better-module-alias": "^1.0.1",
     "chalk": "^2.4.2",
-    "rxjs": "^6.5.2"
+    "rxjs": "^6.5.3"
   }
 }

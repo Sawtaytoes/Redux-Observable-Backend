@@ -36,7 +36,7 @@
     "access": "public"
   },
   "dependencies": {
-    "better-module-alias": "^1.0.0"
+    "better-module-alias": "^1.0.1"
   },
   "devDependencies": {
     "@redux-observable-backend/core": "^4.1.1",
@@ -44,6 +44,6 @@
   },
   "peerDependencies": {
     "@redux-observable-backend/core": ">4 <5",
-    "rxjs": ">=6.2.2 <7"
+    "rxjs": "^6"
   }
 }

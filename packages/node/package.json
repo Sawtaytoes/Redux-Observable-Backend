@@ -35,12 +35,12 @@
     "access": "public"
   },
   "dependencies": {
-    "better-module-alias": "^1.0.0",
-    "redux": "^4.0.1",
-    "redux-observable": "^1.1.0",
+    "better-module-alias": "^1.0.1",
+    "redux": "^4.0.4",
+    "redux-observable": "^1.2.0",
     "rxjs": "^6.5.2",
-    "uuid": "^3.3.2",
-    "yargs": "^13.2.4"
+    "uuid": "^3.3.3",
+    "yargs": "^14.0.0"
   },
   "devDependencies": {
     "@redux-observable-backend/core": "^4.1.1",
@@ -49,6 +49,6 @@
   "peerDependencies": {
     "@redux-observable-backend/core": ">4 <5",
     "@redux-observable-backend/redux-utils": ">4 <5",
-    "rxjs": ">=6.2.2 <7"
+    "rxjs": "^6"
   }
 }

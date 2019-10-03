@@ -37,8 +37,8 @@
     "access": "public"
   },
   "dependencies": {
-    "better-module-alias": "^1.0.0",
-    "ws": "^7.0.1"
+    "better-module-alias": "^1.0.1",
+    "ws": "^7.1.2"
   },
   "devDependencies": {
     "@redux-observable-backend/node": "^4.3.0",
