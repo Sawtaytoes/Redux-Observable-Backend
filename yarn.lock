@@ -355,21 +355,21 @@
     unique-filename "^1.1.1"
     which "^1.3.1"
 
-"@ghadyani-eslint/eslint-config-core@^1.1.5":
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/@ghadyani-eslint/eslint-config-core/-/eslint-config-core-1.1.5.tgz#e028b6384440faf8aced084cacf78a03ea495930"
-  integrity sha512-SDECB0dfsyYbCn+sEEhJUwNWIrYrcY+K5cUxlEXECff6wDBDt0CYSvbvTZiXp3/yS2eTY6l1Jk5TJO5lUFr3jg==
+"@ghadyani-eslint/eslint-config-core@^1.1.6":
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/@ghadyani-eslint/eslint-config-core/-/eslint-config-core-1.1.6.tgz#ece54a5ebed99d539f6c6ac80c0471f4ae6bb2bb"
+  integrity sha512-1v+MgIFqNZCMc86BAxBtvmx4SK2rMN2bhqefOrIEl/L54YEvH/iaz67zlzRUaZpSp6Kd6jaijyLdeE70LzNDNg==
   dependencies:
-    eslint "^6.0.1"
-    eslint-import-resolver-alias "^1.1.0"
-    eslint-plugin-import "^2.13.0"
+    eslint "^6.5.1"
+    eslint-import-resolver-alias "^1.1.2"
+    eslint-plugin-import "^2.18.2"
 
-"@ghadyani-eslint/eslint-config-node@^1.1.3":
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/@ghadyani-eslint/eslint-config-node/-/eslint-config-node-1.1.5.tgz#836c1a53b5faabd5eda56c93d29234203b695e17"
-  integrity sha512-CQilHsJsTIOPCqJ9x7SLjC9VLWsmpPCOMGCnrDnBnFx7TxVEhSkBlsQgcIO7p2/+X+RrhCgiCmE7ot4gFrn8Jg==
+"@ghadyani-eslint/eslint-config-node@^1.1.6":
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/@ghadyani-eslint/eslint-config-node/-/eslint-config-node-1.1.6.tgz#8d80310eb230af2345c282b8262e109b1706807e"
+  integrity sha512-PfbFB17ESQnxVADBkfmhj3wosLsajjNvmVB2/xYaD1qdvouCX2MvBnIBe0WrY7v5mpij5r3HIv8P7aPFsMlyNw==
   dependencies:
-    "@ghadyani-eslint/eslint-config-core" "^1.1.5"
+    "@ghadyani-eslint/eslint-config-core" "^1.1.6"
 
 "@lerna/add@3.16.2":
   version "3.16.2"
@@ -2745,7 +2745,7 @@ escape-string-regexp@^2.0.0:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz#a30304e99daa32e23b2fd20f51babd07cffca344"
   integrity sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==
 
-eslint-import-resolver-alias@^1.1.0:
+eslint-import-resolver-alias@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/eslint-import-resolver-alias/-/eslint-import-resolver-alias-1.1.2.tgz#297062890e31e4d6651eb5eba9534e1f6e68fc97"
   integrity sha512-WdviM1Eu834zsfjHtcGHtGfcu+F30Od3V7I9Fi57uhBEwPkjDcii7/yW8jAT+gOhn4P/vOxxNAXbFAKsrrc15w==
@@ -2766,7 +2766,7 @@ eslint-module-utils@^2.4.0:
     debug "^2.6.8"
     pkg-dir "^2.0.0"
 
-eslint-plugin-import@^2.13.0:
+eslint-plugin-import@^2.18.2:
   version "2.18.2"
   resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.18.2.tgz#02f1180b90b077b33d447a17a2326ceb400aceb6"
   integrity sha512-5ohpsHAiUBRNaBWAF08izwUGlbrJoJJ+W9/TBwsGoR1MnlgfwMIKrFeSjWbt6moabiXW9xNvtFz+97KHRfI4HQ==
@@ -2803,7 +2803,7 @@ eslint-visitor-keys@^1.0.0, eslint-visitor-keys@^1.1.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-1.1.0.tgz#e2a82cea84ff246ad6fb57f9bde5b46621459ec2"
   integrity sha512-8y9YjtM1JBJU/A9Kc+SbaOV4y29sSWckBwMHa+FGtVj5gN/sbnKDf6xJUl+8g7FAij9LVaP8C24DUiH/f/2Z9A==
 
-eslint@^6.0.1:
+eslint@^6.5.1:
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-6.5.1.tgz#828e4c469697d43bb586144be152198b91e96ed6"
   integrity sha512-32h99BoLYStT1iq1v2P9uwpyznQ4M2jRiFB6acitKz52Gqn+vPaMDUTB1bYi1WN4Nquj2w+t+bimYUG83DC55A==
