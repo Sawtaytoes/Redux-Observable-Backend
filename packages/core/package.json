@@ -1,6 +1,6 @@
 {
   "name": "@redux-observable-backend/core",
-  "version": "4.3.2",
+  "version": "4.3.3",
   "description": "Core packages Redux-Observable Backend.",
   "license": "MITNFA",
   "scripts": {
