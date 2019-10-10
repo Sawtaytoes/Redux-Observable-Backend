@@ -53,5 +53,9 @@
   "optionalDependencies": {
     "bufferutil": "^4.0.1",
     "utf-8-validate": "^5.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sawtaytoes/Redux-Observable-Backend.git"
   }
 }

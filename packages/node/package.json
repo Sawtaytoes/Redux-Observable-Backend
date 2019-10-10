@@ -50,5 +50,9 @@
     "@redux-observable-backend/core": ">4 <5",
     "@redux-observable-backend/redux-utils": ">4 <5",
     "rxjs": "^6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sawtaytoes/Redux-Observable-Backend.git"
   }
 }

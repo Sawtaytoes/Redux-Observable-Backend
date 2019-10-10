@@ -45,5 +45,9 @@
   "peerDependencies": {
     "@redux-observable-backend/core": ">4 <5",
     "rxjs": "^6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sawtaytoes/Redux-Observable-Backend.git"
   }
 }
