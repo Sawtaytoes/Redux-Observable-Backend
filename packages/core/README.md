@@ -26,16 +26,16 @@ This is especially useful when server-side rendering because you can reload the 
 createDeprecatedFunction()
 ```
 
-#### Args (Object)
+#### Args _(object)_
 This function returns a function that takes the same parameters as the function you've deprecated.
 
-##### `deprecatedMethodName`
+##### `deprecatedMethodName` _(string)_
 Function name being deprecated.
 
-##### `func`
+##### `func` _(function)_
 This is a function that converts the arguments of the deprecated function to the replacement function. This provides an automatic way forward and informs consumers with console logs when these deprecations occur. This way, they can convert to the newer function later, but current operations will still work as-intended.
 
-##### `replacementMethodName`
+##### `replacementMethodName` _(string)_
 Function name to use instead of the deprecated version. If the function has no replacement, leave this field blank.
 
 ---
@@ -48,15 +48,15 @@ This function logs a message for any use of an argument when calling a function 
 deprecateArgument()
 ```
 
-#### Args (Object)
+#### Args _(object)_
 
-##### `deprecatedArgumentName`
+##### `deprecatedArgumentName` _(string)_
 A string representing the deprecated argument name.
 
-##### `functionName`
+##### `functionName` _(string)_
 A string representing the name of the function called with this deprecation.
 
-##### `replacementArgumentName`
+##### `replacementArgumentName` _(string)_
 A string representing the replacement argument name if any.
 
 ---
@@ -75,7 +75,7 @@ removeFilePathFromRequireCache(
 
 #### Args
 
-##### `filePath`
+##### `filePath` _(string)_
 Path to the file for `require`. This path can be a module alias.
 
 ---
@@ -93,10 +93,10 @@ safeImport(
 
 #### Args
 
-##### `defaultValue`
+##### `defaultValue` _(any)_
 Returned when file doesn't exist.
 
-##### `filePath`
+##### `filePath` _(string)_
 Path to the file for `require`. This path can be a module alias.
 
 ---
@@ -115,11 +115,11 @@ tryCatchFinally({
 
 #### Args
 
-##### `defaultValue`
+##### `defaultValue`  _(any)_
 `defaultValue` is returned when exception caught.
 
-##### `finallyCallback`
+##### `finallyCallback`  _(function)_
 Called when `finally` occurs.
 
-##### `tryCallback`
+##### `tryCallback`  _(function)_
 Called when `try` occurs.
