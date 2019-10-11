@@ -3,6 +3,18 @@
 
 Helper functions for `Redux-Observable-Backend` packages. **These functions can be used in any project.** This package also provides uncaught exception logging.
 
+## Installation
+
+### npm
+```sh
+npm i @redux-observable-backend/core
+```
+
+### yarn
+```sh
+yarn add @redux-observable-backend/core
+```
+
 ## API Overview
 
 ### Functional Helpers
