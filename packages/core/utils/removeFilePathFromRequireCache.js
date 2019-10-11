@@ -1,12 +1,9 @@
 const removeFilePathFromRequireCache = (
-	({ isLocalDevelopment }) => (
-		filePath => {
-				isLocalDevelopment
-				&& (delete require.cache[require.resolve(filePath)])
+	filePath,
+) => {
+	delete require.cache[require.resolve(filePath)]
 
-				return filePath
-			}
-	)
-)
+	return filePath
+}
 
 module.exports = removeFilePathFromRequireCache
