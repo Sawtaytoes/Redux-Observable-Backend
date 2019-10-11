@@ -16,8 +16,22 @@ Base packages Ghadyani Framework applications.
 
 ## API Docs
 
-### `safeImport`
-Safely imports files with `require` syntax by allowing a `defaultValue` if the file doesn't exist or errors on load.
+### `removeFilePathFromRequireCache`
+When developing locally, removes the given `filePath` from Node.js's require cache.
+
+This is especially useful when server-side rendering because you can reload the static HTML file built by Webpack (or similar) when loading it in Express (or similar).
+
+#### Example
+```js
+removeFilePathFromRequireCache(
+	'./build/serverSideRender.js'
+)
+```
+
+#### Args
+
+##### `filePath`
+Path to the file for `require`. This path can be a module alias.
 
 #### Example
 ```js
