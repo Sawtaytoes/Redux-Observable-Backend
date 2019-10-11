@@ -1,4 +1,6 @@
 # Redux Observable Backend - Core
+[What is this library?](https://github.com/Sawtaytoes/Redux-Observable-Backend/blob/master/README.md)
+
 Helper functions for `Redux-Observable-Backend` packages. **These functions can be used in any project.** This package also provides uncaught exception logging.
 
 ## API Overview

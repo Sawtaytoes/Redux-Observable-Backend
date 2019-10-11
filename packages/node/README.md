@@ -1,4 +1,5 @@
 # Redux Observable Backend - Node
+[What is this library?](https://github.com/Sawtaytoes/Redux-Observable-Backend/blob/master/README.md)
 
 For an example use case, look at [`./app.js`](app.js).
 
