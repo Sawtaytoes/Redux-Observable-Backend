@@ -33,9 +33,6 @@
       "**/*.js"
     ]
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "dependencies": {
     "better-module-alias": "^1.0.1",
     "ws": "^7.1.2"
@@ -53,6 +50,9 @@
   "optionalDependencies": {
     "bufferutil": "^4.0.1",
     "utf-8-validate": "^5.0.2"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "repository": {
     "type": "git",

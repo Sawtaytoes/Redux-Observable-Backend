@@ -31,9 +31,6 @@
       "**/*.js"
     ]
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "dependencies": {
     "better-module-alias": "^1.0.1",
     "redux": "^4.0.4",
@@ -50,6 +47,9 @@
     "@redux-observable-backend/core": ">4 <5",
     "@redux-observable-backend/redux-utils": ">4 <5",
     "rxjs": "^6"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "repository": {
     "type": "git",
