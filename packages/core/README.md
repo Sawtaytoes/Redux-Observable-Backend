@@ -25,12 +25,12 @@ yarn add @redux-observable-backend/core
 - [`safeImport`](#safeimport)
 
 ### Node.js Framework Helpers
-- [`createDeprecatedFunction`](#createdeprecatedfunction)
+- [`createDeprecationFunction`](#createDeprecationFunction)
 - [`deprecateArgument`](#deprecateargument)
 
 ## API Docs
 
-### createDeprecatedFunction
+### createDeprecationFunction
 When developing locally, removes the given `filePath` from Node.js's require cache.
 
 This is especially useful when server-side rendering because you can reload the static HTML file built by Webpack (or similar) when loading it in Express (or similar).
@@ -38,7 +38,7 @@ This is especially useful when server-side rendering because you can reload the 
 #### Example
 ##### Deprecated function
 ```js
-createDeprecatedFunction({
+createDeprecationFunction({
 	adapter: mapToState,
 	deprecatedMethodName: 'mapToState',
 })
@@ -46,7 +46,7 @@ createDeprecatedFunction({
 
 ##### Replaced function
 ```js
-createDeprecatedFunction({
+createDeprecationFunction({
 	adapter: state => superMapToState({ state }),
 	deprecatedMethodName: 'mapToState',
 	replacementMethodName: 'superMapToState'
@@ -70,12 +70,16 @@ Function name to use instead of the deprecated version. If the function has no r
 ### deprecateArgument
 This function logs a message for any use of an argument when calling a function and provides an alternative argument to use instead. It's designed to be used by adding it to the top of your function before any business logic.
 
+The intended purpose of `deprecateArgument` is when you have a function arg that changed or when it
+
+If you need to convert from one argument to another, `deprecateArgument` doesn't handle this. That should be handled in your own code as it's specific to your situation.
+
 #### Example
 ##### Deprecated argument
 ```js
 deprecateArgument({
 	deprecatedArgumentName: 'additionalDefaultConfigurationSet',
-	functionName: 'createConfigurationSet',
+	methodName: 'createConfigurationSet',
 })
 ```
 
@@ -83,8 +87,17 @@ deprecateArgument({
 ```js
 deprecateArgument({
 	deprecatedArgumentName: 'disabled',
-	functionName: 'Button',
+	methodName: 'Button',
 	replacementArgumentName: 'isDisabled',
+})
+```
+
+##### Denote a type change
+```js
+deprecateArgument({
+	deprecatedArgumentName: 'firstArg (string)',
+	methodName: 'generateLink',
+	replacementArgumentName: firstArg ({ href: '' (string), isActive: true (boolean) }),
 })
 ```
 
@@ -93,7 +106,7 @@ deprecateArgument({
 ##### `deprecatedArgumentName` _(string)_
 A string representing the deprecated argument name.
 
-##### `functionName` _(string)_
+##### `methodName` _(string)_
 A string representing the name of the function called with this deprecation.
 
 ##### `replacementArgumentName` _(string)_

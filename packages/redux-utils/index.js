@@ -5,7 +5,7 @@
 require('@redux-observable-backend/core')
 require('better-module-alias')(__dirname)
 
-const { createDeprecatedFunction } = require('@redux-observable-backend/core')
+const { createDeprecationFunction } = require('@redux-observable-backend/core')
 
 const mapToState = require('$utils/mapToState')
 const simpleMap = require('$utils/simpleMap')
@@ -22,20 +22,20 @@ module.exports = {
 	createReducer: require('$utils/createReducer'),
 	createReduceReducers: require('$utils/createReduceReducers'),
 	mapToState: (
-		createDeprecatedFunction({
+		createDeprecationFunction({
 			deprecatedMethodName: 'mapToState',
 			func: mapToState,
 		})
 	),
 	ofNamespace: require('$utils/ofNamespace'),
 	simpleMap: (
-		createDeprecatedFunction({
+		createDeprecationFunction({
 			deprecatedMethodName: 'simpleMap',
 			func: simpleMap,
 		})
 	),
 	stateSelector: (
-		createDeprecatedFunction({
+		createDeprecationFunction({
 			deprecatedMethodName: 'stateSelector',
 			func: stateSelector,
 		})

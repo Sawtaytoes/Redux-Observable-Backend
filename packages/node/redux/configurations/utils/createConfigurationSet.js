@@ -41,7 +41,7 @@ const createConfigurationSet = ({
 	&& (
 		deprecateArgument({
 			deprecatedArgumentName: 'additionalDefaultConfigurationSet',
-			functionName: 'createConfigurationSet',
+			methodName: 'createConfigurationSet',
 			replacementArgumentName: 'additionalConfigurationSetDefaults',
 		})
 	)

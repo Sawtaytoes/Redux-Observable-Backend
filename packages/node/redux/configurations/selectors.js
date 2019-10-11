@@ -1,4 +1,4 @@
-const { createDeprecatedFunction } = require('@redux-observable-backend/core')
+const { createDeprecationFunction } = require('@redux-observable-backend/core')
 
 const { defaultConfigurationsNamespace } = require('$redux/configurations/actions')
 
@@ -18,7 +18,7 @@ const selectConfigurationSet = (
 
 module.exports = {
 	configurationSetSelector: (
-		createDeprecatedFunction({
+		createDeprecationFunction({
 			adapter: (state, props) => selectConfigurationSet(props)(state),
 			deprecatedMethodName: 'configurationSetSelector',
 			replacementMethodName: 'selectConfigurationSet',

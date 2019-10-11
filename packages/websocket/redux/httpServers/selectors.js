@@ -1,4 +1,4 @@
-const { createDeprecatedFunction } = require('@redux-observable-backend/core')
+const { createDeprecationFunction } = require('@redux-observable-backend/core')
 
 const selectHttpServer = () => ({
 	httpServers,
@@ -9,7 +9,7 @@ const selectHttpServer = () => ({
 
 module.exports = {
 	httpServerSelector: (
-		createDeprecatedFunction({
+		createDeprecationFunction({
 			adapter: (state, props) => selectHttpServer(props)(state),
 			deprecatedMethodName: 'httpServerSelector',
 			replacementMethodName: 'selectHttpServer',

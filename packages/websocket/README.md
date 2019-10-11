@@ -5,12 +5,12 @@ For an example use case, look at [`./app.js`](app.js).
 
 ## Installation
 
-### `npm`
+### npm
 ```sh
 npm i @redux-observable-backend/websocket @redux-observable-backend/node @redux-observable-backend/redux-utils
 ```
 
-### `yarn`
+### yarn
 ```sh
 yarn add @redux-observable-backend/websocket @redux-observable-backend/node @redux-observable-backend/redux-utils
 ```

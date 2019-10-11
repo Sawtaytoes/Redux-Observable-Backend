@@ -1,4 +1,4 @@
-const { createDeprecatedFunction } = require('@redux-observable-backend/core')
+const { createDeprecationFunction } = require('@redux-observable-backend/core')
 
 const selectChannel = (
 	{ namespace },
@@ -23,14 +23,14 @@ const selectChannelList = () => ({
 
 module.exports = {
 	channelSelector: (
-		createDeprecatedFunction({
+		createDeprecationFunction({
 			adapter: (state, props) => selectChannel(props)(state),
 			deprecatedMethodName: 'channelSelector',
 			replacementMethodName: 'selectChannel',
 		})
 	),
 	channelsListSelector: (
-		createDeprecatedFunction({
+		createDeprecationFunction({
 			adapter: (state, props) => selectChannelList(props)(state),
 			deprecatedMethodName: 'channelsListSelector',
 			replacementMethodName: 'selectChannelList',

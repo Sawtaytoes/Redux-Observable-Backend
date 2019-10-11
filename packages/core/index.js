@@ -7,16 +7,23 @@ const logUncaughtExceptions = require('$utils/logUncaughtExceptions')
 logUncaughtExceptions
 .subscribe()
 
-const createDeprecatedFunction = require('$utils/createDeprecatedFunction')
+const createDeprecationFunction = require('$utils/createDeprecationFunction')
 const simpleMap = require('$utils/simpleMap')
 
 module.exports = {
-	createDeprecatedFunction,
+	createDeprecatedFunction: (
+		createDeprecationFunction({
+			adapter: createDeprecationFunction,
+			deprecatedMethodName: 'createDeprecatedFunction',
+			replacementMethodName: 'createDeprecationFunction',
+		})
+	),
+	createDeprecationFunction,
 	deprecateArgument: require('$utils/deprecateArgument'),
 	removeFilePathFromRequireCache: require('$utils/removeFilePathFromRequireCache'),
 	safeImport: require('$utils/safeImport'),
 	simpleMap: (
-		createDeprecatedFunction({
+		createDeprecationFunction({
 			deprecatedMethodName: 'simpleMap',
 			func: simpleMap,
 		})

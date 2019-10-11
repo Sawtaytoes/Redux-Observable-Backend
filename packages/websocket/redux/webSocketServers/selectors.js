@@ -1,4 +1,4 @@
-const { createDeprecatedFunction } = require('@redux-observable-backend/core')
+const { createDeprecationFunction } = require('@redux-observable-backend/core')
 
 const selectWebSocketServer = ({
 	namespace,
@@ -15,7 +15,7 @@ const selectWebSocketServer = ({
 
 module.exports = {
 	webSocketServerSelector: (
-		createDeprecatedFunction({
+		createDeprecationFunction({
 			adapter: (state, props) => selectWebSocketServer(props)(state),
 			deprecatedMethodName: 'webSocketServerSelector',
 			replacementMethodName: 'selectWebSocketServer',
