@@ -1,5 +1,5 @@
-# Base Packages for Ghadyani Framework
-Base packages Ghadyani Framework applications.
+# Redux Observable Backend - Core
+Helper functions for `Redux-Observable-Backend` packages. **These functions can be used in any project.** This package also provides uncaught exception logging.
 
 ## API Overview
 
