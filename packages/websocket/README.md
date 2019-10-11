@@ -1,4 +1,4 @@
-# Ghadyani Framework for WebSockets
+# Redux Observable Backend - WebSocket
 
 For an example use case, look at [`./app.js`](app.js).
 

@@ -1,4 +1,4 @@
-# Ghadyani Framework for Node
+# Redux Observable Backend - Node
 
 For an example use case, look at [`./app.js`](app.js).
 
