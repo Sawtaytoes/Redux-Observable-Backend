@@ -5,10 +5,18 @@ const deprecateArgument = ({
 	functionName,
 	replacementArgumentName,
 }) => {
-	logDeprecation(
-		`Argument \`${deprecatedArgumentName}\` is deprecated for \`${functionName}\``
-		.concat(' ')
-		.concat(`Use \`${replacementArgumentName}\` instead.`)
+	replacementArgumentName
+	? (
+		logDeprecation(
+			`Argument \`${deprecatedArgumentName}\` is deprecated for \`${functionName}\`.`
+			.concat(' ')
+			.concat(`Use \`${replacementArgumentName}\` instead.`)
+		)
+	)
+	: (
+		logDeprecation(
+			`Argument \`${deprecatedArgumentName}\` is deprecated for \`${functionName}\` and has no replacement.`
+		)
 	)
 }
 

@@ -16,8 +16,8 @@ const selectWebSocketServer = ({
 module.exports = {
 	webSocketServerSelector: (
 		createDeprecatedFunction({
+			adapter: (state, props) => selectWebSocketServer(props)(state),
 			deprecatedMethodName: 'webSocketServerSelector',
-			func: (state, props) => selectWebSocketServer(props)(state),
 			replacementMethodName: 'selectWebSocketServer',
 		})
 	),

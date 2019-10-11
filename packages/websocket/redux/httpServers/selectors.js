@@ -10,8 +10,8 @@ const selectHttpServer = () => ({
 module.exports = {
 	httpServerSelector: (
 		createDeprecatedFunction({
+			adapter: (state, props) => selectHttpServer(props)(state),
 			deprecatedMethodName: 'httpServerSelector',
-			func: (state, props) => selectHttpServer(props)(state),
 			replacementMethodName: 'selectHttpServer',
 		})
 	),

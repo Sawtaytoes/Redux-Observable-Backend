@@ -1,3 +1,4 @@
+const deprecateArgument = require('./deprecateArgument')
 const logDeprecation = require('./logDeprecation')
 
 const createDeprecatedFunction = ({
@@ -7,6 +8,12 @@ const createDeprecatedFunction = ({
 }) => (
 	...args
 ) => {
+	deprecateArgument({
+		deprecatedArgumentName: 'func',
+		functionName: 'createDeprecatedFunction',
+		replacementArgumentName: 'adapter',
+	})
+
 	logDeprecation(
 		replacementMethodName
 		? (

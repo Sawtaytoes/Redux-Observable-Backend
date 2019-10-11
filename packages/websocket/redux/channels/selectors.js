@@ -24,15 +24,15 @@ const selectChannelList = () => ({
 module.exports = {
 	channelSelector: (
 		createDeprecatedFunction({
+			adapter: (state, props) => selectChannel(props)(state),
 			deprecatedMethodName: 'channelSelector',
-			func: (state, props) => selectChannel(props)(state),
 			replacementMethodName: 'selectChannel',
 		})
 	),
 	channelsListSelector: (
 		createDeprecatedFunction({
+			adapter: (state, props) => selectChannelList(props)(state),
 			deprecatedMethodName: 'channelsListSelector',
-			func: (state, props) => selectChannelList(props)(state),
 			replacementMethodName: 'selectChannelList',
 		})
 	),

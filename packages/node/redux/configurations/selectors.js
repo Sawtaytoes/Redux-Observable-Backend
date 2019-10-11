@@ -19,8 +19,8 @@ const selectConfigurationSet = (
 module.exports = {
 	configurationSetSelector: (
 		createDeprecatedFunction({
+			adapter: (state, props) => selectConfigurationSet(props)(state),
 			deprecatedMethodName: 'configurationSetSelector',
-			func: (state, props) => selectConfigurationSet(props)(state),
 			replacementMethodName: 'selectConfigurationSet',
 		})
 	),
