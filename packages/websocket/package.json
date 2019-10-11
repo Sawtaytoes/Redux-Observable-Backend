@@ -1,6 +1,6 @@
 {
   "name": "@redux-observable-backend/websocket",
-  "version": "4.3.4",
+  "version": "4.3.5",
   "description": "Utilities for creating applications using WebSockets.",
   "license": "MITNFA",
   "scripts": {
@@ -38,8 +38,8 @@
     "ws": "^7.1.2"
   },
   "devDependencies": {
-    "@redux-observable-backend/node": "^4.3.4",
-    "@redux-observable-backend/redux-utils": "^4.3.4",
+    "@redux-observable-backend/node": "^4.3.5",
+    "@redux-observable-backend/redux-utils": "^4.3.5",
     "bufferutil": "^4.0.1",
     "utf-8-validate": "^5.0.2"
   },
