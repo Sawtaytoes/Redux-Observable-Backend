@@ -36,18 +36,31 @@ When developing locally, removes the given `filePath` from Node.js's require cac
 This is especially useful when server-side rendering because you can reload the static HTML file built by Webpack (or similar) when loading it in Express (or similar).
 
 #### Example
+##### Deprecated function
 ```js
-createDeprecatedFunction()
+createDeprecatedFunction({
+	adapter: mapToState,
+	deprecatedMethodName: 'mapToState',
+})
+```
+
+##### Replaced function
+```js
+createDeprecatedFunction({
+	adapter: state => superMapToState({ state }),
+	deprecatedMethodName: 'mapToState',
+	replacementMethodName: 'superMapToState'
+})
 ```
 
 #### Args _(object)_
 This function returns a function that takes the same parameters as the function you've deprecated.
 
+##### `adapter` _(function)_
+This is a function that converts the arguments of the deprecated function to the replacement function. This provides an automatic way forward and informs consumers with console logs when these deprecations occur. This way, they can convert to the newer function later, but current operations will still work as-intended.
+
 ##### `deprecatedMethodName` _(string)_
 Function name being deprecated.
-
-##### `func` _(function)_
-This is a function that converts the arguments of the deprecated function to the replacement function. This provides an automatic way forward and informs consumers with console logs when these deprecations occur. This way, they can convert to the newer function later, but current operations will still work as-intended.
 
 ##### `replacementMethodName` _(string)_
 Function name to use instead of the deprecated version. If the function has no replacement, leave this field blank.
@@ -58,8 +71,21 @@ Function name to use instead of the deprecated version. If the function has no r
 This function logs a message for any use of an argument when calling a function and provides an alternative argument to use instead. It's designed to be used by adding it to the top of your function before any business logic.
 
 #### Example
+##### Deprecated argument
 ```js
-deprecateArgument()
+deprecateArgument({
+	deprecatedArgumentName: 'additionalDefaultConfigurationSet',
+	functionName: 'createConfigurationSet',
+})
+```
+
+##### Renamed argument
+```js
+deprecateArgument({
+	deprecatedArgumentName: 'disabled',
+	functionName: 'Button',
+	replacementArgumentName: 'isDisabled',
+})
 ```
 
 #### Args _(object)_
@@ -99,13 +125,13 @@ Safely imports files with `require` syntax by allowing a `defaultValue` if the f
 
 #### Example
 ```js
-safeImport(
+safeImport({
 	defaultValue: [],
 	filePath: './cache.json',
-)
+})
 ```
 
-#### Args
+#### Args _(object)_
 
 ##### `defaultValue` _(any)_
 Returned when file doesn't exist.
@@ -127,7 +153,7 @@ tryCatchFinally({
 })
 ```
 
-#### Args
+#### Args _(object)_
 
 ##### `defaultValue`  _(any)_
 `defaultValue` is returned when exception caught.
