@@ -65,7 +65,9 @@ const createActionLoggerMiddleware = (
 	)
 
 	actionTypeLogger$
-	.subscribe(message => (
+	.subscribe((
+		message,
+	) => (
 		console
 		.info(
 			title,
@@ -73,14 +75,12 @@ const createActionLoggerMiddleware = (
 		)
 	))
 
-	return (
-		() => next => action => {
-			actionTypeLogger$
-			.next(action)
+	return () => next => action => {
+		actionTypeLogger$
+		.next(action)
 
-			next(action)
-		}
-	)
+		next(action)
+	}
 }
 
 module.exports = createActionLoggerMiddleware
