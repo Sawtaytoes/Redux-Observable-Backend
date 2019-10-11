@@ -33,14 +33,13 @@
     ]
   },
   "dependencies": {
+    "@redux-observable-backend/core": "^4.3.5",
     "better-module-alias": "^1.0.1"
   },
   "devDependencies": {
-    "@redux-observable-backend/core": "^4.3.5",
     "rxjs": "^6.5.2"
   },
   "peerDependencies": {
-    "@redux-observable-backend/core": ">4 <5",
     "rxjs": "^6"
   },
   "publishConfig": {
