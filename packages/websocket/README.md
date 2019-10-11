@@ -4,15 +4,20 @@
 For an example use case, look at [`./app.js`](app.js).
 
 ## Installation
+This package requires you also install these peer dependencies:
+
+- `@redux-observable-backend/node`
+- `@redux-observable-backend/redux-utils`
+- `rxjs`
 
 ### npm
 ```sh
-npm i @redux-observable-backend/websocket @redux-observable-backend/node @redux-observable-backend/redux-utils
+npm i rxjs@redux-observable-backend/websocket @redux-observable-backend/node @redux-observable-backend/redux-utils
 ```
 
 ### yarn
 ```sh
-yarn add @redux-observable-backend/websocket @redux-observable-backend/node @redux-observable-backend/redux-utils
+yarn add rxjs @redux-observable-backend/websocket @redux-observable-backend/node @redux-observable-backend/redux-utils
 ```
 
 ## API

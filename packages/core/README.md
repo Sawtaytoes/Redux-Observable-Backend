@@ -4,15 +4,16 @@
 Helper functions for `Redux-Observable-Backend` packages. **These functions can be used in any project.** This package also provides uncaught exception logging.
 
 ## Installation
+This package requires `rxjs` as a `peerDependency`.
 
 ### npm
 ```sh
-npm i @redux-observable-backend/core
+npm i rxjs @redux-observable-backend/core
 ```
 
 ### yarn
 ```sh
-yarn add @redux-observable-backend/core
+yarn add rxjs @redux-observable-backend/core
 ```
 
 ## API Overview
