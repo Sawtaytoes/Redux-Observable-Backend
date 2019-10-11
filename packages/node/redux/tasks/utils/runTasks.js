@@ -9,17 +9,17 @@ const cliTask = (
 )
 
 const runTasks = (
-	(...taskNames) => (
-		({ dispatch }) => {
-			(
-				cliTask
-				? [cliTask]
-				: taskNames
-			)
-			.map(startTask)
-			.forEach(dispatch)
-		}
+	...taskNames
+) => ({
+	dispatch,
+}) => {
+	(
+		cliTask
+		? [cliTask]
+		: taskNames
 	)
-)
+	.map(startTask)
+	.forEach(dispatch)
+}
 
 module.exports = runTasks
