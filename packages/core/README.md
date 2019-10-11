@@ -23,7 +23,7 @@ Safely imports files with `require` syntax by allowing a `defaultValue` if the f
 ```js
 safeImport(
 	defaultValue: [],
-	filePath: '$cache/list.json',
+	filePath: './cache.json',
 )
 ```
 
