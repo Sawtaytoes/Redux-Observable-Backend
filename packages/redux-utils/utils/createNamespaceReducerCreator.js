@@ -34,7 +34,7 @@ const createNamespaceReducerCreator = (
 	const initialState = reducer(undefined, {})
 
 	return (
-		prevNamespaceState = initialNamespaceState,
+		previousNamespaceState = initialNamespaceState,
 		action,
 	) => {
 		const { namespace } = action
@@ -42,13 +42,13 @@ const createNamespaceReducerCreator = (
 		// Added for early-fail performance improvments.
 		// Namespace Reducers only care when there is a `namespace`.
 		if (!hasNamespace(namespace)) {
-			return prevNamespaceState
+			return previousNamespaceState
 		}
 
 		const prevState = (
 			getPreviousState({
 				namespace,
-				prevNamespaceState,
+				previousNamespaceState,
 			})
 		)
 
@@ -65,7 +65,7 @@ const createNamespaceReducerCreator = (
 		)
 
 		if (isStateUnchanged) {
-			return prevNamespaceState
+			return previousNamespaceState
 		}
 
 		// Setting `nextState` to `initialState` means "remove me".
@@ -79,7 +79,7 @@ const createNamespaceReducerCreator = (
 			isStateReset
 			&& !hasState(prevState)
 		) {
-			return prevNamespaceState
+			return previousNamespaceState
 		}
 
 		// We can remove this namespace from our `nextState` since it no longer has values we care about.
@@ -87,7 +87,7 @@ const createNamespaceReducerCreator = (
 			return (
 				removeNamespaceFromState({
 					namespace,
-					prevNamespaceState,
+					previousNamespaceState,
 				})
 			)
 		}
@@ -97,7 +97,7 @@ const createNamespaceReducerCreator = (
 			updateNamespaceState({
 				namespace,
 				nextState,
-				prevNamespaceState,
+				previousNamespaceState,
 			})
 		)
 	}

@@ -2,16 +2,16 @@ const createNamespaceReducerCreator = require('./createNamespaceReducerCreator')
 
 const getPreviousState = ({
 	namespace,
-	prevNamespaceState,
+	previousNamespaceState,
 }) => (
-	prevNamespaceState[namespace]
+	previousNamespaceState[namespace]
 )
 
 const removeNamespaceFromState = ({
 	namespace,
-	prevNamespaceState,
+	previousNamespaceState,
 }) => {
-	const nextNamespaceState = { ...prevNamespaceState }
+	const nextNamespaceState = { ...previousNamespaceState }
 
 	delete nextNamespaceState[namespace]
 
@@ -21,9 +21,9 @@ const removeNamespaceFromState = ({
 const updateNamespaceState = ({
 	namespace,
 	nextState,
-	prevNamespaceState,
+	previousNamespaceState,
 }) => ({
-	...prevNamespaceState,
+	...previousNamespaceState,
 	[namespace]: nextState,
 })
 
