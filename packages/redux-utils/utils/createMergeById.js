@@ -8,10 +8,25 @@ const itemMatchesIds = (
 )
 
 const createMergeById = (
-	(...ids) => (currentItems, updatedItems) => (
-		currentItems
-		.map(object => (
-			(
+	...ids
+) => (
+	currentItems,
+	updatedItems,
+) => (
+	currentItems
+	.map(object => (
+		(
+			updatedItems
+			.find(
+				itemMatchesIds(
+					object,
+					ids,
+				)
+			)
+		)
+		? {
+			...object,
+			...(
 				updatedItems
 				.find(
 					itemMatchesIds(
@@ -19,35 +34,23 @@ const createMergeById = (
 						ids,
 					)
 				)
-			)
-			? {
-				...object,
-				...(
-					updatedItems
-					.find(
-						itemMatchesIds(
-							object,
-							ids,
-						)
-					)
-				),
-			}
-			: object
-		))
-		.concat(
-			updatedItems
-			.filter(updatedObject => (
-				!(
-					currentItems
-					.find(
-						itemMatchesIds(
-							updatedObject,
-							ids,
-						)
+			),
+		}
+		: object
+	))
+	.concat(
+		updatedItems
+		.filter(updatedObject => (
+			!(
+				currentItems
+				.find(
+					itemMatchesIds(
+						updatedObject,
+						ids,
 					)
 				)
-			))
-		)
+			)
+		))
 	)
 )
 
