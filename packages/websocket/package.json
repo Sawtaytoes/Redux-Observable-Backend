@@ -40,7 +40,8 @@
     "ws": "^7.1.2"
   },
   "devDependencies": {
-    "@ghadyani-eslint/eslint-config-node": "^1.1.6"
+    "@ghadyani-eslint/eslint-config-node": "^1.1.6",
+    "eslint": "^6.5.1"
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.1",

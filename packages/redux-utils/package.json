@@ -38,7 +38,8 @@
     "rxjs": "^6.5.3"
   },
   "devDependencies": {
-    "@ghadyani-eslint/eslint-config-node": "^1.1.6"
+    "@ghadyani-eslint/eslint-config-node": "^1.1.6",
+    "eslint": "^6.5.1"
   },
   "publishConfig": {
     "access": "public"
