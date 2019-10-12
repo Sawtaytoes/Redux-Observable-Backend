@@ -2,7 +2,7 @@ const chalk = require('chalk')
 const { fromEvent, of } = require('rxjs')
 const { ignoreElements, map, mergeMap, tap } = require('rxjs/operators')
 
-const logUncaughtExceptions = (
+const logUncaughtExceptions$ = (
 	fromEvent(
 		process,
 		'uncaughtException',
@@ -47,6 +47,10 @@ const logUncaughtExceptions = (
 			)
 		)),
 	)
+)
+
+const logUncaughtExceptions = () => (
+	logUncaughtExceptions$
 	.subscribe()
 )
 
