@@ -5,11 +5,8 @@
 require('@redux-observable-backend/core')
 require('better-module-alias')(__dirname)
 
+const createReducerReducer = require('$utils/createReducerReducer')
 const { createDeprecationFunction } = require('@redux-observable-backend/core')
-
-const mapToState = require('$utils/mapToState')
-const simpleMap = require('$utils/simpleMap')
-const stateSelector = require('$utils/stateSelector')
 
 module.exports = {
 	catchEpicError: require('$utils/catchEpicError'),
@@ -18,26 +15,38 @@ module.exports = {
 	createMergeById: require('$utils/createMergeById'),
 	createNamespaceReducer: require('$utils/createNamespaceReducer'),
 	createNamespaceReducerCreator: require('$utils/createNamespaceReducerCreator'),
-	createNamespaceSelector: require('$utils/createNamespaceSelector'),
+	createNamespaceSelector: (
+		createDeprecationFunction({
+			adapter: require('$utils/createNamespaceSelector'),
+			deprecatedMethodName: 'createNamespaceSelector',
+		})
+	),
 	createReducer: require('$utils/createReducer'),
-	createReduceReducers: require('$utils/createReduceReducers'),
+	createReduceReducers: (
+		createDeprecationFunction({
+			adapter: createReducerReducer,
+			deprecatedMethodName: 'createReduceReducers',
+			replacementMethodName: 'createReducerReducer',
+		})
+	),
+	createReducerReducer,
 	mapToState: (
 		createDeprecationFunction({
+			adapter: require('$utils/mapToState'),
 			deprecatedMethodName: 'mapToState',
-			func: mapToState,
 		})
 	),
 	ofNamespace: require('$utils/ofNamespace'),
 	simpleMap: (
 		createDeprecationFunction({
+			adapter: require('$utils/simpleMap'),
 			deprecatedMethodName: 'simpleMap',
-			func: simpleMap,
 		})
 	),
 	stateSelector: (
 		createDeprecationFunction({
+			adapter: require('$utils/stateSelector'),
 			deprecatedMethodName: 'stateSelector',
-			func: stateSelector,
 		})
 	),
 }
