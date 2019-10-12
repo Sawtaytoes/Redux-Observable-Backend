@@ -28,6 +28,7 @@ yarn add rxjs @redux-observable-backend/core
 ### Node.js Framework Helpers
 - [`createDeprecationFunction`](#createDeprecationFunction)
 - [`deprecateArgument`](#deprecateargument)
+- [`logUncaughtExceptions`](#loguncaughtexceptions)
 
 ## API Docs
 
@@ -112,6 +113,20 @@ A string representing the name of the function called with this deprecation.
 
 ##### `replacementArgumentName` _(string)_
 A string representing the replacement argument name if any.
+
+---
+
+### logUncaughtExceptions
+Sometimes, Node.js applications can crash without error. To alleviate this problem, this logger catches uncaught exceptions and logs them before killing the application. This way, you're aware when an uncaught error's occurred.
+
+#### Example
+```js
+logUncaughtExceptions()
+```
+
+#### Args
+
+N/A
 
 ---
 
