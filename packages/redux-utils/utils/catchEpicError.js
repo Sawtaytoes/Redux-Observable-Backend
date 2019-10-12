@@ -5,7 +5,9 @@ const { EMPTY } = require('rxjs')
 const catchEpicError = (
 	returnValue = EMPTY,
 ) => (
-	catchError(error => {
+	catchError((
+		error,
+	) => {
 		console
 		.error(
 			chalk
