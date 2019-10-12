@@ -34,18 +34,13 @@
     ]
   },
   "dependencies": {
+    "@redux-observable-backend/node": "^4.3.5",
+    "@redux-observable-backend/redux-utils": "^4.3.5",
     "better-module-alias": "^1.0.1",
     "ws": "^7.1.2"
   },
   "devDependencies": {
-    "@redux-observable-backend/node": "^4.3.5",
-    "@redux-observable-backend/redux-utils": "^4.3.5",
-    "bufferutil": "^4.0.1",
-    "utf-8-validate": "^5.0.2"
-  },
-  "peerDependencies": {
-    "@redux-observable-backend/node": ">4 <5",
-    "@redux-observable-backend/redux-utils": ">4 <5"
+    "@ghadyani-eslint/eslint-config-node": "^1.1.6"
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.1",

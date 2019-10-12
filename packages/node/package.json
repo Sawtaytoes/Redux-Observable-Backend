@@ -33,19 +33,16 @@
   },
   "dependencies": {
     "@redux-observable-backend/core": "^4.3.5",
+    "@redux-observable-backend/redux-utils": "^4.3.5",
     "better-module-alias": "^1.0.1",
     "redux": "^4.0.4",
     "redux-observable": "^1.2.0",
+    "rxjs": "^6.5.3",
     "uuid": "^3.3.3",
     "yargs": "^14.0.0"
   },
   "devDependencies": {
-    "@redux-observable-backend/redux-utils": "^4.3.5",
-    "rxjs": "^6.5.2"
-  },
-  "peerDependencies": {
-    "@redux-observable-backend/redux-utils": ">4 <5",
-    "rxjs": "^6"
+    "@ghadyani-eslint/eslint-config-node": "^1.1.6"
   },
   "publishConfig": {
     "access": "public"

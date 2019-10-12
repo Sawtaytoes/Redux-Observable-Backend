@@ -34,13 +34,11 @@
   },
   "dependencies": {
     "@redux-observable-backend/core": "^4.3.5",
-    "better-module-alias": "^1.0.1"
+    "better-module-alias": "^1.0.1",
+    "rxjs": "^6.5.3"
   },
   "devDependencies": {
-    "rxjs": "^6.5.2"
-  },
-  "peerDependencies": {
-    "rxjs": "^6"
+    "@ghadyani-eslint/eslint-config-node": "^1.1.6"
   },
   "publishConfig": {
     "access": "public"
