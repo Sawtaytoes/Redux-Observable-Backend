@@ -41,30 +41,30 @@ This is especially useful when server-side rendering because you can reload the 
 ##### Deprecated function
 ```js
 createDeprecationFunction({
-	adapter: mapToState,
-	deprecatedMethodName: 'mapToState',
+  adapter: mapToState,
+  deprecatedMethodName: 'mapToState',
 })
 ```
 
 ##### Replaced function
 ```js
 createDeprecationFunction({
-	adapter: state => superMapToState({ state }),
-	deprecatedMethodName: 'mapToState',
-	replacementMethodName: 'superMapToState'
+  adapter: state => superMapToState({ state }),
+  deprecatedMethodName: 'mapToState',
+  replacementMethodName: 'superMapToState'
 })
 ```
 
-#### Args _(object)_
+#### Args _(Object)_
 This function returns a function that takes the same parameters as the function you've deprecated.
 
-##### `adapter` _(function)_
+##### `adapter` _(Function)_
 This is a function that converts the arguments of the deprecated function to the replacement function. This provides an automatic way forward and informs consumers with console logs when these deprecations occur. This way, they can convert to the newer function later, but current operations will still work as-intended.
 
-##### `deprecatedMethodName` _(string)_
+##### `deprecatedMethodName` _(String)_
 Function name being deprecated.
 
-##### `replacementMethodName` _(string)_
+##### `replacementMethodName` _(String)_
 Function name to use instead of the deprecated version. If the function has no replacement, leave this field blank.
 
 ---
@@ -80,38 +80,38 @@ If you need to convert from one argument to another, `deprecateArgument` doesn't
 ##### Deprecated argument
 ```js
 deprecateArgument({
-	deprecatedArgumentName: 'additionalDefaultConfigurationSet',
-	methodName: 'createConfigurationSet',
+  deprecatedArgumentName: 'additionalDefaultConfigurationSet',
+  methodName: 'createConfigurationSet',
 })
 ```
 
 ##### Renamed argument
 ```js
 deprecateArgument({
-	deprecatedArgumentName: 'disabled',
-	methodName: 'Button',
-	replacementArgumentName: 'isDisabled',
+  deprecatedArgumentName: 'disabled',
+  methodName: 'Button',
+  replacementArgumentName: 'isDisabled',
 })
 ```
 
 ##### Denote a type change
 ```js
 deprecateArgument({
-	deprecatedArgumentName: 'firstArg (string)',
-	methodName: 'generateLink',
-	replacementArgumentName: firstArg ({ href: '' (string), isActive: true (boolean) }),
+  deprecatedArgumentName: 'firstArg (string)',
+  methodName: 'generateLink',
+  replacementArgumentName: firstArg ({ href: '' (string), isActive: true (boolean) }),
 })
 ```
 
-#### Args _(object)_
+#### Args _(Object)_
 
-##### `deprecatedArgumentName` _(string)_
+##### `deprecatedArgumentName` _(String)_
 A string representing the deprecated argument name.
 
-##### `methodName` _(string)_
+##### `methodName` _(String)_
 A string representing the name of the function called with this deprecation.
 
-##### `replacementArgumentName` _(string)_
+##### `replacementArgumentName` _(String)_
 A string representing the replacement argument name if any.
 
 ---
@@ -138,13 +138,13 @@ This is especially useful when server-side rendering because you can reload the 
 #### Example
 ```js
 removeFilePathFromRequireCache(
-	'./build/serverSideRender.js'
+  './build/serverSideRender.js'
 )
 ```
 
 #### Args
 
-##### `filePath` _(string)_
+##### `filePath` _(String)_
 Path to the file for `require`. This path can be a module alias.
 
 ---
@@ -155,17 +155,17 @@ Safely imports files with `require` syntax by allowing a `defaultValue` if the f
 #### Example
 ```js
 safeImport({
-	defaultValue: [],
-	filePath: './cache.json',
+  defaultValue: [],
+  filePath: './cache.json',
 })
 ```
 
-#### Args _(object)_
+#### Args _(Object)_
 
 ##### `defaultValue` _(any)_
 Returned when file doesn't exist.
 
-##### `filePath` _(string)_
+##### `filePath` _(String)_
 Path to the file for `require`. This path can be a module alias.
 
 ---
@@ -176,19 +176,19 @@ A functional method for doing a try-catch-finally. The `catch` exception is also
 #### Example
 ```js
 tryCatchFinally({
-	defaultValue: [],
-	finallyCallback = Function.prototype,
-	tryCallback = Function.prototype,
+  defaultValue: [],
+  finallyCallback = Function.prototype,
+  tryCallback = Function.prototype,
 })
 ```
 
-#### Args _(object)_
+#### Args _(Object)_
 
-##### `defaultValue`  _(any)_
+##### `defaultValue` _(any)_
 `defaultValue` is returned when exception caught.
 
-##### `finallyCallback`  _(function)_
+##### `finallyCallback`  _(Function)_
 Called when `finally` occurs.
 
-##### `tryCallback`  _(function)_
+##### `tryCallback`  _(Function)_
 Called when `try` occurs.
