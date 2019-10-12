@@ -1,4 +1,4 @@
-const { resolve } = require('path')
+const packageJson = require('./package.json')
 
 module.exports = {
 	extends: [
@@ -6,10 +6,13 @@ module.exports = {
 	],
 	settings: {
 		'import/resolver': {
-			alias: [
-				['$redux', resolve(__dirname, 'redux')],
-				['$utils', resolve(__dirname, 'utils')],
-			],
+			alias: (
+				Object
+				.entries(
+					packageJson
+					._moduleAliases
+				)
+			),
 		}
 	},
 }
