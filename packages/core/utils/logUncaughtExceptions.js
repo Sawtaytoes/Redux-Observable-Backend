@@ -47,6 +47,7 @@ const logUncaughtExceptions = (
 			)
 		)),
 	)
+	.subscribe()
 )
 
 module.exports = logUncaughtExceptions

@@ -1,0 +1,3 @@
+const { logUncaughtExceptions } = require('./')
+
+logUncaughtExceptions()
