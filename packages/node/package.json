@@ -9,6 +9,8 @@
     "lint:watch": "nodemon app.js lint",
     "start": "yarn && nodemon app.js",
     "test": "ava",
+    "test:debug": "ava --verbose",
+    "test:debug:watch": "ava --watch --verbose",
     "test:watch": "ava --watch"
   },
   "engines": {

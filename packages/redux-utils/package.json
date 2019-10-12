@@ -4,13 +4,13 @@
   "description": "Redux helper functions and middleware.",
   "license": "MITNFA",
   "scripts": {
-    "debug": "nodemon --inspect .",
+    "debug": "nodemon --inspect app.js",
     "lint": "eslint .",
-    "start": "yarn && eslint . && nodemon .",
+    "start": "yarn && eslint . && nodemon app.js",
     "test": "ava",
-    "test:watch": "ava --watch",
     "test:debug": "ava --verbose",
-    "test:debug:watch": "ava --watch --verbose"
+    "test:debug:watch": "ava --watch --verbose",
+    "test:watch": "ava --watch"
   },
   "engines": {
     "node": ">=8.11.4",

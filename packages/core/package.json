@@ -4,10 +4,12 @@
   "description": "Core packages Redux-Observable Backend.",
   "license": "MITNFA",
   "scripts": {
-    "debug": "nodemon --inspect .",
+    "debug": "nodemon --inspect app.js",
     "lint": "eslint .",
     "start": "yarn && eslint . && nodemon app.js",
     "test": "ava",
+    "test:debug": "ava --verbose",
+    "test:debug:watch": "ava --watch --verbose",
     "test:watch": "ava --watch"
   },
   "engines": {
