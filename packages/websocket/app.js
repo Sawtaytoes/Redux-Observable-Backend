@@ -1,5 +1,7 @@
-// Include this import before other local imports.
-require('better-module-alias')(__dirname)
+require('better-module-alias')(__dirname) // Include this import before local imports.
+const { logUncaughtExceptions } = require('@redux-observable-backend/core')
+
+logUncaughtExceptions()
 
 const { applyMiddleware, createStore } = require('redux')
 const { createActionLoggerMiddleware } = require('@redux-observable-backend/redux-utils')
@@ -27,7 +29,7 @@ const epicMiddleware = createEpicMiddleware()
 const middleware = (
 	applyMiddleware(
 		actionLoggerMiddleware,
-		epicMiddleware
+		epicMiddleware,
 	)
 )
 
