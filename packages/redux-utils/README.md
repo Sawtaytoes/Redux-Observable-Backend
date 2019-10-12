@@ -25,7 +25,7 @@ yarn add rxjs @redux-observable-backend/redux-utils
 - [`createMappedNamespaceReducer`](#createmappednamespacereducer)
 - [`createMergeById`](#createmergebyid)
 - [`createNamespaceReducer`](#createnamespacereducer)
-- [`createNamespaceReducerCreator`](#createnamespacereducercreator) // Base function that creates namespace reducer creator functions.
+- [`createNamespaceReducerCreator`](#createnamespacereducercreator)
 - [`createNamespaceSelector`](#createnamespaceselector)
 - [`createReducer`](#createreducer)
 - [`createReducerReducer`](#createreducerreducer)
