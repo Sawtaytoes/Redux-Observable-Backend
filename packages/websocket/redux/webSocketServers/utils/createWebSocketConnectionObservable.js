@@ -35,7 +35,7 @@ const createWebSocketConnectionObservable = (
 	Observable
 	.create(
 		createWebSocketConnectionObserver(
-			webSocketServer
+			webSocketServer,
 		)
 	)
 )

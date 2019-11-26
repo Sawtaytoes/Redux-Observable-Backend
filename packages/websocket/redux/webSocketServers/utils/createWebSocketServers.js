@@ -6,13 +6,14 @@ const defaultWebSocketServers = [{
 }]
 
 const createWebSocketServers = (
-	(...additionalWebSocketServerSettings) => (
-		({ dispatch }) => {
-			defaultWebSocketServers
-			.concat(additionalWebSocketServerSettings)
-			.map(addWebSocketServer)
-			.forEach(dispatch)
-		}
-	)
-)
+	...additionalWebSocketServerSettings
+) => ({
+	dispatch,
+}) => {
+	defaultWebSocketServers
+	.concat(additionalWebSocketServerSettings)
+	.map(addWebSocketServer)
+	.forEach(dispatch)
+}
+
 module.exports = createWebSocketServers
